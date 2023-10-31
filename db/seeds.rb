@@ -59,13 +59,13 @@ lluvia_ocampo_num.times do |num|
     
 end
 
-########################### User（han lue）
+########################### User（han Rue）
 
 han_rue_num.times do |num|
-  num += 1 #numが「0」スタートなので「1」スタートに調整
+  num += 1 
   User.create!(
-    last_name: "han",
-    first_name: "rue#{num}",
+    last_name: "rue",
+    first_name: "han#{num}",
     email: "han@rue#{num}",
     encrypted_password: 'tokyodrift',
     password: 'tokyodrift',
@@ -101,11 +101,10 @@ bh_problems_array = [
       caption: "I don't know how to #{problem}. Would you give me some advice?",
       is_active: true
     )
-    # 画像を登録
     problem_image.attach(io: File.open(Rails.root.join("app/assets/images/bh_problems/img-#{Problem.all.count}.jpg")), filename: "img-#{Problem.all.count}.jpg")
   end
 
-########################### Alice Umbrella Problem
+########################### Lluvia Ocampo Problem
 lo_problems_array = [
     'buscar zoologico con mapache',
     'buscar lección de karate',
