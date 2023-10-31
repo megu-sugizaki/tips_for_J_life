@@ -26,4 +26,5 @@
 - OS：Linux(CentOS)
 - 言語：HTML,Ruby
 - フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
 - IDE：Cloud9
