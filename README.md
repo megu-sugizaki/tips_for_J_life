@@ -1,24 +1,30 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# tips_for_J_life
+​
+## サイト概要
+### サイトテーマ
+日本に住む外国籍の方々が住みやすくなるよう、意見交換や会員同士の交流を行うためのサイト。
+​
+### テーマを選んだ理由
+私は、大学時代から現在を通し、留学生や海外の方と関わる機会が多くあります。その中で、日本在住の外国籍の方、特に日本語の流暢でない方は、言葉が通じず孤立してしまうことが多く、友達が作れない、楽しくないといった問題をよく耳にします。また、長く住んでいる方でも日本社会の作法がわからず白い目で見られてしまうことも多々あるようです。
+それらの課題を踏まえ、外国籍の方々に対してインクルーシブな社会を実現すべく、問題解決や孤立防止、娯楽情報の共有に役立てたらと思い、このテーマを選びました。
+​
+### ターゲットユーザ
+- 日本の暮らしで問題を抱えている外国籍の方
+- 日本で孤独感を抱えている外国籍の方
+- 外国籍の方の役に立ちたい、他言語で交流したい日本人の方
+​
+### 主な利用シーン
+- 運転免許の外免切り替えや子どもの学校など、わからないことがあってアドバイスを求めたい時
+- 来日後、友達がなかなかできずコミュニティに参加して友達を作りたい時
+- 友達を作って一緒にイベントを行いたい時
+- 日本に来て困っている外国籍の方の役に立ちたいと感じている時
+​
+## 設計書
+後ほど作成予定
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,Ruby
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9

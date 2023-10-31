@@ -1,0 +1,2 @@
+class AssociationProblemTag < ApplicationRecord
+end
