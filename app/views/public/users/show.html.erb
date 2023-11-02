@@ -1,0 +1,8 @@
+
+
+<% unless @user.guest_user? %>
+<!--M:guest users cannot have edit button-->
+  <div class='row'>
+    <%= link_to '', users_information_edit_path(@user) %>
+  </div>
+<% end %>
