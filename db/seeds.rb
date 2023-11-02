@@ -97,7 +97,7 @@ bh_problems_array = [
   bh_problems_array.each do |problem|
     problem = Problem.create!(
       user_id: rand(0..14),
-      title: "I need help for #{problem}",
+      title: "Need help for #{problem}",
       caption: "I don't know how to #{problem}. Would you give me some advice?",
       is_active: true
     )
@@ -130,7 +130,6 @@ lo_problems_array = [
       caption: "No sé cómo #{problem}. Me pasarías unas informaciones?",
       is_active: true
     )
-    # 画像を登録
     problem_image.attach(io: File.open(Rails.root.join("app/assets/images/lo_problems/img-#{Problem.all.count}.jpg")), filename: "img-#{Problem.all.count}.jpg")
   end
 
@@ -156,11 +155,10 @@ hr_problems_array = [
   hr_problems_array.each do |problem|
     problem = Problem.create!(
       user_id: rand(30..44),
-      title: "#{problem}について",
+      title: "#{problem}についてこまっています",
       caption: "#{problem}がしたいです。どうしたらいいですか？おしえてください。",
       is_active: true
     )
-    # 画像を登録
     problem_image.attach(io: File.open(Rails.root.join("app/assets/images/hr_problems/img-#{Problem.all.count}.jpg")), filename: "img-#{Problem.all.count}.jpg")
   end
 
