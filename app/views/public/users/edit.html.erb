@@ -1,0 +1,16 @@
+<%= form_with model:@user, url:users_information_path, method: :patch do |f| %>
+    <div>Name</div>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :middle_name, placeholder: "middle name" %>
+    <%= f.text_field :last_name %>
+    
+    
+    <div>Introduction</div>
+    <%= f.text_area :introduction, placeholder: "Hi, I'm from Chile!" %>
+    
+    <div>Profile Photo</div>
+    <%= f.file_field :profile_image, class: 'form-control' %>
+    
+    <%= f.submit "Update your profile" %>
+    <%= link_to 'Delete your account', users_check_path, class: 'btn btn-danger' %>
+<% end %>

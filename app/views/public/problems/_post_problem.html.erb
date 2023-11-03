@@ -1,4 +1,4 @@
-<%= form_with model: @problem do |f| %>
+<%= form_with model: problem do |f| %>
     <div>Title</div>
     <%= f.text_field :title, placeholder: "title" %>
     
@@ -8,5 +8,5 @@
     <div>Image</div>
     <%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
     
-    <%= f.submit "Update your post" %>
+    <%= f.submit "Post" %>
 <% end %>
