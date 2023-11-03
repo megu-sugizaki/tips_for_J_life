@@ -1,0 +1,10 @@
+<p>Are you sure you would like to delete your account?</p>
+<p>
+    If you delete your account</br>
+    You and other users will not be able to see</br>
+    your whole posts and comments.</br>
+    Click "Delete account" if you still would like to delete your account.
+</p>
+
+<%= link_to "Back to my page", user_path(current_user) %>
+<%= link_to "Delete account", users_destroy_path(current_user), method: :delete %>

@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   scope module: :public do
     
     get 'about' => 'homes#about', as: 'about'
-    get 'user/my_page/:id' => 'users#show', as: 'user'
-    get 'users/information_edit' => 'users#edit', as: 'users_information_edit'
-    patch 'users/information' => 'users#update', as: 'users_information'
+    get 'users/my_page/:id' => 'users#show', as: 'user'
+    get 'users/information_edit/:id' => 'users#edit', as: 'users_information_edit'
+    patch 'users/information/:id' => 'users#update', as: 'users_information'
     get 'users/check' => 'users#check', as: 'users_check'
-    patch 'users/leave' => 'users#leave', as: 'users_leave'
+    delete 'users/destroy/:id' => 'users#destroy', as: 'users_destroy'
     get 'users/bookmarks' => 'bookmarks#index', as: 'bookmarks'
     # M:only for visibly easy, bookmark index is nested under "users"
     

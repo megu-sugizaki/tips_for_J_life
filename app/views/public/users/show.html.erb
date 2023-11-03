@@ -1,8 +1,19 @@
+<h3>Profile of <%= @user.first_name %></h3>
 
 
-<% unless @user.guest_user? %>
+<%= image_tag @user.get_profile_image(100, 100) %>
+<%= @user.first_name %>
+<%= @user.middle_name %>
+<%= @user.last_name %>
+
+<%= @user.introduction %>
+
+
+
+
+<% unless @user.guest_user? && @user == current_user  %>
 <!--M:guest users cannot have edit button-->
   <div class='row'>
-    <%= link_to '', users_information_edit_path(@user) %>
+    <%= link_to 'Edit your profile', users_information_edit_path(@user) %>
   </div>
 <% end %>

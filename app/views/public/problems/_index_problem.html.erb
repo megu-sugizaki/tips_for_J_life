@@ -1,0 +1,7 @@
+<% @problems.each do |problem| %>
+    <%= problem.title %>
+    <%= problem.caption %>
+    <% problem.problem_images.each do |problem_image| %>
+        <%= image_tag(problem_image, width:100) %>
+    <% end %>
+<% end %>
