@@ -1,0 +1,26 @@
+<div>
+  <% problem.problem_comments.each do |problem_comment| %>
+    <p><%= image_tag problem_comment.user.get_profile_image(100,100) %></p>
+    <%= problem_comment.user.first_name %>
+    <%= problem_comment.user.middle_name %>
+    <%= problem_comment.user.last_name %>
+    <%= problem_comment.created_at.strftime('%Y/%m/%d') %><%= problem_comment.comment %>
+    <% if problem_comment.user == current_user || problem_comment.user == problem.user %>
+      <%= link_to "Delete comment", problem_problem_comment_path(problem_comment, problem_comment.problem), method: :delete %>
+    <% end %>
+    
+    <!--< if user_signed_in? && (current_user == problem_comment.user) %>-->
+    <!-- <span data-comment-id=<= problem_comment.id %> class="js-edit-comment-button"></span>-->
+    <!-- <div id="js-comment-<= problem_comment.id %>">-->
+    <!--  　<= render "public/problem_comments/js_problem_comment", problem_comment: problem_comment %>-->
+    <!-- </div>-->
+    <!--< end %>-->
+  <% end %>
+</div>
+
+<div>
+  <%= form_with model: [problem, problem_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "Give some comments here. Help out your buddy!" %>
+    <%= f.submit "Post comment" %>
+  <% end %>
+</div>

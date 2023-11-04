@@ -27,6 +27,9 @@ class Public::ProblemsController < ApplicationController
         @problem_new = Problem.new
         @problem = Problem.find(params[:id])
         @user = @problem.user
+        # M:To tell if the user == current_user to show the edit button
+        @problem_comment = ProblemComment.new
+        # M:To post comments to the problem
     end 
     
     def edit

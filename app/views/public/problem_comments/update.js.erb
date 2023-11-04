@@ -1,0 +1,24 @@
+<!--M:when successfully updated-->
+$('#js-problem_comment-<%= @problem_comment.id %>').html('<%=j render "public/problem_comments/js_problem_comment", problem_comment: @problem_comment %>');
+
+<!--M:when edit cancel button is clicked-->
+$($('#js-problem_comment-<%= @problem_comment.id %>').find('.problem_comment-cancel-button')[0]).on('click', (e) => {
+    <!--M:show the comment label again-->
+    $('#js-problem_comment-label-<%= @problem_comment.id %>').show();
+    <!--M:hide the text area for comment edit-->
+    $('#js-textarea-problem_comment-<%= @problem_comment.id %>').hide();
+    <!--M:hide the comment update button-->
+    $('#js-problem_comment-button-<%= @problem_comment.id %>').hide();
+    <!--M:hide the error message-->
+    $('#js-problem_comment-post-error-<%= @problem_comment.id %>').hide();
+})
+
+<!--M:when error is caused by updating comment-->
+<% if @problem_comment.errors.any? %>
+  <!--M:get the error message factor-->
+  const problem_commentError = $('#js-problem_comment-post-error-<%= @problem_comment.id %>');
+  <!--M:set the error message-->
+  problem_commentError.text('<%= @problem_comment.errors.full_messages.first %>');
+  <!--M:Fade the error message in 2 seconds-->
+  problem_commentError.fadeOut(2000);
+<% end %>

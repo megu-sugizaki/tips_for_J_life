@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   scope module: :public do
     
     get 'about' => 'homes#about', as: 'about'
-    get 'users/my_page/:id' => 'users#show', as: 'user'
+    get 'users/:id/my_page' => 'users#show', as: 'user'
     get 'users/information_edit/:id' => 'users#edit', as: 'users_information_edit'
     patch 'users/information/:id' => 'users#update', as: 'users_information'
     get 'users/check' => 'users#check', as: 'users_check'
@@ -31,13 +31,13 @@ Rails.application.routes.draw do
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
         # M:bookmarks will not have individual routing (id) by using "collection"
-        resources :bookmarks, only: [:create]
+      resources :bookmarks, only: [:create]
         # M:delete "bookmarks" => "bookmarks#destroy"←commented out because it has problems id, only bookmarks id is needed for destroy
     end
     
     delete 'problems/bookmarks/:id' => "bookmarks#destroy"
     # M:visibly easy if "bookmarks destroy" is nested under problems + only bookmarks id is needed
-    resources :problem_tags, only: [:index, :create, :edit, :update, :destroy]
+    resources :problem_tags, only: [:index, :create, :destroy]
     resources :events do
       get "join" => "groups#join"
       # M:users can also leave the group by defining at the events controller
