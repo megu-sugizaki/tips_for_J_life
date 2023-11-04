@@ -13,7 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
 
-import "../homes/top";
+//import "../homes/top";
 
 //= require jquery
 //= require @rails/ujs
