@@ -10,6 +10,16 @@
     <div>Image</div>
     <%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
     
-    <%= f.submit "Post" %>
+    <div>Tag</div>
+    Choose tags
+    <%#= f.select :problem_tag_id, select_array, include_blank: "--Choose tags!--", multiple: true %>
+    <%= f.collection_select :problem_tag_id, ProblemTag.all, :id, :name, {include_blank: "--Choose tags!--"} %>
     
+    <%= f.submit "Post" %>
+<% end %>
+
+Create a new tag
+<%= form_with model: problem_tag do |f| %>
+    <%= f.text_field :name, placeholder: "business culture" %>
+    <%= f.submit "Create" %>
 <% end %>

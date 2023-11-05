@@ -3,6 +3,19 @@ class Public::ProblemsController < ApplicationController
     
     def new
         @problem = Problem.new
+        
+        # To create new tag
+        @problem_tag = ProblemTag.new
+        
+        # To create problem tag select box
+        @problem_tags = ProblemTag.all
+        select_problem_tags = @problem_tags.pluck(:name)
+        
+        @select_array = []
+        select_problem_tags.each_with_index do |problem_tag_name, i|
+            problem_tag_array = [problem_tag_name, i + 1]
+            @select_array.push(problem_tag_array)
+        end
     end 
     
     def create
@@ -21,6 +34,19 @@ class Public::ProblemsController < ApplicationController
     def index
         @problem = Problem.new
         @problems = Problem.all
+        
+        # To create new tag
+        @problem_tag = ProblemTag.new
+        
+        # To create problem tag select box
+        @problem_tags = ProblemTag.all
+        select_problem_tags = @problem_tags.pluck(:name)
+        
+        @select_array = []
+        select_problem_tags.each_with_index do |problem_tag_name, i|
+            problem_tag_array = [problem_tag_name, i + 1]
+            @select_array.push(problem_tag_array)
+        end
     end 
     
     def show

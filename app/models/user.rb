@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :problems, dependent: :destroy
-  has_many :problem_comments, dependent: :destroy
+  has_many :problem_tags
+  # to show delete button only to the user that made the tag
   has_one_attached :profile_image
          
   GUEST_USER_EMAIL = "guest@example.com"

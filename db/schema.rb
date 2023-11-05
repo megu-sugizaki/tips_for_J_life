@@ -84,14 +84,14 @@ ActiveRecord::Schema.define(version: 2023_10_30_230227) do
 
   create_table "problem_comments", force: :cascade do |t|
     t.integer "problem_id"
-    t.integer "user_id"
     t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "problem_tags", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

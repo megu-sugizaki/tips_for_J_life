@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     
     delete 'problems/bookmarks/:id' => "bookmarks#destroy"
     # M:visibly easy if "bookmarks destroy" is nested under problems + only bookmarks id is needed
-    resources :problem_tags, only: [:index, :create, :destroy]
+    resources :problem_tags, only: [:index, :create, :edit, :update, :destroy]
     resources :events do
       get "join" => "groups#join"
       # M:users can also leave the group by defining at the events controller

@@ -4,8 +4,9 @@
             <!--To post problem-->
             <h6>Have problems to share?</h6>
             <h5>Post problems!</h5>
-            <%= render 'public/problems/post_problem', problem:@problem %>
+            <%= render 'public/problems/post_problem', problem: @problem, select_array: @select_array, problem_tag: @problem_tag %>
         </div>
+        
         <div class="col-md-8 mt-4">
             <!--To show index-->
         <div class="text-center pb-2">
