@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">Profile Image</div>
+        <div class="col-md-4">User Name</div>
+    </div>
+    <% @users.each do |user| %>
+        <div class="row py-2">
+          <div class="col-md-3">
+            <%= image_tag user.get_profile_image(50, 50) %>
+          </div>
+          <div class="col-md-4">
+            <%=link_to user.first_name + " " + user.last_name, user_path(user.id) %>
+          </div>
+        </div>
+    <% end %>
+</div>

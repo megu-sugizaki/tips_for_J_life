@@ -7,10 +7,12 @@
 
 
 <h5>Tags</h5>
+
 <% @problem_tags.each do |problem_tag| %>
     <%= problem_tag.name %>
     <% if current_user == problem_tag.user %>
         <%= link_to "Delete Tag", problem_tag_path(problem_tag), method: :delete %>
         <%= link_to "Edit Tag", edit_problem_tag_path(problem_tag) %>
     <% end %>
+    </br>
 <% end %>

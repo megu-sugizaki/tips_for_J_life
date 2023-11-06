@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     delete 'users/destroy/:id' => 'users#destroy', as: 'users_destroy'
     get 'users/bookmarks' => 'bookmarks#index', as: 'bookmarks'
     # M:only for visibly easy, bookmark index is nested under "users"
+    get "search" => "posts#search"
     
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]

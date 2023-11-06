@@ -9,7 +9,7 @@
 <% problems.each do |problem| %>
 <div class="row border-bottom mt-1 align-items-center">
   <div class="col-md-3">
-    <%= image_tag(problem.user.profile_image, width:50, height: 50) if problem.user.profile_image.attached? %>
+    <%= image_tag(problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if problem.user.profile_image.attached? %>
     <p><%= link_to problem.user.first_name + " " + problem.user.last_name, user_path(problem.user.id) %></p>
   </div>
   <div class="col-md-2">

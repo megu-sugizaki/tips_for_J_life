@@ -18,7 +18,7 @@ class Public::ProblemTagsController < ApplicationController
     
     def update
         @problem_tag = ProblemTag.find(params[:id])
-        if @problem_tag.update
+        if @problem_tag.update(problem_tag_params)
             redirect_to problem_tags_path, notice: "You have successfully updated tag name!"
         else
             flash.now[:alert] = "Failed updating tag name"
@@ -29,6 +29,7 @@ class Public::ProblemTagsController < ApplicationController
     def destroy
         problem_tag = ProblemTag.find(params[:id])
         problem_tag.destroy
+        redirect_to problem_tags_path
     end 
     
     private

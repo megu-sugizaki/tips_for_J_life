@@ -43,7 +43,19 @@ class Public::ProblemsController < ApplicationController
         # To create problem tag select box
         @problem_tags = ProblemTag.all
         
-        # Description below won't be used. Changed to f.collection_select in the view page.
+        # if @problems = params[:problem_tag_id].present?
+        #     ProblemTag.find(params[:problem_tag_id]).problem
+        # end 
+        
+        if params[:keyword] || params[:problem_tag_id]
+            @problems = @problems.search(params[:keyword], params[:problem_tag_id])
+        end 
+        @keyword = params[:keyword]
+        
+        
+        
+        
+        # Description for tag select box below is no longer necessary. Changed to f.collection_select in the view page.
         # select_problem_tags = @problem_tags.pluck(:name)
         
         # @select_array = []
@@ -88,7 +100,7 @@ class Public::ProblemsController < ApplicationController
     private
     
     def problem_params
-        params.require(:problem).permit(:title, :caption, problem_images: [])
+        params.require(:problem).permit(:title, :caption, problem_tag_ids: [], problem_images: [])
     end 
     
     def is_matching_login_user

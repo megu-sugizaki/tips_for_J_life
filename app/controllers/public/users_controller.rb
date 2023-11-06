@@ -2,7 +2,7 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
   
   def show
-      @user = current_user
+      @user = User.find(params[:id])
       @problems = @user.problems.all
       # To show all the problems posted by the user
       
