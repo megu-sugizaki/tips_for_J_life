@@ -2,6 +2,9 @@
 <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
 <%= @problem.title %>
 <%= @problem.caption %>
+
+<%= @problem.problem_tags.name %>
+
 <% @problem.problem_images.each do |problem_image| %>
         <%= image_tag(problem_image, width:100) %>
 <% end %>

@@ -13,7 +13,13 @@
     <div>Tag</div>
     Choose tags
     <%#= f.select :problem_tag_id, select_array, include_blank: "--Choose tags!--", multiple: true %>
-    <%= f.collection_select :problem_tag_id, ProblemTag.all, :id, :name, {include_blank: "--Choose tags!--"} %>
+    <!--M:Description below is easier & faster-->
+    <%#= f.collection_select :problem_tag_id, ProblemTag.all, :id, :name, {include_blank: "--Choose tags!--"} %>
+    <!-- M:changed to checkboxes to select multiple tags-->
+    <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
+        <%= b.check_box %>
+        <%= b.text %>
+    <% end %>
     
     <%= f.submit "Post" %>
 <% end %>

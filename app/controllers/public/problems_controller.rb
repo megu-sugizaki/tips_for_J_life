@@ -9,13 +9,15 @@ class Public::ProblemsController < ApplicationController
         
         # To create problem tag select box
         @problem_tags = ProblemTag.all
-        select_problem_tags = @problem_tags.pluck(:name)
         
-        @select_array = []
-        select_problem_tags.each_with_index do |problem_tag_name, i|
-            problem_tag_array = [problem_tag_name, i + 1]
-            @select_array.push(problem_tag_array)
-        end
+        # Description below won't be used. Changed to f.collection_select in the view page.
+        # select_problem_tags = @problem_tags.pluck(:name)
+        
+        # @select_array = []
+        # select_problem_tags.each_with_index do |problem_tag_name, i|
+        #     problem_tag_array = [problem_tag_name, i + 1]
+        #     @select_array.push(problem_tag_array)
+        # end
     end 
     
     def create
@@ -40,13 +42,15 @@ class Public::ProblemsController < ApplicationController
         
         # To create problem tag select box
         @problem_tags = ProblemTag.all
-        select_problem_tags = @problem_tags.pluck(:name)
         
-        @select_array = []
-        select_problem_tags.each_with_index do |problem_tag_name, i|
-            problem_tag_array = [problem_tag_name, i + 1]
-            @select_array.push(problem_tag_array)
-        end
+        # Description below won't be used. Changed to f.collection_select in the view page.
+        # select_problem_tags = @problem_tags.pluck(:name)
+        
+        # @select_array = []
+        # select_problem_tags.each_with_index do |problem_tag_name, i|
+        #     problem_tag_array = [problem_tag_name, i + 1]
+        #     @select_array.push(problem_tag_array)
+        # end
     end 
     
     def show
