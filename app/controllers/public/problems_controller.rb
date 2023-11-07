@@ -34,7 +34,7 @@ class Public::ProblemsController < ApplicationController
     end 
     
     def index
-        @problem = Problem.new
+        @problem_new = Problem.new
         @problems = Problem.all
         
         # To create new tag
@@ -51,10 +51,7 @@ class Public::ProblemsController < ApplicationController
             @problems = @problems.search(params[:keyword], params[:problem_tag_id])
         end 
         @keyword = params[:keyword]
-        
-        
-        
-        
+        @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
         # Description for tag select box below is no longer necessary. Changed to f.collection_select in the view page.
         # select_problem_tags = @problem_tags.pluck(:name)
         
@@ -72,6 +69,7 @@ class Public::ProblemsController < ApplicationController
         # M:To tell if the user == current_user to show the edit button
         @problem_comment = ProblemComment.new
         # M:To post comments to the problem
+        @bookmark_problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
     end 
     
     def edit
@@ -97,6 +95,12 @@ class Public::ProblemsController < ApplicationController
         redirect_to problems_path
     end 
     
+    def bookmarks
+        @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
+    end 
+            
+end
+    
     private
     
     def problem_params
@@ -109,4 +113,3 @@ class Public::ProblemsController < ApplicationController
             redirect_to problems_path
         end 
     end 
-end

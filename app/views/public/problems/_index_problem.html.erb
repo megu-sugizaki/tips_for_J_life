@@ -21,8 +21,13 @@
   <div class="col-md-1">
     <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
   </div>
+  
   <div class="col-md-1">
-      <!--Favorite partial template to be added-->
+    <% unless current_user == problem.user %>
+      <div class='mr10 float-right'>
+        <%= render 'public/problems/bookmark_area', problem: problem %>
+      </div>
+    <% end %>
   </div>
 </div>
 <% end %>
