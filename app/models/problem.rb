@@ -4,7 +4,7 @@ class Problem < ApplicationRecord
     belongs_to :user
     has_many :problem_comments, dependent: :destroy
     has_many :bookmarks, dependent: :destroy
-    has_many :bookmark_problems, through: :bookmarks, source: :problem
+    has_many :bookmark_users, through: :bookmarks, source: :user
     has_many_attached :problem_images
     
     def self.search(keyword, tag_id)

@@ -1,15 +1,16 @@
 <!--bookmark index-->
 <% content_for(:title, 'Bookmark index') %>
 <div class="container pt-3">
+    <% if @problem.present? %>
+        <%= render @problem %>
+    <% else %>
+        <p>no-record</p>
+    <% end %>
     <div class="row">
-        <div class="col-12">
-            <div class="row">
-                <% if @problem.present? %>
-                    <%= render @problem %>
-                <% else %>
-                    <p><%= t(',no_title') %></p>
-                <% end %>
+        <% [1,2,3,4,5,6].each do |n| %>
+            <div class="col-md-4">
+                <%= n %>
             </div>
-        </div>
+        <% end %>
     </div>
 </div>

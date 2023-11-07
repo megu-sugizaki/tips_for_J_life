@@ -28,7 +28,17 @@ class Public::UsersController < ApplicationController
     #   M:user doesn't have to "leave" but destroy their account. Only admin has "leave" function to change their status
       current.user.destroy
       redirect_to root_path, notice: "You are no longer a user of this website"
-  end 
+  end
+  
+  def bookmarks
+    @user = User.find(params[:id])
+    # To find user's bookmarked problems
+    @problems = @user.problems.includes(:bookmarks).select{|o| o.bookmarks.any? }
+    # To find problems the user bookmarked
+    @bookmark_probrems = @user.bookmark_problems
+    
+    # ルート、ページ、定義を分ける。そのユーザーのお気に入りしたもの、されたものを見られるようにするため。
+  end
   
   private
   

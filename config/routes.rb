@@ -25,17 +25,17 @@ Rails.application.routes.draw do
     patch 'users/information/:id' => 'users#update', as: 'users_information'
     get 'users/check' => 'users#check', as: 'users_check'
     delete 'users/destroy/:id' => 'users#destroy', as: 'users_destroy'
-    # get 'users/bookmarks' => 'bookmarks#index', as: 'bookmarks'
+    get 'users/:id/bookmarks' => 'users#bookmarks', as: 'bookmarks'
     # M:only for visibly easy, bookmark index is nested under "users"
     get "search" => "posts#search"
     
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
-        get :bookmarks, on: :collection
-        resource :bookmarks, only: %i[create destroy]
-        # M:bookmarks will not have individual routing (id) by using "collection"
-        # resources :bookmarks, only: [:create]
-        # M:delete "bookmarks" => "bookmarks#destroy"←commented out because it has problems id, only bookmarks id is needed for destroy
+      get :bookmarks, on: :collection
+      resource :bookmarks, only: %i[create destroy]
+      # M:bookmarks will not have individual routing (id) by using "collection"
+      # resources :bookmarks, only: [:create]
+      # M:delete "bookmarks" => "bookmarks#destroy"←commented out because it has problems id, only bookmarks id is needed for destroy
     end
     
     # delete 'problems/bookmarks/:id' => "bookmarks#destroy"

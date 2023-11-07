@@ -78,6 +78,16 @@
                   </td>
                 </tr>
             </table>
+            <!--favorite section-->
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 border-bottom">
+            <% unless current_user == @problem.user %>
+                <div>
+                  <%= render 'public/problems/bookmark_area', problem: @problem %>
+                </div>
+            <% end %>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -104,11 +114,6 @@
         </div>
     </div>
 
-<!--favorite section-->
-<% unless current_user == @problem.user %>
-    <div class='mr10 float-right'>
-      <%= render 'public/problems/bookmark_area', problem: @bookmark_problem %>
-    </div>
-<% end %>
+
 
 </div>
