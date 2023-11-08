@@ -22,6 +22,19 @@ footer {
   bottom: 0;
   height: 50px;
   width: 100%;
-  background: #FFCC00;
+  background: #D2691E;
   color: #fff;
  }
+ 
+// To change "ファイルを選択" to English (users/edit)
+input[type="file"] {
+    display: none;
+}
+
+label {
+    padding: 10px 40px;
+    color: #ffffff;
+    background-color: #384878;
+    cursor: pointer;
+    border-radius: 10px;
+}

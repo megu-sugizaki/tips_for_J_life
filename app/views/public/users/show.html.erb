@@ -49,19 +49,20 @@
 
 <!--show all the problems posted by this user-->
 <div class="row justify-content-center mt-2 pb-4">
-  <div class="col-md-7 pb-2">
+  <div class="col-md-4 pb-2 justify-content-center">
     <table>
-      <tr class="border-bottom">
-        <th>Title</th>
-        <th>Caption</th>
-        <th></th>
-        <th></th>
+      <tr class="border-bottom align-items-center">
+        <th class="pr-4 pb-2">Title</th>
+        <th class="pr-4 pb-2">Caption</th>
+        <th class="pr-4 pb-2"><i class="fa-solid fa-comments"></i></th>
+        <th class="pr-4 pb-2"><i class="fa-solid fa-heart"></i></th>
       </tr>
       <% @problems.each do |problem| %>
-      <tr class="border-bottom">
-          <td><%= link_to problem.title, problem_path(problem) %></td>
-          <td><%= problem.caption %></td>
-          <td><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
+      <tr class="border-bottom align-items-center">
+          <td class="pr-4 py-2"><u><%= link_to problem.title, problem_path(problem), class:"text-dark" %></u></td>
+          <td class="pr-4 py-2"><%= problem.caption.truncate(35) %></td>
+          <td class="pr-4 py-2 justify-content-center"><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
+          <td class="pr-4 py-2 justify-content-center"><%= render 'public/problems/bookmarks_counts', problem:problem %></td>
       </tr>
       <% end %>
     </table>
