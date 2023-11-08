@@ -20,22 +20,30 @@ Rails.application.routes.draw do
   scope module: :public do
     
     get 'about' => 'homes#about', as: 'about'
-    get 'user/my_page/:id' => 'users#show', as: 'user'
-    get 'users/information_edit' => 'users#edit', as: 'users_information_edit'
-    patch 'users/information' => 'users#update', as: 'users_information'
+    get 'users/:id/my_page' => 'users#show', as: 'user'
+    get 'users/information_edit/:id' => 'users#edit', as: 'users_information_edit'
+    patch 'users/information/:id' => 'users#update', as: 'users_information'
     get 'users/check' => 'users#check', as: 'users_check'
-    patch 'users/leave' => 'users#leave', as: 'users_leave'
-    get 'users/bookmarks' => 'bookmarks#index', as: 'bookmarks'
+    delete 'users/destroy/:id' => 'users#destroy', as: 'users_destroy'
+    # M:Index of bookmarked problems by other users
+    get 'users/:id/bookmarked' => 'users#bookmarked', as: 'bookmarked_problems'
+    # M:Index of the problems the user bookmarked
+    get 'users/:id/bookmark' => 'users#bookmark', as: 'bookmark_problems'
+    
     # M:only for visibly easy, bookmark index is nested under "users"
+    get "search" => "posts#search"
     
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
-        # M:bookmarks will not have individual routing (id) by using "collection"
-        resources :bookmarks, only: [:create]
-        # M:delete "bookmarks" => "bookmarks#destroy"←commented out because it has problems id, only bookmarks id is needed for destroy
+      # get :bookmarks, on: :collection
+      # M:to see users who bookmarked the problem?
+      resource :bookmarks, only: %i[create destroy]
+      # M:bookmarks will not have individual routing (id) by using "collection"
+      # resources :bookmarks, only: [:create]
+      # M:delete "bookmarks" => "bookmarks#destroy"←commented out because it has problems id, only bookmarks id is needed for destroy
     end
     
-    delete 'problems/bookmarks/:id' => "bookmarks#destroy"
+    # delete 'problems/bookmarks/:id' => "bookmarks#destroy"
     # M:visibly easy if "bookmarks destroy" is nested under problems + only bookmarks id is needed
     resources :problem_tags, only: [:index, :create, :edit, :update, :destroy]
     resources :events do

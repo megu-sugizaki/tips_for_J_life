@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-end">
+  <!--To create the search form-->
+  <%= form_with url: problems_path, method: :get, local: true, class: 'boards__searchForm' do |f|%>
+    <div class="input-group">
+      <%= f.text_field :keyword, value: keyword, class: "form-control search-control", placeholder: "Insert keyword" %>
+      
+        <!--designing the button-->
+        <span class="input-group-btn input-group-append">
+          <%= button_tag type: "search", class: "btn btn-secondary search-btn" do %>
+            <i class="fas fa-search"></i>Search</submit>
+          <% end %>
+        </span>
+        
+    </div>
+
+      <!--To search by problem_tag-->
+      <%= select_tag :problem_tag_id,
+        options_from_collection_for_select(ProblemTag.all, :id, :name, params[:problem_tag_id]),
+          {
+            prompt: "Filter by tag",
+            onchange: "submit(this.form);"
+          }
+      %>
+  <% end %>
+</div>

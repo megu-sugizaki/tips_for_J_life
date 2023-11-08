@@ -1,0 +1,36 @@
+<nav class="container-fluid">
+  <div class="row bg-warning">
+    <div>
+      <%= link_to 'Tips for J life', root_path, class: "logo" %>
+      <!--M:logo to be left-sided-->
+    </div>
+    <div>
+      <% if user_signed_in? && !request.fullpath.include?("/admin") %>
+      <!--M:not allowed to see paths including "/admin" unless you logged in as admin-->
+      <p>
+        Welcome, <%= current_user.first_name %>！
+      </p>
+      <% end %>
+    </div>
+          
+    <div>
+      <% if request.fullpath.include?("/admin") && admin_signed_in? %>
+        <!--<= M:link_to "Users", users_path >  users index comes up on the admin top page, no need for the link-->
+        <%= link_to "Problems", problems_path %>
+        <%= link_to "Events", events_path %>
+        <%= link_to "Log out", destroy_admin_session_path, method: :delete %>
+      <% elsif user_signed_in? %>
+        <%= link_to "My page", user_path(current_user) %>
+        <%= link_to "Problems", problems_path %>
+        <%= link_to "Events", events_path %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <!--M:about page will be needed in case there will be threads on the top page-->
+        <%= link_to "About", about_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Sign in", new_user_session_path %>
+        <%= button_to "Sign in as a guest", users_guest_sign_in_path, method: :post %>
+      <% end %>
+    </div>
+  </div>
+</nav>

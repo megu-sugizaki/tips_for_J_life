@@ -1,0 +1,12 @@
+<%= form_with model: @problem do |f| %>
+    <div>Title</div>
+    <%= f.text_field :title, placeholder: "title" %>
+    
+    <div>Caption</div>
+    <%= f.text_area :caption, placeholder: "Descrive your problem here" %>
+    
+    <div>Image</div>
+    <%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
+    
+    <%= f.submit "Update your post" %>
+<% end %>

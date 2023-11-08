@@ -1,0 +1,6 @@
+<%= form_with model: @problem_tag do |f| %>
+    <div>Title</div>
+    <%= f.text_field :name %>
+  
+    <%= f.submit "Update tag name" %>
+<% end %>
