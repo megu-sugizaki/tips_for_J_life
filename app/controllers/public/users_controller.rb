@@ -2,8 +2,10 @@ class Public::UsersController < ApplicationController
   before_action :ensure_guest_user, only: [:edit]
   
   def show
-      @user = current_user
-      @problem = @user.problems.all
+      @user = User.find(params[:id])
+      @problems = @user.problems.all
+      # To show all the problems posted by the user
+      
   end 
   
   def edit
@@ -26,7 +28,20 @@ class Public::UsersController < ApplicationController
     #   M:user doesn't have to "leave" but destroy their account. Only admin has "leave" function to change their status
       current.user.destroy
       redirect_to root_path, notice: "You are no longer a user of this website"
+  end
+  
+  def bookmark
+    @user = User.find(params[:id])
+    # To find problems the user bookmarked
+    @bookmark_problems = @user.bookmark_problems
+    
   end 
+  
+  def bookmarked
+    @user = User.find(params[:id])
+    # To find user's bookmarked problems
+    @problems = @user.problems.includes(:bookmarks).select{|o| o.bookmarks.any? }
+  end
   
   private
   

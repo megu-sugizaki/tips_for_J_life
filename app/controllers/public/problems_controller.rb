@@ -3,6 +3,21 @@ class Public::ProblemsController < ApplicationController
     
     def new
         @problem = Problem.new
+        
+        # To create new tag
+        @problem_tag = ProblemTag.new
+        
+        # To create problem tag select box
+        @problem_tags = ProblemTag.all
+        
+        # Description below won't be used. Changed to f.collection_select in the view page.
+        # select_problem_tags = @problem_tags.pluck(:name)
+        
+        # @select_array = []
+        # select_problem_tags.each_with_index do |problem_tag_name, i|
+        #     problem_tag_array = [problem_tag_name, i + 1]
+        #     @select_array.push(problem_tag_array)
+        # end
     end 
     
     def create
@@ -19,14 +34,42 @@ class Public::ProblemsController < ApplicationController
     end 
     
     def index
-        @problem = Problem.new
+        @problem_new = Problem.new
         @problems = Problem.all
+        
+        # To create new tag
+        @problem_tag = ProblemTag.new
+        
+        # To create problem tag select box
+        @problem_tags = ProblemTag.all
+        
+        # if @problems = params[:problem_tag_id].present?
+        #     ProblemTag.find(params[:problem_tag_id]).problem
+        # end 
+        
+        if params[:keyword] || params[:problem_tag_id]
+            @problems = @problems.search(params[:keyword], params[:problem_tag_id])
+        end 
+        @keyword = params[:keyword]
+        @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
+        # Description for tag select box below is no longer necessary. Changed to f.collection_select in the view page.
+        # select_problem_tags = @problem_tags.pluck(:name)
+        
+        # @select_array = []
+        # select_problem_tags.each_with_index do |problem_tag_name, i|
+        #     problem_tag_array = [problem_tag_name, i + 1]
+        #     @select_array.push(problem_tag_array)
+        # end
     end 
     
     def show
         @problem_new = Problem.new
         @problem = Problem.find(params[:id])
         @user = @problem.user
+        # M:To tell if the user == current_user to show the edit button
+        @problem_comment = ProblemComment.new
+        # M:To post comments to the problem
+        @bookmark_problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
     end 
     
     def edit
@@ -52,10 +95,17 @@ class Public::ProblemsController < ApplicationController
         redirect_to problems_path
     end 
     
+    # def bookmarks
+    #     # M:To see users who bookmarked the problem? Not sure what this sentence wants to do
+    #     @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
+    # end 
+            
+end
+    
     private
     
     def problem_params
-        params.require(:problem).permit(:title, :caption, problem_images: [])
+        params.require(:problem).permit(:title, :caption, problem_tag_ids: [], problem_images: [])
     end 
     
     def is_matching_login_user
@@ -64,4 +114,3 @@ class Public::ProblemsController < ApplicationController
             redirect_to problems_path
         end 
     end 
-end

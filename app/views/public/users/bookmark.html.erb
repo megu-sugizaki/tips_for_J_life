@@ -1,0 +1,6 @@
+<% @bookmark_problems.each do |bookmark_problem| %>
+    <%= bookmark_problem.title %>
+    <%= bookmark_problem.caption %>
+    <%= bookmark_problem.user.first_name %>
+    <%= bookmark_problem.user.last_name %>
+<% end %>

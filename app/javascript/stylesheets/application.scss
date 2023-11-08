@@ -1,1 +1,11 @@
 @use '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&family=Raleway&display=swap');
+
+body {
+    font-family: 'Raleway', 'Noto Sans JP', sans-serif;
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+}

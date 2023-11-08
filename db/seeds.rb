@@ -17,18 +17,18 @@ Admin.create!(
 
 ########################### Settings
 # number of user（Bobby Harrison）
-bobby_harrison_num = 15
+bobby_harrison_num = 10
 # number of user（Lluvia Ocampo）
-lluvia_ocampo_num = 15
+lluvia_ocampo_num = 10
 # number of user（Han Rue）
-han_rue_num = 15
+han_rue_num = 10
 ########################### 
 
 ########################### User（Bobby Harrison）
 
 bobby_harrison_num.times do |num|
   num += 1
-  User.create!(
+  user = User.create!(
     last_name: "Harrison",
     first_name: "Bobby#{num}",
     email: "bobby@harrison#{num}",
@@ -37,7 +37,7 @@ bobby_harrison_num.times do |num|
     password_confirmation: 'lostintranslation',
     is_active: true
   )
-  profile_image.attach(io: File.open(Rails.root.join("app/assets/images/users/img-#{User.all.count}.jpg")), filename: "img-#{User.all.count}.jpg")
+  user.profile_image.attach(io: File.open(Rails.root.join("app/assets/images/profile_image/bh/img-#{user.id}.jpg")), filename: "img-#{user.id}.jpg")
     
 end
 
@@ -45,7 +45,7 @@ end
 
 lluvia_ocampo_num.times do |num|
   num += 1
-  User.create!(
+  user = User.create!(
     last_name: "Ocampo",
     middle_name: "R.N",
     first_name: "Lluvia#{num}",
@@ -55,7 +55,7 @@ lluvia_ocampo_num.times do |num|
     password_confirmation: 'raccooncity',
     is_active: true
   )
-  profile_image.attach(io: File.open(Rails.root.join("app/assets/images/users/img-#{User.all.count}.jpg")), filename: "img-#{User.all.count}.jpg")
+  user.profile_image.attach(io: File.open(Rails.root.join("app/assets/images/profile_image/lo/img-#{user.id}.jpg")), filename: "img-#{user.id}.jpg")
     
 end
 
@@ -63,7 +63,7 @@ end
 
 han_rue_num.times do |num|
   num += 1 
-  User.create!(
+  user = User.create!(
     last_name: "rue",
     first_name: "han#{num}",
     email: "han@rue#{num}",
@@ -72,7 +72,7 @@ han_rue_num.times do |num|
     password_confirmation: 'tokyodrift',
     is_active: true
   )
-  profile_image.attach(io: File.open(Rails.root.join("app/assets/images/users/img-#{User.all.count}.jpg")), filename: "img-#{User.all.count}.jpg")
+  user.profile_image.attach(io: File.open(Rails.root.join("app/assets/images/profile_image/hr/img-#{user.id}.jpg")), filename: "img-#{user.id}.jpg")
 end
 
 ########################### Bobby Harrison Problem
@@ -96,12 +96,11 @@ bh_problems_array = [
 
   bh_problems_array.each do |problem|
     problem = Problem.create!(
-      user_id: rand(0..14),
+      user_id: rand(1..10),
       title: "Need help for #{problem}",
-      caption: "I don't know how to #{problem}. Would you give me some advice?",
-      is_active: true
+      caption: "I don't know how to #{problem}. Would you give me some advice?"
     )
-    problem_image.attach(io: File.open(Rails.root.join("app/assets/images/bh_problems/img-#{Problem.all.count}.jpg")), filename: "img-#{Problem.all.count}.jpg")
+    problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/bh_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
   end
 
 ########################### Lluvia Ocampo Problem
@@ -116,21 +115,20 @@ lo_problems_array = [
     'donar mi sangre',
     'chequear si estoy infectada o no',
     'buscar un buena compañera para jugar R.E.',
-    'buscar un diafraz de zombi',
+    'buscar un disfraz de zombi',
     'disfrutarme en Shibuya en lluvia',
-    'find some grupo para jugar juegos juntos',
+    'buscar un grupo para jugar juegos juntos',
     'buscar lección de aikido',
     'buscar lección de judo'
 ]
 
   lo_problems_array.each do |problem|
     problem = Problem.create!(
-      user_id: rand(15..29),
+      user_id: rand(11..20),
       title: "Necesito ayuda por #{problem}",
-      caption: "No sé cómo #{problem}. Me pasarías unas informaciones?",
-      is_active: true
+      caption: "No sé cómo #{problem}. Me pasarías unas informaciones?"
     )
-    problem_image.attach(io: File.open(Rails.root.join("app/assets/images/lo_problems/img-#{Problem.all.count}.jpg")), filename: "img-#{Problem.all.count}.jpg")
+    problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/lo_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
   end
 
 ########################### Han Lue
@@ -154,31 +152,28 @@ hr_problems_array = [
 
   hr_problems_array.each do |problem|
     problem = Problem.create!(
-      user_id: rand(30..44),
+      user_id: rand(21..30),
       title: "#{problem}についてこまっています",
-      caption: "#{problem}がしたいです。どうしたらいいですか？おしえてください。",
-      is_active: true
+      caption: "#{problem}がしたいです。どうしたらいいですか？おしえてください。"
     )
-    problem_image.attach(io: File.open(Rails.root.join("app/assets/images/hr_problems/img-#{Problem.all.count}.jpg")), filename: "img-#{Problem.all.count}.jpg")
+    problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/hr_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
   end
 
 ########################### Problem comment English
+
 ProblemComment.create!(
-      problem_id: rand(0..14),
-      user_id: rand(0..14),
+      problem_id: rand(1..15),
       comment: "Can you be more specific？I'll help you more if you could.",
     )
 ########################### Problem comment Spanish  
 ProblemComment.create!(
-  problem_id: rand(15..29),
-  user_id: rand(15..29),
+  problem_id: rand(16..30),
   comment: "Eso sería más específico？Te puedo ayudar más si puedes darme más informaciones.",
 )
 
 ########################### Problem comment easy Japanese
 ProblemComment.create!(
-      problem_id: rand(30..44),
-      user_id: rand(30..44),
+      problem_id: rand(31..45),
       comment: "もっと、こまかく おしえてくれますか？おうえんしています",
     )
     
@@ -192,14 +187,15 @@ problem_tags_array = [
 
 problem_tags_array.each do |problem_tag|
     problem_tag = ProblemTag.create!(
-      name: problem_tag,
+    name: problem_tag,
+    user_id: rand(1..30)
     )
 end
 
 ########################### Problem tag
 AssociationProblemTag.create!(
-  problem_id: rand(0..44),
-  problem_tag_id: rand(0..3)
+  problem_id: rand(1..30),
+  problem_tag_id: rand(1..4)
 )
     
 ########################### Event
