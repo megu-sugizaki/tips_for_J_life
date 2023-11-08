@@ -26,11 +26,12 @@ class Public::ProblemTagsController < ApplicationController
         end
     end 
     
-    def destroy
-        problem_tag = ProblemTag.find(params[:id])
-        problem_tag.destroy
-        redirect_to problem_tags_path
-    end 
+    # M: No need to delete tag. Afraid of finding no tag_id on user's post after deleting tag.
+    # def destroy
+    #     problem_tag = ProblemTag.find(params[:id])
+    #     problem_tag.destroy
+    #     redirect_to problem_tags_path
+    # end 
     
     private
     def problem_tag_params

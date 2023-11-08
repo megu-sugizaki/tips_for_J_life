@@ -37,11 +37,12 @@ class Public::UsersController < ApplicationController
     
   end 
   
-  def bookmarked
-    @user = User.find(params[:id])
-    # To find user's bookmarked problems
-    @problems = @user.problems.includes(:bookmarks).select{|o| o.bookmarks.any? }
-  end
+  # Not necessary?
+  # def bookmarked
+  #   @user = User.find(params[:id])
+  #   # To find user's bookmarked problems
+  #   @problems = @user.problems.includes(:bookmarks).select{|o| o.bookmarks.any? }
+  # end
   
   private
   

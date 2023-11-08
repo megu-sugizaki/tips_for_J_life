@@ -1,23 +1,72 @@
-<h3>Profile of <%= @user.first_name %></h3>
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-4 text-center">
+      <h3>*Profile of <%= @user.first_name %>*</h3>
+    </div>
+  </div> 
+</div>
 
 
-<%= image_tag @user.get_profile_image(100, 100) %>
-<%= @user.first_name %>
-<%= @user.middle_name %>
-<%= @user.last_name %>
-
-<%= @user.introduction %>
-
-<% unless @user.guest_user? && @user == current_user  %>
-<!--M:guest users cannot have edit button-->
-  <div class='row'>
-    <%= link_to 'Edit your profile', users_information_edit_path(@user) %>
+<div class="row justify-content-center">
+  <div class="col-md-4 pb-2"></div>
+  <div class="col-md-4 pb-2">
+    <div class="row border-bottom align-items-center pb-2">
+      <div class="col-md-4">
+        <%= image_tag @user.get_profile_image(100, 100) %>
+      </div>
+      <div class="col-md-8">
+        <%= @user.first_name %>
+        <%= @user.middle_name %>
+        <%= @user.last_name %>
+      </div>
+    </div>
+    <div class="row align-items-center pt-2 border-bottom">
+      <div class="col-md-4"><p>Introduction:</p></div>
+      <div class="col-md-8"><%= simple_format(@user.introduction) %></div>
+    </div>
+    <div class="row justify-content-end pt-2">
+      <% unless @user.guest_user? && @user == current_user  %>
+        <!--M:guest users cannot have edit button-->
+        <%= link_to 'Edit your profile', users_information_edit_path(@user), class: "btn btn-info btn-sm"%>
+      <% end %>
+    </div>
   </div>
-<% end %>
+  <div class="col-md-4 justify-content-center">
+    <!--link to bookmarked problem's index-->
+    <p>*Click
+    <u><%= link_to "here", bookmarked_problems_path(@user), class:'text-dark' %></u>
+    </br>to see the bookmark posts</p>
+  </div>
+</div>
+
+<div class="row justify-content-center pt-4 mt-2">
+  <div class="col-md-7 pb-2">
+    <div class="row justify-content-center">
+      <h3>*<%= @user.first_name %>'s posts*</h3>
+    </div>
+  </div>
+</div>
 
 <!--show all the problems posted by this user-->
-<% @problems.each do |problem| %>
-    <%= link_to problem.title, problem_path(problem) %>
-    <%= problem.caption %>
-    <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
-<% end %>
+<div class="row justify-content-center mt-2 pb-4">
+  <div class="col-md-7 pb-2">
+    <table>
+      <tr class="border-bottom">
+        <th>Title</th>
+        <th>Caption</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @problems.each do |problem| %>
+      <tr class="border-bottom">
+          <td><%= link_to problem.title, problem_path(problem) %></td>
+          <td><%= problem.caption %></td>
+          <td><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<!--link to the problem index the user has bookmarked-->
+<%#= link_to "Bookmark posts by you", bookmark_problems_path(@user) %>

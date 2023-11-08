@@ -65,10 +65,10 @@ class Public::ProblemsController < ApplicationController
     def show
         @problem_new = Problem.new
         @problem = Problem.find(params[:id])
+         # M:To tell if the user == current_user to show the edit button
         @user = @problem.user
-        # M:To tell if the user == current_user to show the edit button
+       # M:To post comments to the problem
         @problem_comment = ProblemComment.new
-        # M:To post comments to the problem
         @bookmark_problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
     end 
     
