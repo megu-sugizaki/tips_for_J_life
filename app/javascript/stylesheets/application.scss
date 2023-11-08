@@ -9,3 +9,19 @@ body {
 .logo {
     font-family: 'Pacifico', cursive;
 }
+
+.footer-fix {
+  min-height: 100vh; 
+  position: relative;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background: #FFCC00;
+  color: #fff;
+ }
