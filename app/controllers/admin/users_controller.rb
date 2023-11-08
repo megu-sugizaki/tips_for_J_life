@@ -3,8 +3,12 @@ class Admin::UsersController < ApplicationController
         @users = User.all
     end 
     
-    def show
+    def update
         @user = User.find(params[:id])
-        @problems = @user.problems.all
+        @user.update(is_active: false)
+        reset_session
+        flash[:notice] = "退会処理を実行いたしました"
+        redirect_to request.referer
     end 
+
 end

@@ -33,10 +33,10 @@ class Public::SessionsController < Devise::SessionsController
     
     if @user.valid_password?(params[:user][:password])
       if @user.is_active == false
-        redirect_to new_user_registration_path, alert: 'Your account has been inactivated. Create a new account again.'
+        redirect_to new_user_registration_path, alert: 'Your account has been inactivated. Contact the admin if you would like to'
       end  
     end
-    
   end
+  
   
 end

@@ -95,9 +95,10 @@ class Public::ProblemsController < ApplicationController
         redirect_to problems_path
     end 
     
-    def bookmarks
-        @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
-    end 
+    # def bookmarks
+    #     # M:To see users who bookmarked the problem? Not sure what this sentence wants to do
+    #     @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
+    # end 
             
 end
     

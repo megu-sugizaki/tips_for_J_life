@@ -30,14 +30,17 @@ class Public::UsersController < ApplicationController
       redirect_to root_path, notice: "You are no longer a user of this website"
   end
   
-  def bookmarks
+  def bookmark
+    @user = User.find(params[:id])
+    # To find problems the user bookmarked
+    @bookmark_problems = @user.bookmark_problems
+    
+  end 
+  
+  def bookmarked
     @user = User.find(params[:id])
     # To find user's bookmarked problems
     @problems = @user.problems.includes(:bookmarks).select{|o| o.bookmarks.any? }
-    # To find problems the user bookmarked
-    @bookmark_probrems = @user.bookmark_problems
-    
-    # ルート、ページ、定義を分ける。そのユーザーのお気に入りしたもの、されたものを見られるようにするため。
   end
   
   private

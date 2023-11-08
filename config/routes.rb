@@ -25,13 +25,18 @@ Rails.application.routes.draw do
     patch 'users/information/:id' => 'users#update', as: 'users_information'
     get 'users/check' => 'users#check', as: 'users_check'
     delete 'users/destroy/:id' => 'users#destroy', as: 'users_destroy'
-    get 'users/:id/bookmarks' => 'users#bookmarks', as: 'bookmarks'
+    # M:Index of bookmarked problems by other users
+    get 'users/:id/bookmarked' => 'users#bookmarked', as: 'bookmarked_problems'
+    # M:Index of the problems the user bookmarked
+    get 'users/:id/bookmark' => 'users#bookmark', as: 'bookmark_problems'
+    
     # M:only for visibly easy, bookmark index is nested under "users"
     get "search" => "posts#search"
     
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
-      get :bookmarks, on: :collection
+      # get :bookmarks, on: :collection
+      # M:to see users who bookmarked the problem?
       resource :bookmarks, only: %i[create destroy]
       # M:bookmarks will not have individual routing (id) by using "collection"
       # resources :bookmarks, only: [:create]
