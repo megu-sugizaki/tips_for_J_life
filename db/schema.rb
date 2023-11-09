@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2023_10_30_230227) do
     t.integer "problem_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"user_id\", \"board_id\"", name: "index_bookmarks_on_user_id_and_board_id", unique: true
     t.index ["problem_id"], name: "index_bookmarks_on_problem_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end

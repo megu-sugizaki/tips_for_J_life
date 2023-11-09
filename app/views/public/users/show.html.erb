@@ -34,7 +34,7 @@
   <div class="col-md-4 justify-content-center">
     <!--link to bookmarked problem's index-->
     <p>*Click
-    <u><%= link_to "here", bookmarked_problems_path(@user), class:'text-dark' %></u>
+    <u></u><%= link_to "here", bookmark_problems_path(@user) %></u>
     </br>to see the bookmark posts</p>
   </div>
 </div>
@@ -69,5 +69,6 @@
   </div>
 </div>
 
-<!--link to the problem index the user has bookmarked-->
-<%#= link_to "Bookmark posts by you", bookmark_problems_path(@user) %>
+
+<!--link to the bookmarked problems by other users-->
+<%#= link_to "here", bookmarked_problems_path(@user), class:'text-dark' %>

@@ -25,6 +25,7 @@
     <% unless current_user == problem.user %>
       <div>
         <%= render 'public/problems/bookmark_area', problem: problem %>
+        <%= render 'public/problems/bookmarks_counts', problem: problem %>
       </div>
     <% end %>
   </div>

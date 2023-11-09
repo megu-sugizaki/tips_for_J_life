@@ -162,17 +162,20 @@ hr_problems_array = [
 ########################### Problem comment English
 
 ProblemComment.create!(
+      user_id: rand(1..10),
       problem_id: rand(1..15),
       comment: "Can you be more specific？I'll help you more if you could.",
     )
 ########################### Problem comment Spanish  
 ProblemComment.create!(
+  user_id: rand(11..20),
   problem_id: rand(16..30),
   comment: "Eso sería más específico？Te puedo ayudar más si puedes darme más informaciones.",
 )
 
 ########################### Problem comment easy Japanese
 ProblemComment.create!(
+      user_id: rand(21..30),
       problem_id: rand(31..45),
       comment: "もっと、こまかく おしえてくれますか？おうえんしています",
     )
