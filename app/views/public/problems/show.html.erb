@@ -64,13 +64,13 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom">
+        <div class="col-md-4 border-bottom py-2">
             <table>
                 <tr>
                   <td class="pr-2">
                     Comments:
                   </td>
-                  <td class="pr-3 pt-3">
+                  <td class="pr-3">
                     <!--counting comments-->
                     <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
                   </td>
@@ -82,14 +82,38 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom">
+        <div class="col-md-4 border-bottom py-2">
+            <table>
+                <tr>
+                  <td class="pr-2">
+                    Bookmarks:
+                  </td>
+                  <td class="pr-3">
+                    <!--counting comments-->
+                    <%= render 'bookmarks_counts', problem: @problem %>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 py-2">
             <% unless current_user == @problem.user %>
-                <div>
+              <div class="row justify-content-end">
+                <div class="col-md-6">Bookmark this post:</div>
+                <div class="col-md-1">
                   <%= render 'public/problems/bookmark_area', problem: @problem %>
                 </div>
+                <div class="col-md-1">
+                    <!--To make space right to the bookmark heart-->
+                </div>
+              </div>
             <% end %>
         </div>
     </div>
+            
     <div class="row justify-content-center">
         <div class="col-md-4 py-2">
             <div class="row justify-content-center">

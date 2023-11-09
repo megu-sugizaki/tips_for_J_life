@@ -13,7 +13,7 @@ body {
 .footer-fix {
   min-height: 100vh; 
   position: relative;
-  padding-bottom: 60px;
+  padding-bottom: 50px;
   box-sizing: border-box;
 }
 
@@ -32,9 +32,14 @@ input[type="file"] {
 }
 
 label {
-    padding: 10px 40px;
-    color: #ffffff;
-    background-color: #384878;
+    padding: 10px 30px;
+    color: #000;
+    background-color: #FFC7AF;
     cursor: pointer;
     border-radius: 10px;
 }
+
+// $('input').on('change', function () {
+//     var file = $(this).prop('files')[0];
+//     $('script').text(file.name);
+// });

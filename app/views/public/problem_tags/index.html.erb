@@ -1,19 +1,45 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-5">
+          <div class="row pt-4 pb-3">
+          </div>
+          <div class="row pt-5 pb-3 justify-content-center">  
+          <div class="col-md-6 text-center">
+            <h5>*Create a new tag*</h5>
+            <h6 class="pt-3">Create the best match tag with your post!</h6>
+          </div>
+         </div>
+         <%= form_with model: @problem_tag do |f| %>
+           <div class="row justify-content-center">
+            <%= f.text_field :name, placeholder: "business culture" %>
+           </div>
+           <div class="row justify-content-center pt-3">
+            <%= f.submit "Create", class:"btn btn-secondary" %>
+           </div>
+         <% end %>
+      </div>
+      <div class="col-md-3">
+          <div class="row pt-5 pb-3">
+              <div class="col-md-4 text-center">
+                <h3>*Tags*</h3>
+              </div>
+          </div>
+            <% @problem_tags.each do |problem_tag| %>
+                <div class="row border-top border-bottom py-1">
+                  <div class="col-md-5">
+                    <%= problem_tag.name %>
+                  </div>
+                  <div class="col-md-6 pl-5">
+                    <% if current_user == problem_tag.user %>
+                      <!--M: No need to delete tag. Afraid of finding no tag_id on user's post after deleting tag.-->
+                      <%#= link_to "Delete Tag", problem_tag_path(problem_tag), method: :delete %>
+                      <%= link_to "Edit Tag", edit_problem_tag_path(problem_tag), class:"btn btn-info btn-sm" %>
+                    <% end %>
+                  </div>
+                </div>
+            <% end %>
+      </div>
+  </div>
+     
 
-<h5>Create a new tag</h5>
-<%= form_with model: @problem_tag do |f| %>
-    <%= f.text_field :name, placeholder: "business culture" %>
-    <%= f.submit "Create" %>
-<% end %>
-
-
-<h5>Tags</h5>
-
-<% @problem_tags.each do |problem_tag| %>
-    <%= problem_tag.name %>
-    <% if current_user == problem_tag.user %>
-        <!--M: No need to delete tag. Afraid of finding no tag_id on user's post after deleting tag.-->
-        <%#= link_to "Delete Tag", problem_tag_path(problem_tag), method: :delete %>
-        <%= link_to "Edit Tag", edit_problem_tag_path(problem_tag) %>
-    <% end %>
-    </br>
-<% end %>
+</div>

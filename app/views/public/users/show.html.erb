@@ -25,9 +25,9 @@
       <div class="col-md-8"><%= simple_format(@user.introduction) %></div>
     </div>
     <div class="row justify-content-end pt-2">
-      <% unless @user.guest_user? && @user == current_user  %>
+      <% if @user.email != "guest@example.com" && @user == current_user %>
         <!--M:guest users cannot have edit button-->
-        <%= link_to 'Edit your profile', users_information_edit_path(@user), class: "btn btn-info btn-sm"%>
+        <%= link_to 'Edit your profile', users_information_edit_path(@user), class: "btn btn-info btn-sm" %>
       <% end %>
     </div>
   </div>
