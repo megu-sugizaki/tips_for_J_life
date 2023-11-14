@@ -4,7 +4,8 @@ class Public::UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       @problems = @user.problems.all
-      # To show all the problems posted by the user
+      # M:To show all the problems posted by the user
+      @events = @user.events.all
       
   end 
   
@@ -29,6 +30,10 @@ class Public::UsersController < ApplicationController
       current.user.destroy
       redirect_to root_path, notice: "You are no longer a user of this website"
   end
+  
+  def events
+    @events = Event.all
+  end 
   
   def bookmark
     @user = User.find(params[:id])

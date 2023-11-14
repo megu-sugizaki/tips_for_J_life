@@ -50,11 +50,16 @@
       <h5>-Members to join this event-</h5>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row justify-content-center pb-5">
+    <div class="col-md-3">
       <% @event.users.each do |user| %>
-        <div class="row justify-content-center border-bottom py-1">
-          <%= user.full_name %>
+        <div class="row justify-content-center border-bottom py-1 align-items-center">
+          <div class="col-md-2">
+            <%= image_tag user.get_profile_image(50, 50) %>
+          </div>
+          <div class="col-md-8 ml-3">
+            <u><%= link_to user.full_name, user_path(user), class:"text-dark" %></u>
+          </div>
         </div>
       <% end %>
     </div>

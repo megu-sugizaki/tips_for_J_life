@@ -26,6 +26,9 @@
             <th>
                 Joined Members
             </th>
+            <th>
+              
+            </th>
         </tr>
           <% @events.each do |event| %>  
       　<tr class="border-bottom">
@@ -38,8 +41,13 @@
             <td class="col-md-4 py-1">
               <%= event.caption.truncate(35) %>
             </td>
-            <td>
+            <td class="text-center">
                 <%= event.users.count %>
+            </td>
+            <td class="pl-3 pr-3">
+              <% if event.users.include?(current_user) %>
+              <div class="text-danger">Joined</div>
+              <% end %>
             </td>
         </tr>
           <% end %>
