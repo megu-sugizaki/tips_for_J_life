@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*Event details*</h3>
+        <h6 class="pt-3">Check this event!</h6>
+        <h6>Press "Join" button if you would like to join! </h6>
+      </div>
+  </div>
+  
+  <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+          <h4><u><%= @event.title %></u></h4>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+      <div class="col-md-4">
+          Created by:
+          <%#= image_tag(@event.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if problem.user.profile_image.attached? %>
+          <%#= @event.user.first_name %>
+          <%#= @event.user.last_name %>
+      </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+      <div class="col-md-4 border rounded">
+        <%= simple_format(@event.caption) %>
+      </div>
+  </div>
+
+  <div class="row justify-content-center"> 
+    <div class="col-md-1 pt-3">
+      <%= link_to 'Delete', admin_event_path(@event), method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center pt-4">
+    <div class="col-md-6 text-center">
+      <h5>-Members to join this event-</h5>
+    </div>
+  </div>
+  <div class="row justify-content-center pb-5">
+    <div class="col-md-3">
+      <% @event.users.each do |user| %>
+        <div class="row justify-content-center border-bottom py-1 align-items-center">
+          <div class="col-md-2">
+            <%= image_tag user.get_profile_image(50, 50) %>
+          </div>
+          <div class="col-md-8 ml-3">
+            <u><%= link_to user.full_name, user_path(user), class:"text-dark" %></u>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

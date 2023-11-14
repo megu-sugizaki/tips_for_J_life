@@ -1,11 +1,18 @@
 <div class="container">
-  <div class="row justify-content-center">
-  <div class="col-md-7">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*Problems*</h3>
+      </div>
+  </div>
+  
+  <div class="row justify-content-center pb-5">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <div class="row my-4 justify-content-center align-items-center border-bottom">
         <div class="col-md-2 mt-3">Title</div>
         <div class="col-md-4 mt-3">Caption</div>
         <div class="col-md-3 mt-3">Posted by</div>
-        <div class="col-md-3 mt-3">Remove Post</div>
+        <div class="col-md-3 mt-2">Delete Post</div>
     </div>
     <% @problems.each do |problem| %>
         <div class="row py-2 justify-content-center border-bottom align-items-center">
@@ -13,7 +20,7 @@
             <%= link_to problem.title, admin_problem_path(problem) %>
           </div>
           <div class="col-md-4">
-            <%= problem.caption %>
+            <%= problem.caption.truncate(35) %>
           </div>
           <div class="col-md-3">
             <%= image_tag problem.user.get_profile_image(50, 50) %>
@@ -25,5 +32,6 @@
         </div>
     <% end %>
   </div>
+  <div class="col-md-2">*See <u><%= link_to "Tags list", problem_tags_path, class:'text-dark' %></u></div>
   </div>
 </div>
