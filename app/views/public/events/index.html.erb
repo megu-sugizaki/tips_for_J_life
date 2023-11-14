@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*Events*</h3>
+        <h6 class="pt-3"><%= t(".title") %></h6>
+        <h6>Make some friends to share memories in Japan! </h6>
+      </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      
+    </div>
+    <div class="col-md-6">
+    <table>
+        <tr class="border-bottom">
+            <th class="col-md-3  pb-1">
+                Created by
+            </th>
+            <th class="col-md-3  pb-1">
+                Title
+            </th>
+            <th class="col-md-4  pb-1">
+                Caption
+            </th>
+            <th>
+                Joined Members
+            </th>
+        </tr>
+          <% @events.each do |event| %>  
+      　<tr class="border-bottom">
+            <td class="col-md-3 py-1">
+              <%= event.owner.full_name %>
+            </td>
+            <td class="col-md-3 py-1">
+              <u><%= link_to event.title, event_path(event), class:'text-dark' %></u>
+            </td>
+            <td class="col-md-4 py-1">
+              <%= event.caption.truncate(35) %>
+            </td>
+            <td>
+                <%= event.users.count %>
+            </td>
+        </tr>
+          <% end %>
+    </table>
+    </div>
+    <div class="col-md-3 pl-5">
+      <div class="row">
+        <div class="col-md-10">
+          *Click　<u><%= link_to "here", new_event_path, class:"text-dark" %></u>　to create a new event! 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

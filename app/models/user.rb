@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_problems, through: :bookmarks, source: :problem
   has_many :problem_comments, dependent: :destroy
+  has_many :event_users, dependent: :destroy
+  has_many :events, through: :event_users
   
   has_one_attached :profile_image
          
@@ -36,4 +38,7 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

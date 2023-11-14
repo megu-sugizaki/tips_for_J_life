@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*Create an event*</h3>
+        <h6 class="pt-3">Create a fun event!</h6>
+        <h6>Make some friends to share memories in Japan! </h6>
+      </div>
+  </div> 
+  
+  <%= form_with model: @event, local: true do |f| %>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <table> 
+         <tr>
+          <div class="form-group">
+            <th class="pr-3 pb-3">Event name</th>
+            <td class="pb-3"><%= f.text_field :title, class: 'form-control' %></td>
+          </div>
+         </tr>
+         <tr>
+          <div class="form-group">
+            <th class="pr-3">Caption</th>
+            <td><%= f.text_area :caption, class: 'form-control' %></td>
+          </div>
+         </tr>
+       </table> 
+     </div>
+   </div>
+   
+   <div class="row justify-content-center pt-3">
+          <%= f.submit "Create", class: 'btn btn-info' %>
+   </div>
+  <% end %>
+
+</div>

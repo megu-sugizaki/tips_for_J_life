@@ -29,8 +29,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
+ja:
   public:
     events:
       index:
-        title: Create a fun event!
+        title: ファンイベントをつくろう

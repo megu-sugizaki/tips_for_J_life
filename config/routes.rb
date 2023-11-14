@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     get 'users/information_edit/:id' => 'users#edit', as: 'users_information_edit'
     patch 'users/information/:id' => 'users#update', as: 'users_information'
     get 'users/check' => 'users#check', as: 'users_check'
-    delete 'users/destroy/:id' => 'users#destroy', as: 'users_destroy'
     # M:Index of bookmarked problems by other users
     get 'users/:id/bookmarked' => 'users#bookmarked', as: 'bookmarked_problems'
     # M:Index of the problems the user bookmarked
@@ -32,6 +31,11 @@ Rails.application.routes.draw do
     
     # M:only for visibly easy, bookmark index is nested under "users"
     get "search" => "posts#search"
+    
+    resources :users, only: [:destroy] do
+      get :events
+      # resources :events, only: [:index], controller: :user_events
+    end
     
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
@@ -47,8 +51,8 @@ Rails.application.routes.draw do
     # M:visibly easy if "bookmarks destroy" is nested under problems + only bookmarks id is needed
     resources :problem_tags, only: [:index, :create, :edit, :update, :destroy]
     resources :events do
-      get "join" => "groups#join"
-      # M:users can also leave the group by defining at the events controller
+      get :join
+      delete :destroy_user
     end
   end
   

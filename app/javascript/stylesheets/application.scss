@@ -2,6 +2,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&family=Raleway&display=swap');
 
+.top {
+    background-image: url('../images/top-background.png');
+    background-size: cover;
+}
+
+.about {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+
+// ref https://ameblo.jp/hp-daiko/entry-11999825436.html
+.top-bg {
+    background-color: rgba( 255, 255, 255, 0.55 );
+    width: 60%;
+    height: 100%;
+}
+
+
 body {
     font-family: 'Raleway', 'Noto Sans JP', sans-serif;
 }
@@ -39,7 +58,3 @@ label {
     border-radius: 10px;
 }
 
-// $('input').on('change', function () {
-//     var file = $(this).prop('files')[0];
-//     $('script').text(file.name);
-// });

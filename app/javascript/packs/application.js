@@ -13,6 +13,8 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
 
+import "./custom.js";
+
 //import "../homes/top";
 
 //= require jquery
@@ -21,3 +23,5 @@ import "../stylesheets/application";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+

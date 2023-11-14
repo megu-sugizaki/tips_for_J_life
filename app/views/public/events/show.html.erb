@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*Event details*</h3>
+        <h6 class="pt-3">Check this event!</h6>
+        <h6>Press "Join" button if you would like to join! </h6>
+      </div>
+  </div>
+  
+  <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+          <h4><u><%= @event.title %></u></h4>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+      <div class="col-md-4">
+          Created by:
+          <%#= image_tag(@event.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if problem.user.profile_image.attached? %>
+          <%#= @event.user.first_name %>
+          <%#= @event.user.last_name %>
+      </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+      <div class="col-md-4 border rounded">
+        <%= simple_format(@event.caption) %>
+      </div>
+  </div>
+
+  <div class="row justify-content-center"> 
+    <% if @event.is_owned_by?(current_user) %>
+    <div class="col-md-1 pt-3">
+      <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-info" %>
+    </div>
+    <div class="col-md-2 pt-3">
+      <%= link_to 'Delete event', event_path(@event), method: :delete, class: "btn btn-danger" %>
+    </div>
+    <% elsif @event.users.include?(current_user) %>
+    <div class="col-md-1 pt-3">
+      <%= link_to 'Cancel', event_destroy_user_path(@event, current_user), method: :delete, class: "btn btn-danger" %>
+    </div>
+    <% else %>
+    <div class="col-md-1 pt-3">
+      <%= link_to 'Join', event_join_path(@event), class: "btn btn-info" %>
+    </div>
+    <% end %>
+  </div>
+  
+  <div class="row justify-content-center pt-4">
+    <div class="col-md-6 text-center">
+      <h5>-Members to join this event-</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <% @event.users.each do |user| %>
+        <div class="row justify-content-center border-bottom py-1">
+          <%= user.full_name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

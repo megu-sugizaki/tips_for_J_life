@@ -18,6 +18,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :middle_name
       t.string :first_name, null: false
       t.text :introduction
+      t.string :locale, null: false, default: "en"
       t.boolean :is_active, null: false, default: true
 
       ## Trackable
