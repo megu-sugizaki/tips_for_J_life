@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-center">
   <!--To create the search form-->
   <%= form_with url: problems_path, method: :get, local: true, class: 'boards__searchForm' do |f|%>
-    <div class="input-group">
+    <div class="input-group pb-3 pt-2">
       <%= f.text_field :keyword, value: keyword, class: "form-control search-control", placeholder: "Insert keyword" %>
       
         <!--designing the button-->
