@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       # resources :events, only: [:index], controller: :user_events
     end
     
+    resources :contacts, only: [:new, :create]
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
       # get :bookmarks, on: :collection

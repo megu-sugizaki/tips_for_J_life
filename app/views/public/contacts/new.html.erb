@@ -1,0 +1,40 @@
+<%= form_with(model: @contact, local: true) do |f| %>
+    <div class='form-wrap'>
+      <div class='form-header'>
+        <h5 class='form-header-text'>
+          Contact form
+        </h5>
+      </div>
+    </div>
+    <div class="correct-msg-box">
+      <!--M:Error message-->
+      <% if @contact.errors.any? %>
+        <div id="error_explanation">
+          <ul><% @contact.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <!--Email form-->
+      <div class="correct-msg-main">
+        <div class="contact-form">
+            <div class="correct-text-field">
+              <div>Name</div>
+              <%= f.text_field :name, placeholder: "Name", class: "input-form" %>
+            </div>
+            <div class="correct-text-field">
+              <div>Contact details</div>
+              <%= f.text_area :content, placeholder: "Insert your contact details", class: "input-form" %>
+            </div>
+            <div class="send-btn-contents">
+              <div class="register-btn">
+                <%= f.button type: "submit", class:"btn btn-info" do %> 
+                  Send <i class="fas fa-paper-plane"></i>
+                <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+  </div>
+<% end %>

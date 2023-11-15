@@ -20,16 +20,26 @@
           <div class="col-md-1"><u><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "text-dark" %></u></div>
       <!--M:When signed in as a user-->
       <% elsif user_signed_in? %>
-        <div class="col-md-1 offset-3"><u><%= link_to "My page", user_path(current_user), class: "text-dark" %></u></div>
+        <div class="col-md-1 offset-2"><u><%= link_to "My page", user_path(current_user), class: "text-dark" %></u></div>
         <div class="col-md-1"><u><%= link_to "Problems", problems_path, class: "text-dark" %></u></div>
         <div class="col-md-1"><u><%= link_to "Events", events_path, class: "text-dark" %></u></div>
         <div class="col-md-1"><u><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-dark" %></u></div>
+        <div class="col-md-1">
+          <%= link_to new_contact_path, class:"text-dark" do %>
+            <i class="fa-regular fa-envelope"></i>
+          <% end %>
+        </div>
       <!--M:When not signed in-->
       <% else %>
-        <div class="col-md-1 offset-2"><u><%= link_to "About", about_path, class:"text-dark" %></u></div>
+        <div class="col-md-1 offset-1"><u><%= link_to "About", about_path, class:"text-dark" %></u></div>
         <div class="col-md-1"><u><%= link_to "Sign up", new_user_registration_path, class:"text-dark" %></u></div>
         <div class="col-md-1"><u><%= link_to "Sign in", new_user_session_path, class:"text-dark" %></u></div>
         <div class="col-md-2"><u><%= link_to "Sign in as a guest", users_guest_sign_in_path, method: :post, class:"text-dark" %></u></div>
+        <div class="col-md-1">
+          <%= link_to new_contact_path, class:"text-dark" do %>
+            <i class="fa-regular fa-envelope"></i>
+          <% end %>
+        </div>
       <% end %>
   </div>
 </nav>

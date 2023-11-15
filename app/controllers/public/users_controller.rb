@@ -5,6 +5,7 @@ class Public::UsersController < ApplicationController
       @user = User.find(params[:id])
       @problems = @user.problems.all
       # M:To show all the problems posted by the user
+      
       @events = @user.events.all
       
   end 
