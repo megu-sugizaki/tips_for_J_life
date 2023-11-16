@@ -34,7 +34,7 @@ class Public::ProblemsController < ApplicationController
     end 
     
     def index
-        @problem_new = Problem.new
+        @problem_new = Problem.new(problem_params)
         @problems = Problem.all
         
         # To create new tag
@@ -92,6 +92,7 @@ class Public::ProblemsController < ApplicationController
     def destroy
         problem = Problem.find(params[:id])
         problem.destroy
+        flash[:notice] = "You have deleted your post successfully."
         redirect_to problems_path
     end 
     

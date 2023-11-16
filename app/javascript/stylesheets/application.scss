@@ -58,3 +58,15 @@ label {
     border-radius: 10px;
 }
 
+.flash-message.notice {
+  background-color: #CCFFCC;
+  color: #339966;
+  width: 100%;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  width: 100%;
+}
+

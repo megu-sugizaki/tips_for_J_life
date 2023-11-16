@@ -14,6 +14,12 @@ class User < ApplicationRecord
   has_many :events, through: :event_users
   
   has_one_attached :profile_image
+  
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :introduction, presence: true
          
   GUEST_USER_EMAIL = "guest@example.com"
 

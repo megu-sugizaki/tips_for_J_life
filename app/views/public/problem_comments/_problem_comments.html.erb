@@ -1,9 +1,9 @@
 
 <!--M:Post comment-->
-<div class="row mb-2">
+<div class="row mb-2 justify-content-center">
   <%= form_with model: [problem, problem_comment] do |f| %>
-    <div class="row">
-      <%= f.text_area :comment, rows: '5', placeholder: "Give some comments here. Help out your buddy!" %>
+    <div class="row justify-content-center">
+      <%= f.text_area :comment, rows: '5', placeholder: "Give some comments here. Help out your buddy!", size: "45x5" %>
     </div>
     <div class="row pt-3 justify-content-end">
       <%= f.submit "Post comment", class:"btn btn-warning btn-sm" %>

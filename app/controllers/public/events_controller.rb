@@ -18,6 +18,7 @@ class Public::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.owner_id = current_user.id
     if @event.save
+      flash[:notice] = "You have created an event successfully"
       redirect_to events_path
     else
       render 'new'
@@ -39,7 +40,8 @@ class Public::EventsController < ApplicationController
   
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy!
+    @event.destroy
+    flash[:notice] = "You have deleted your event successfully"
     redirect_to events_path
   end 
   
