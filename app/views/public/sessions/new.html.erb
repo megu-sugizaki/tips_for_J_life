@@ -1,7 +1,18 @@
+<div class="container-fluid">
+    <% flash.each do |key, value| %>
+      <% if key == 'alert' %>
+        <div class="alert alert-danger text-center">
+          <%= value %>
+        </div>
+      <% elsif key == 'notice' %>
+        <div class="alert alert-success text-center">
+          <%= value %>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+
 <div class="container mt-5">
-  <div class="row justify-content-center">
-    <%= render 'layouts/errors', obj: resource %>
-  </div>
   <div class="row mt-3 mb-3">  
     <h3>*Sign in*</h3>
   </div>

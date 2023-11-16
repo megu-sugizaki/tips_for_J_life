@@ -21,12 +21,12 @@ class Public::ProblemsController < ApplicationController
     end 
     
     def create
-        @problem = Problem.new(problem_params)
-        @problem.user_id = current_user.id
+        @problem_new = Problem.new(problem_params)
+        @problem_new.user_id = current_user.id
         @problems = Problem.all
-        if @problem.save
+        if @problem_new.save
             flash[:notice] = "You have posted problem successfully"
-            redirect_to problem_path(@problem.id)
+            redirect_to problem_path(@problem_new.id)
         else
             flash.now[:notice]
             render :index
