@@ -31,8 +31,10 @@ Rails.application.routes.draw do
     
     # M:only for visibly easy, bookmark index is nested under "users"
     get "search" => "posts#search"
+    get 'users/:user_id/events' => 'users#events', as: 'user_events'
+    delete 'users/:id' => 'users#destroy', as: 'users_destroy'
     
-    resources :users, only: [:destroy] do
+    resources :users, only: [ ] do
       get :events
       # resources :events, only: [:index], controller: :user_events
     end

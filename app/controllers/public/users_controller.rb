@@ -17,6 +17,7 @@ class Public::UsersController < ApplicationController
   def update
       @user = current_user
       if @user.update(user_params)
+        flash[:notice] = "You have updated your information successfully"
         redirect_to user_path(@user.id)
       else
         render :edit
@@ -28,7 +29,7 @@ class Public::UsersController < ApplicationController
   
   def destroy
     #   M:user doesn't have to "leave" but destroy their account. Only admin has "leave" function to change their status
-      current.user.destroy
+      current_user.destroy
       redirect_to root_path, notice: "You are no longer a user of this website"
   end
   

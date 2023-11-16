@@ -19,7 +19,6 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :introduction, presence: true
          
   GUEST_USER_EMAIL = "guest@example.com"
 
