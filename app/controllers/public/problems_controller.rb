@@ -34,7 +34,7 @@ class Public::ProblemsController < ApplicationController
     end 
     
     def index
-        @problem_new = Problem.new(problem_params)
+        @problem_new = Problem.new
         @problems = Problem.all
         
         # To create new tag
