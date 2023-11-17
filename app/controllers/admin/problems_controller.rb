@@ -1,5 +1,7 @@
 class Admin::ProblemsController < ApplicationController
-# M:Indent fixed
+  # M:Indent fixed
+  before_action :authenticate_admin!
+  
   def index
     @problems = Problem.all
   end 

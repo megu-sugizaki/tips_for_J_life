@@ -28,9 +28,29 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   public:
     events:
+      new:
+        page_title: Create an event
+        page_title1: Create a fun event!
+        page_title2: Make some friends to share memories in Japan!
+        event_name: Event name
+        event_caption: Caption
+        create_button: Create
       index:
-        title: Create a fun event!
+        page_title: Events
+        page_title2: Create a fun event!
+        page_title3: Make some friends to share memories in Japan!
+        created_by: Created by
+        title: Title
+        caption: Caption
+        joined_members: Joined Members
+        join_status: Joined
+        click_here: Click here
+        new_event_link: to create a new event!
+      show:
+        page_title: Event details
+        page_title1: Check this event!
+        page_title2: Press "Join" button if you would like to join!
+        created_by: Created by

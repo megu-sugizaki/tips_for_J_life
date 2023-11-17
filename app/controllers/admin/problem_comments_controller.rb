@@ -1,5 +1,7 @@
 class Admin::ProblemCommentsController < ApplicationController
-    
+  # M:indent fixed
+  before_action :authenticate_admin!
+  
   def destroy
     problem = Problem.find(params[:problem_id]) 
     problem_comment = ProblemComment.find(params[:id])

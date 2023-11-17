@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController
-# M:Indent fixed
+  # M:Indent fixed
+  before_action :authenticate_admin!
+  
   def index
     @users = User.all
   end 

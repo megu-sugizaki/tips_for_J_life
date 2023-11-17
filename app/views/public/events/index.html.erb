@@ -1,67 +1,64 @@
+<!--M:Indent fixed-->
 <div class="container-fluid">
   <div class="row text-center mx-1">
-      <div class="flash-message notice"><%= flash[:notice] %></div>
+    <div class="flash-message notice"><%= flash[:notice] %></div>
   </div>
 </div>
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
-      <div class="col-md-6 text-center">
-        <h3>*Events*</h3>
-        <h6 class="pt-3"><%= t(".title") %></h6>
-        <h6>Make some friends to share memories in Japan! </h6>
-      </div>
+    <div class="col-md-6 text-center">
+      <h3>*<%= t(".page_title") %>*</h3>
+      <h6 class="pt-3"><%= t(".page_title2") %></h6>
+      <h6><%= t(".page_title3") %></h6>
+    </div>
   </div>
-  
   <div class="row justify-content-center">
-    <div class="col-md-3">
-      
-    </div>
-    <div class="col-md-6">
-    <table>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <table>
         <tr class="border-bottom">
-            <th class="col-md-3  pb-1">
-                Created by
-            </th>
-            <th class="col-md-3  pb-1">
-                Title
-            </th>
-            <th class="col-md-4  pb-1">
-                Caption
-            </th>
-            <th>
-                Joined Members
-            </th>
-            <th>
-              
-            </th>
+          <th class="col-md-3  pb-1">
+            <%= t(".created_by") %>
+          </th>
+          <th class="col-md-3  pb-1">
+            <%= t(".title") %>
+          </th>
+          <th class="col-md-3  pb-1">
+            <%= t(".caption") %>
+          </th>
+          <th>
+            <%= t(".joined_members") %>
+          </th>
+          <th>
+          </th>
         </tr>
-          <% @events.each do |event| %>  
+        <% @events.each do |event| %>  
       　<tr class="border-bottom">
-            <td class="col-md-3 py-1">
-              <%= event.owner.full_name %>
-            </td>
-            <td class="col-md-3 py-1">
-              <u><%= link_to event.title, event_path(event), class:'text-dark' %></u>
-            </td>
-            <td class="col-md-4 py-1">
-              <%= event.caption.truncate(35) %>
-            </td>
-            <td class="text-center">
-                <%= event.users.count %>
-            </td>
-            <td class="pl-3 pr-3">
-              <% if event.users.include?(current_user) %>
-              <div class="text-danger">Joined</div>
-              <% end %>
-            </td>
+          <td class="col-md-3 py-1">
+            <%= event.owner.full_name %>
+          </td>
+          <td class="col-md-3 py-1">
+            <u><%= link_to event.title, event_path(event), class:'text-dark' %></u>
+          </td>
+          <td class="col-md-3 py-1">
+            <%= event.caption.truncate(35) %>
+          </td>
+          <td class="text-center">
+            <%= event.users.count %>
+          </td>
+          <td class="pl-3 pr-3">
+            <% if event.users.include?(current_user) %>
+              <div class="text-danger"><%= t(".join_status") %></div>
+            <% end %>
+          </td>
         </tr>
-          <% end %>
-    </table>
+        <% end %>
+      </table>
     </div>
-    <div class="col-md-3 pl-5">
+    <div class="col-md-2">
       <div class="row">
         <div class="col-md-10">
-          *Click　<u><%= link_to "here", new_event_path, class:"text-dark" %></u>　to create a new event! 
+          *<u><%= link_to t(".click_here"), new_event_path, class:"text-dark" %></u>　<%= t(".new_event_link") %> 
         </div>
       </div>
     </div>
