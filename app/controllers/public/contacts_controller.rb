@@ -1,5 +1,4 @@
 class Public::ContactsController < ApplicationController
-    
   def new
     @contact = Contact.new
   end
@@ -14,12 +13,9 @@ class Public::ContactsController < ApplicationController
     end
   end
 
-
   private
-
-# Only allow a list of trusted parameters through.
-def contact_params
-  params.require(:contact).permit(:name, :content)
-end
-    
+  # M:Only allow a list of trusted parameters through.
+  def contact_params
+    params.require(:contact).permit(:name, :content)
+  end
 end

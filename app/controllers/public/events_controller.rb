@@ -38,6 +38,7 @@ class Public::EventsController < ApplicationController
     end 
   end 
   
+  # To delete the event
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
@@ -45,6 +46,7 @@ class Public::EventsController < ApplicationController
     redirect_to events_path
   end 
   
+  # M:For the user to cancel joining the event
   def destroy_user
     @event = Event.find(params[:event_id])
     @event.users.delete(current_user)
@@ -58,11 +60,11 @@ class Public::EventsController < ApplicationController
   end 
   
   private 
-  
   def event_params
     params.require(:event).permit(:title, :caption, :image)
   end
   
+  # Only the owner of the event can edit & update
   def ensure_correct_user
     @event = Event.find(params[:id])
     unless @event.owner_id == current_user.id

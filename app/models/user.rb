@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :problems, dependent: :destroy
+  #has_many :problems, class_name: 'Problem', foreign_key: "user_id"
+  
   # to show delete button only to the user that made the tag
   has_many :problem_tags
   has_many :bookmarks, dependent: :destroy
@@ -12,6 +14,7 @@ class User < ApplicationRecord
   has_many :problem_comments, dependent: :destroy
   has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
+  has_many :my_events, class_name: 'Event', foreign_key: "owner_id"
   
   has_one_attached :profile_image
   

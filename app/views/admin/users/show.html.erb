@@ -37,20 +37,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-4 justify-content-center">
-    <!--link to bookmarked problem's index-->
-    <div class="row pl-3">
-      <p>*Click
-      <u></u><%= link_to "here", bookmark_problems_path(@user) %></u>
-      </br>to see the bookmark posts</p>
-    </div>
-    <div class="row pl-3">
-      <% if @user == current_user %>
-        <p>*Click
-        <u></u><%= link_to "here", user_events_path(@user) %></u>
-        </br>to see the events you joined</p>
-      <% end %>
-    </div>
+  <div class="col-md-4">
   </div>
 </div>
 
@@ -77,7 +64,7 @@
           </tr>
           <% @problems.each do |problem| %>
           <tr class="border-bottom align-items-center justify-content-center">
-              <td class="pr-4 py-2"><u><%= link_to problem.title, problem_path(problem), class:"text-dark" %></u></td>
+              <td class="pr-4 py-2"><u><%= link_to problem.title, admin_problem_path(problem), class:"text-dark" %></u></td>
               <td class="pr-4 py-2"><%= problem.caption.truncate(35) %></td>
               <td class="pr-4 py-2 justify-content-center"><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
               <td class="pr-4 py-2 justify-content-center"><%= render 'public/problems/bookmarks_counts', problem:problem %></td>
@@ -106,7 +93,7 @@
             </tr>
             <% @events.each do |event| %>
               <tr class="border-bottom align-items-center">
-                  <td class="col-md-4 pr-4 py-2"><u><%= link_to event.title, event_path(event), class:"text-dark" %></u></td>
+                  <td class="col-md-4 pr-4 py-2"><u><%= link_to event.title, admin_event_path(event), class:"text-dark" %></u></td>
                   <td class="col-md-8 pr-4 py-2"><%= event.caption.truncate(35) %></td>
               </tr>
             <% end %>
@@ -116,7 +103,3 @@
   <div class="col^md-1"></div>
   </div>
 </div>
-
-
-<!--link to the bookmarked problems by other users-->
-<%#= link_to "here", bookmarked_problems_path(@user), class:'text-dark' %>

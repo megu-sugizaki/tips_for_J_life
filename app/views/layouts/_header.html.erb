@@ -13,9 +13,9 @@
           
       <!--M:When signed in as an admin-->
       <% if request.fullpath.include?("/admin") && admin_signed_in? %>
-          <div class="col-md-3 pl-2">You have signed in as an admin</div>
-          <!--<= M:link_to "Users", users_path >  users index comes up on the admin top page, no need for the link-->
-          <div class="col-md-1 offset-1"><u><%= link_to "Problems", admin_problems_path, class: "text-dark" %></u></div>
+          <div class="col-md-3">You have signed in as an admin</div>
+          <div class="col-md-1"><u><%= link_to "Users", admin_root_path, class:"text-dark" %></u></div>
+          <div class="col-md-1"><u><%= link_to "Problems", admin_problems_path, class: "text-dark" %></u></div>
           <div class="col-md-1"><u><%= link_to "Events", admin_events_path, class: "text-dark" %></u></div>
           <div class="col-md-1"><u><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "text-dark" %></u></div>
       <!--M:When signed in as a user-->

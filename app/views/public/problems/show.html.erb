@@ -33,6 +33,11 @@
                   <%= simple_format(@problem.caption) %>
                 </div>
             </div>
+            <div class="row">
+              <%# @problem.problem_images.each do |problem_image| %>
+                <%#= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) if problem_image.attached? %>
+              <%# end %>
+            </div>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -46,7 +51,7 @@
                     <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
                   </td>
                   <td>
-                    <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [70, 70]).processed) %>
+                     <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if @problem.user.profile_image.attached? %>
                   </td>
                 </tr>
             </table>

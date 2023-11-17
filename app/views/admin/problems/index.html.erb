@@ -24,7 +24,7 @@
           </div>
           <div class="col-md-3">
             <%= image_tag problem.user.get_profile_image(50, 50) %>
-            <%= link_to problem.user.first_name + problem.user.last_name, user_path(problem.user) %>
+            <%= link_to problem.user.full_name, admin_user_path(problem.user) %>
           </div>
           <div class="col-md-3">
             <%= link_to "Delete post", admin_problem_path(problem), method: :delete, class:"btn btn-danger btn-sm" %>
@@ -32,6 +32,6 @@
         </div>
     <% end %>
   </div>
-  <div class="col-md-2">*See <u><%= link_to "Tags list", problem_tags_path, class:'text-dark' %></u></div>
+  <div class="col-md-2"></div>
   </div>
 </div>

@@ -38,7 +38,7 @@
                     Posted by:
                   </td>
                   <td class="pr-3">
-                    <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
+                    <%= link_to @problem.user.full_name, admin_user_path(@problem.user.id) %>
                   </td>
                   <td>
                     <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [70, 70]).processed) %>
@@ -54,7 +54,7 @@
                   <td class="pr-2">
                     Comments:
                   </td>
-                  <td class="pr-3 pt-3">
+                  <td class="pr-3 py-1">
                     <!--counting comments-->
                     <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
                   </td>
@@ -66,7 +66,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 py-2">
                     <%#= link_to "Delete Post", problem_path(@problem), method: :delete, "data-confirm" => "Are you sure？" %>
-                    <%= link_to "Delete Post", problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
+                    <%= link_to "Delete Post", admin_problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
             </div>
         </div>
     </div>

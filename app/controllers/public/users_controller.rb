@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
       @problems = @user.problems.all
       # M:To show all the problems posted by the user
       
-      @events = @user.events.all
+      @events = @user.my_events
       
   end 
   

@@ -29,7 +29,7 @@
                     <tr>
                         <td>
                           <label>
-                            <input type="file" name="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
+                            <input type="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
                           </label>
                         </td>
                     </tr>
@@ -68,6 +68,9 @@
                         <%= f.submit "Create", class:"btn btn-secondary" %>
                     </div>
                 <% end %>
+            </div>
+            <div class="row pt-2 justify-content-center">
+                *Click　<u><%= link_to "here", problem_tags_path, class:"text-dark" %></u>　to see tag lists!
             </div>
         </div>
     </div>
