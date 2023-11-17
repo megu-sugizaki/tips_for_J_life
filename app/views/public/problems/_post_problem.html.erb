@@ -1,83 +1,82 @@
+<!--M:Indent fixed-->
 <div class="container">
-    <div class="row pt-5 pb-3 justify-content-center">  
-      <div class="col-md-6 text-center">
-        <h3>*Post your problem*</h3>
-        <h6 class="pt-3">Post your problem, get some help from buddies!</h6>
-        <h6>By sharing your problem, you help other buddies with same problem too! </h6>
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-6 text-center">
+      <h3>*Post your problem*</h3>
+      <h6 class="pt-3">Post your problem, get some help from buddies!</h6>
+      <h6>By sharing your problem, you help other buddies with same problem too! </h6>
+    </div>
+   </div> 
+  <div class="row pt-2 pb-3 justify-content-center">
+    <div class="col-md-5 pb-2">
+      <%= form_with model: problem_new do |f| %>
+        <table>
+          <tr>
+            <th class="pb-2">Title</th>
+          </tr>
+          <tr>
+            <td class="pb-2"><%= f.text_field :title, placeholder: "title" %></td>
+          </tr>
+          <tr>
+            <th class="pb-2">Caption</th>
+          </tr>
+          <tr>
+            <td class="pb-2"><%= f.text_area :caption, placeholder: "Descrive your problem here" %></td>
+          </tr>
+          <tr>
+            <th class="pb-2">Image</th>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <input type="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <th class="pb-2">Tags</th>
+          </tr>
+          <tr>
+            <td class="pb-2">
+              <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
+                <%= b.check_box %>
+                <%= b.text %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+        <div class="row justify-content-center py-3">
+          <%= f.submit "Post problem", class:"btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5 justify-content-center">
+      <div class="row pt-3 mt-1 border-top justify-content-center">
+        <h5>No tag matches your problem?</h5>
       </div>
-     </div> 
-     
-    <div class="row pt-2 pb-3 justify-content-center">
-        <div class="col-md-5 pb-2">
-            <%= form_with model: problem_new do |f| %>
-                <table>
-                    <tr>
-                        <th class="pb-2">Title</th>
-                    </tr>
-                    <tr>
-                        <td class="pb-2"><%= f.text_field :title, placeholder: "title" %></td>
-                    </tr>
-                    <tr>
-                        <th class="pb-2">Caption</th>
-                    </tr>
-                    <tr>
-                        <td class="pb-2"><%= f.text_area :caption, placeholder: "Descrive your problem here" %></td>
-                    </tr>
-                    <tr>
-                        <th class="pb-2">Image</th>
-                    </tr>
-                    <tr>
-                        <td>
-                          <label>
-                            <input type="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
-                          </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="pb-2">Tags</th>
-                    </tr>
-                    <tr>
-                        <td class="pb-2">
-                            <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
-                                <%= b.check_box %>
-                                <%= b.text %>
-                            <% end %>
-                        </td>
-                    </tr>
-                </table>
-                <div class="row justify-content-center py-3">
-                    <%= f.submit "Post problem", class:"btn btn-info" %>
-                </div>
-            <% end %>
-        </div>
+      <div class="row pt-2 justify-content-center">
+        <h6>Create a new tag!</h6>
+      </div>
+      <div class="row pt-2 justify-content-center">
+        <%= form_with model: problem_tag do |f| %>
+          <div class="row justify-content-center">
+            <%= f.text_field :name, placeholder: "business culture" %>
+          </div>
+          <div class="row justify-content-center pt-2 pb-4">
+            <%= f.submit "Create", class:"btn btn-secondary" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row pt-2 justify-content-center">
+        *Click　<u><%= link_to "here", problem_tags_path, class:"text-dark" %></u>　to see tag lists!
+      </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-5 justify-content-center">
-            <div class="row pt-3 mt-1 border-top justify-content-center">
-                <h5>No tag matches your problem?</h5>
-            </div>
-            <div class="row pt-2 justify-content-center">
-                <h6>Create a new tag!</h6>
-            </div>
-            <div class="row pt-2 justify-content-center">
-                <%= form_with model: problem_tag do |f| %>
-                    <div class="row justify-content-center">
-                        <%= f.text_field :name, placeholder: "business culture" %>
-                    </div>
-                    <div class="row justify-content-center pt-2 pb-4">
-                        <%= f.submit "Create", class:"btn btn-secondary" %>
-                    </div>
-                <% end %>
-            </div>
-            <div class="row pt-2 justify-content-center">
-                *Click　<u><%= link_to "here", problem_tags_path, class:"text-dark" %></u>　to see tag lists!
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
-
-    <%#= f.select :problem_tag_id, select_array, include_blank: "--Choose tags!--", multiple: true %>
-    <!--M:Description below is easier & faster-->
-    <%#= f.collection_select :problem_tag_id, ProblemTag.all, :id, :name, {include_blank: "--Choose tags!--"} %>
-    <!-- M:changed to checkboxes to select multiple tags-->
+<%#= f.select :problem_tag_id, select_array, include_blank: "--Choose tags!--", multiple: true %>
+<!--M:Description below is easier & faster-->
+<%#= f.collection_select :problem_tag_id, ProblemTag.all, :id, :name, {include_blank: "--Choose tags!--"} %>
+<!-- M:changed to checkboxes to select multiple tags-->
 

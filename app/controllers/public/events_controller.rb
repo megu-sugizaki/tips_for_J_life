@@ -50,7 +50,7 @@ class Public::EventsController < ApplicationController
   def destroy_user
     @event = Event.find(params[:event_id])
     @event.users.delete(current_user)
-    redirect_to events_path
+    redirect_to event_path(@event)
   end 
   
   def join

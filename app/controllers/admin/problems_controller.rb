@@ -1,5 +1,5 @@
 class Admin::ProblemsController < ApplicationController
-    
+# M:Indent fixed
   def index
     @problems = Problem.all
   end 

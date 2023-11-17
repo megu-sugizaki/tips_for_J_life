@@ -1,13 +1,14 @@
 class Admin::UsersController < ApplicationController
+# M:Indent fixed
   def index
     @users = User.all
   end 
   
   def show
-      @user = User.find(params[:id])
-      @problems = @user.problems.all
-      # M:To show all the problems posted by the user
-      @events = @user.my_events
+    @user = User.find(params[:id])
+    @problems = @user.problems.all
+    # M:To show all the problems posted by the user
+    @events = @user.my_events
   end 
   
   def update
