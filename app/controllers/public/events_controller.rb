@@ -1,4 +1,5 @@
 class Public::EventsController < ApplicationController
+  # M:Indent fixed
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
     
@@ -38,7 +39,7 @@ class Public::EventsController < ApplicationController
     end 
   end 
   
-  # To delete the event
+  # M:To delete the event
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
@@ -64,7 +65,7 @@ class Public::EventsController < ApplicationController
     params.require(:event).permit(:title, :caption, :image)
   end
   
-  # Only the owner of the event can edit & update
+  # M:Only the owner of the event can edit & update
   def ensure_correct_user
     @event = Event.find(params[:id])
     unless @event.owner_id == current_user.id

@@ -1,4 +1,5 @@
 class Public::ProblemCommentsController < ApplicationController
+  # M:Indent fixed
   before_action :authenticate_user!
   
   def create
@@ -23,7 +24,6 @@ class Public::ProblemCommentsController < ApplicationController
   # end 
   
   private
-  
   def problem_comment_params
     params.require(:problem_comment).permit(:comment)
   end 

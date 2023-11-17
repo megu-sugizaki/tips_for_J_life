@@ -29,8 +29,10 @@
           <tr>
             <td>
               <label>
-                <input type="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
+                ChooseFile
+                <%= f.file_field :problem_images, multiple: true, class: 'form-control', id: 'fileBox'%>
               </label>
+              <p id="fileBoxName">File not chosen</p>
             </td>
           </tr>
           <tr>

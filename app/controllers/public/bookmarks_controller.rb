@@ -1,4 +1,6 @@
 class Public::BookmarksController < ApplicationController
+  before_action :authenticate_user!
+  # M:Indent fixed
   def create
     # M:To prevent consecutive hits
     @bookmark = current_user.bookmarks.find_or_create_by(problem_id: params[:problem_id])

@@ -1,4 +1,7 @@
 class Public::ProblemTagsController < ApplicationController
+  # M:Indent fixed
+  before_action :authenticate_user!
+  
   def index
     @problem_tag = ProblemTag.new
     @problem_tags = ProblemTag.all
@@ -25,16 +28,15 @@ class Public::ProblemTagsController < ApplicationController
         render :edit
     end
   end 
-  
   # M: No need to delete tag. Afraid of finding no tag_id on user's post after deleting tag.
   # def destroy
-  #     problem_tag = ProblemTag.find(params[:id])
-  #     problem_tag.destroy
-  #     redirect_to problem_tags_path
+  #  problem_tag = ProblemTag.find(params[:id])
+  #  problem_tag.destroy
+  #  redirect_to problem_tags_path
   # end 
 
   private
   def problem_tag_params
-      params.require(:problem_tag).permit(:name)
+    params.require(:problem_tag).permit(:name)
   end 
 end
