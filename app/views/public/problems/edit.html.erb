@@ -1,12 +1,59 @@
-<%= form_with model: @problem do |f| %>
-    <div>Title</div>
-    <%= f.text_field :title, placeholder: "title" %>
-    
-    <div>Caption</div>
-    <%= f.text_area :caption, placeholder: "Descrive your problem here" %>
-    
-    <div>Image</div>
-    <%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
-    
-    <%= f.submit "Update your post" %>
-<% end %>
+<div class="container-fluid">
+  <%= render 'layouts/errors', obj: @problem %>
+  <div class="row text-center mx-1">
+      <div class="flash-message notice"><%= flash[:notice] %></div>
+  </div>
+</div>
+<div class="container">
+    <div class="row pt-5 pb-3 justify-content-center">  
+        <div class="col-md-5 text-center">
+            <h3>*Edit your post*</h3>
+            <h6 class="pt-3">Update your post!</h6>
+            <h6>More details help the buddies give you comments!</h6>
+        </div>
+    </div> 
+    <div class="row pt-2 pb-3 justify-content-center">
+        <div class="col-md-5 pb-2">
+            <%= form_with model: @problem do |f| %>
+              <table>
+                  <tr>
+                      <th class="pb-2">Title</th>
+                  </tr>
+                  <tr>
+                      <td class="pb-2"><%= f.text_field :title %></td>
+                  </tr>
+                  <tr>
+                      <th class="pb-2">Caption</th>
+                  </tr>
+                  <tr>
+                      <td class="pb-2"><%= f.text_area :caption %></td>
+                  </tr>
+                  <tr>
+                      <th class="pb-2">Image</th>
+                  </tr>
+                  <tr>
+                      <td>
+                          <label>
+                              <input type="file" name="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
+                          </label>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th class="pb-2">Tags</th>
+                  </tr>
+                  <tr>
+                      <td class="pb-2">
+                          <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
+                            <%= b.check_box %>
+                            <%= b.text %>
+                          <% end %>
+                      </td>
+                  </tr>
+              </table>
+              <div class="row justify-content-center py-3">
+                  <%= f.submit "Update your post", class:"btn btn-info" %>
+              </div>
+            <% end %>
+        </div>
+    </div>
+</div>

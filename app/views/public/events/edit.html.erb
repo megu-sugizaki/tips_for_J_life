@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row justify-content-center px-3">
+    <%= render 'layouts/errors', obj: @event %>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*Edit your event*</h3>
+        <h6 class="pt-3">Add more details!</h6>
+        <h6>It is recommended to describe the date, place and schedule!</h6>
+      </div>
+  </div> 
+
+
+<%= form_with model: @event, local: true do |f| %>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <table> 
+         <tr>
+          <div class="form-group">
+            <th class="pr-3 pb-3">Event name</th>
+            <td class="pb-3"><%= f.text_field :title, class: 'form-control' %></td>
+          </div>
+         </tr>
+         <tr>
+          <div class="form-group">
+            <th class="pr-3">Caption</th>
+            <td><%= f.text_area :caption, class: 'form-control' %></td>
+          </div>
+         </tr>
+       </table> 
+     </div>
+   </div>
+   
+   <div class="row justify-content-center py-3">
+          <%= f.submit "Update", class: 'btn btn-info' %>
+   </div>
+  <% end %>
+
+</div>

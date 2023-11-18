@@ -7,6 +7,9 @@ class Problem < ApplicationRecord
     has_many :bookmark_users, through: :bookmarks, source: :user
     has_many_attached :problem_images
     
+    validates :title, presence: true
+    validates :caption, presence: true
+    
     def self.search(keyword, tag_id)
         # By "left_outer_joins", search from the outer-joined code with problem_tags
         # ref: https://qiita.com/kurokawa516/items/5ffcfebed09e0d49bf43

@@ -1,23 +1,26 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 text-center mt-4">
-            <!--search box-->
-            <%= render "search", keyword: @keyword %>
-            
-            <!--To post problem-->
-            <h6>Have problems to share?</h6>
-            <h5>Post problems!</h5>
-            <%= render 'public/problems/post_problem', problem_new: @problem_new, problem_tag: @problem_tag, problem: @problem %>
-        </div>
-        
-        <div class="col-md-8 mt-4">
-            <!--To show index-->
-        <div class="text-center pb-2">
-            <h5>Problems posted</h5>
-            <h6>Help your buddies by giving them comments!</h6>
-        </div>
-            <%= render 'public/problems/index_problem', problems: @problems %>
-        </div>
+<!--M:Indent fixed-->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <%= render 'layouts/errors', obj: @problem_new %>
+  </div>
+  <div class="row text-center mx-1">
+    <div class="flash-message notice"><%= flash[:notice] %></div>
+  </div>
+  <div class="row">
+    <div class="col-md-5 text-center mt-4 justify-content-center">
+      <!--M:search box-->
+      <%= render "search", keyword: @keyword %>
+      <!--M:To post problem-->
+      <%= render 'public/problems/post_problem', problem_new: @problem_new, problem_tag: @problem_tag, problem: @problem %>
     </div>
+    <div class="col-md-6 mt-4 pr-3">
+      <!--M:To show index-->
+      <div class="text-center pb-2">
+        <h5>Problems posted</h5>
+        <h6>Help your buddies by giving them comments!</h6>
+      </div>
+      <%= render 'public/problems/index_problem', problems: @problems %>
+    </div>
+  </div>
 </div>
 

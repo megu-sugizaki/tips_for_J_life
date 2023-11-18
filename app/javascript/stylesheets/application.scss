@@ -2,6 +2,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&family=Raleway&display=swap');
 
+.top {
+    background-image: url('../images/top-background.png');
+    background-size: cover;
+}
+
+.about {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 65%;
+}
+
+
+// ref https://ameblo.jp/hp-daiko/entry-11999825436.html
+.top-bg {
+    background-color: rgba( 255, 255, 255, 0.55 );
+    width: 60%;
+    height: 100%;
+}
+
+
 body {
     font-family: 'Raleway', 'Noto Sans JP', sans-serif;
 }
@@ -9,3 +28,45 @@ body {
 .logo {
     font-family: 'Pacifico', cursive;
 }
+
+.footer-fix {
+  min-height: 100vh; 
+  position: relative;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background: #D2691E;
+  color: #fff;
+ }
+ 
+// To change "ファイルを選択" to English (users/edit)
+input[type="file"] {
+    display: none;
+}
+
+label {
+    padding: 10px 30px;
+    color: #000;
+    background-color: #FFC7AF;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.flash-message.notice {
+  background-color: #CCFFCC;
+  color: #339966;
+  width: 100%;
+}
+ 
+.flash-message.alert {
+  background-color: #ffd4d1;
+  color: #930403;
+  width: 100%;
+}
+

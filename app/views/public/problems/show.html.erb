@@ -1,3 +1,8 @@
+<div class="container-fluid">
+  <div class="row text-center mx-1">
+      <div class="flash-message notice"><%= flash[:notice] %></div>
+  </div>
+</div>
 <div class="container">
     <div class="row pt-5 pb-3 justify-content-center">  
         <div class="col-md-3 text-center">
@@ -28,6 +33,11 @@
                   <%= simple_format(@problem.caption) %>
                 </div>
             </div>
+            <div class="row">
+              <%# @problem.problem_images.each do |problem_image| %>
+                <%#= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) if problem_image.attached? %>
+              <%# end %>
+            </div>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -41,7 +51,7 @@
                     <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
                   </td>
                   <td>
-                    <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [70, 70]).processed) %>
+                     <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if @problem.user.profile_image.attached? %>
                   </td>
                 </tr>
             </table>
@@ -64,13 +74,13 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom">
+        <div class="col-md-4 border-bottom py-2">
             <table>
                 <tr>
                   <td class="pr-2">
                     Comments:
                   </td>
-                  <td class="pr-3 pt-3">
+                  <td class="pr-3">
                     <!--counting comments-->
                     <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
                   </td>
@@ -82,14 +92,38 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom">
+        <div class="col-md-4 border-bottom py-2">
+            <table>
+                <tr>
+                  <td class="pr-2">
+                    Bookmarks:
+                  </td>
+                  <td class="pr-3">
+                    <!--counting comments-->
+                    <%= render 'bookmarks_counts', problem: @problem %>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-4 py-2">
             <% unless current_user == @problem.user %>
-                <div>
+              <div class="row justify-content-end">
+                <div class="col-md-6">Bookmark this post:</div>
+                <div class="col-md-1">
                   <%= render 'public/problems/bookmark_area', problem: @problem %>
                 </div>
+                <div class="col-md-1">
+                    <!--To make space right to the bookmark heart-->
+                </div>
+              </div>
             <% end %>
         </div>
     </div>
+            
     <div class="row justify-content-center">
         <div class="col-md-4 py-2">
             <div class="row justify-content-center">

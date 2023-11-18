@@ -5,13 +5,23 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :problems, dependent: :destroy
+  #has_many :problems, class_name: 'Problem', foreign_key: "user_id"
+  
   # to show delete button only to the user that made the tag
   has_many :problem_tags
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_problems, through: :bookmarks, source: :problem
   has_many :problem_comments, dependent: :destroy
+  has_many :event_users, dependent: :destroy
+  has_many :events, through: :event_users
+  has_many :my_events, class_name: 'Event', foreign_key: "owner_id"
   
   has_one_attached :profile_image
+  
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
          
   GUEST_USER_EMAIL = "guest@example.com"
 
@@ -36,4 +46,7 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
   
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

@@ -1,27 +1,32 @@
+<div class="container-fluid">  
+  <div class="row justify-content-center">
+    <%= render 'layouts/errors', obj: resource %>
+  </div>
+</div>
 <div class="container mt-5">
-<h2>*Sign Up*</h2>
+<h3>*Sign Up*</h3>
 
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <table>
         <tr>
-          <th><%= f.label :"First Name" %></th>
+          <th>First Name</th>
           <td class="pl-2 py-2"><%= f.text_field :first_name, autofocus: true %></td>
-          <th class="pl-2 py-2"><%= f.label :"Middle Name" %></th>
+          <th class="pl-2 py-2">Middle Name</th>
           <td class="pl-2 py-2"><%= f.text_field :middle_name, autofocus: true %></td>
-          <th class="pl-2 py-2"><%= f.label :"Last Name" %></th>
+          <th class="pl-2 py-2">Last Name</th>
           <td class="pl-2 py-2"><%= f.text_field :last_name, autofocus: true %></td>
         </tr>
         <tr>
-          <th class="pb-2"><%= f.label :Email %></th>
+          <th class="pb-2">Email</th>
           <td class="pl-2 pb-2"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
         </tr>
         <tr>
-          <th class="pb-2"><%= f.label :"Passwords(6 characters minimum)" %></th>
+          <th class="pb-2">Passwords(6 characters minimum)</th>
           <td class="pl-2 pb-2"><%= f.password_field :password, autocomplete: "off" %></td>
         </tr>
         <tr>
-          <th class="pb-2"><%= f.label :"Passwords (reenter)" %></th>
+          <th class="pb-2">Passwords (reenter)</th>
           <td class="pl-2 pb-2"><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
         </tr>
         <tr>
@@ -34,3 +39,4 @@
 　<div class="row pt-5 pb-4">
 　　Already registered? Click here to　<%= render "public/shared/links" %>
 　</div>
+</div>

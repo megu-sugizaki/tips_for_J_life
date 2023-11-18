@@ -1,16 +1,70 @@
+<div class="container-fluid">
+  <div class="row justify-content-center px-3">
+    <%= render 'layouts/errors', obj: @user %>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-4 text-center">
+      <h3>*Edit your profile*</h3>
+    </div>
+  </div> 
+
+
 <%= form_with model:@user, url:users_information_path, method: :patch do |f| %>
-    <div>Name</div>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :middle_name, placeholder: "middle name" %>
-    <%= f.text_field :last_name %>
+    <div class="row justify-content-center">
+      <div class="col-md-4 pb-2">
+          <table>
+              <tr>
+                  <th class="pr-4 pb-2">First name</th>
+                  <th class="pr-4 pb-2">Middle name</th>
+                  <th class="pr-4 pb-2">Last name</th>
+              </tr>
+              <tr>
+                  <td class="pr-4 pb-2"><%= f.text_field :first_name %></td>
+                  <td class="pr-4 pb-2"><%= f.text_field :middle_name, placeholder: "middle name" %></td>
+                  <td class="pr-4 pb-2"><%= f.text_field :last_name %></td>
+              </tr>
+          </table>
+          <table>
+              <tr><th class="pb-2">Introduction</th></tr>
+              <tr><td class="pb-2"><%= f.text_area :introduction %></td></tr>
+          </table>
+          <table>
+              <tr><th class="pb-2">Profile photo</th></tr>
+              <td class="pb-2">
+                <label>
+                  ChooseFile
+                  <%= f.file_field :profile_image, class: 'form-control', id: 'fileBox'%>
+                </label>
+                <p id="fileBoxName">File not chosen</p>
+              </td>
+          </table>
+          <table>
+              <tr><th class="pb-2">Website language</th></tr>
+              <tr><td class="pb-2">
+                <div class="pl-2">
+                  <%= f.radio_button :locale, :en %>
+                  English
+                </div>
+              </td></tr>
+              <tr>
+                <td>
+                  <div class="pl-2">
+                    <%= f.radio_button :locale, :ja %>
+                    やさしいにほんご
+                  </div>
+                </td>
+              </tr>
+          </table>
+          </div>
+          </div>
+          <div class="row justify-content-center pb-4">
+              <div class="col-md-1"></div>
+              <div class="col-md-2 pt-3"><%= f.submit "Update your profile", class:"btn btn-info" %></div>
+              <div class="col-md-3 pt-3"><%= link_to 'Delete your account', users_check_path, class: 'btn btn-danger' %></div>
+          </div>
+      
     
-    
-    <div>Introduction</div>
-    <%= f.text_area :introduction, placeholder: "Hi, I'm from Chile!" %>
-    
-    <div>Profile Photo</div>
-    <%= f.file_field :profile_image, class: 'form-control' %>
-    
-    <%= f.submit "Update your profile" %>
-    <%= link_to 'Delete your account', users_check_path, class: 'btn btn-danger' %>
 <% end %>
+</div>
