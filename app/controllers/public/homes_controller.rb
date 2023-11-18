@@ -1,7 +1,8 @@
 class Public::HomesController < ApplicationController
-    def top
-    end
-    
-    def about
-    end 
+  # M:Indent fixed
+  def top
+  end
+  
+  def about
+  end 
 end

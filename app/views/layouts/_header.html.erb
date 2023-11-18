@@ -1,36 +1,45 @@
 <nav class="container-fluid">
-  <div class="row bg-warning">
-    <div>
-      <%= link_to 'Tips for J life', root_path, class: "logo" %>
+  <div class="row bg-warning py-3 align-items-center">
+    <div class="col-md-2 pl-5 mr-3 ">
+      <%= link_to 'Tips for J life', root_path, class: "logo text-dark", style: 'font-size: 20px;' %>
       <!--M:logo to be left-sided-->
     </div>
-    <div>
+    <div class="col-md-2 align-items-center">
       <% if user_signed_in? && !request.fullpath.include?("/admin") %>
       <!--M:not allowed to see paths including "/admin" unless you logged in as admin-->
-      <p>
         Welcome, <%= current_user.first_name %>！
-      </p>
       <% end %>
     </div>
           
-    <div>
+      <!--M:When signed in as an admin-->
       <% if request.fullpath.include?("/admin") && admin_signed_in? %>
-        <!--<= M:link_to "Users", users_path >  users index comes up on the admin top page, no need for the link-->
-        <%= link_to "Problems", problems_path %>
-        <%= link_to "Events", events_path %>
-        <%= link_to "Log out", destroy_admin_session_path, method: :delete %>
+          <div class="col-md-3">You have signed in as an admin</div>
+          <div class="col-md-1"><u><%= link_to "Users", admin_root_path, class:"text-dark" %></u></div>
+          <div class="col-md-1"><u><%= link_to "Problems", admin_problems_path, class: "text-dark" %></u></div>
+          <div class="col-md-1"><u><%= link_to "Events", admin_events_path, class: "text-dark" %></u></div>
+          <div class="col-md-1"><u><%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "text-dark" %></u></div>
+      <!--M:When signed in as a user-->
       <% elsif user_signed_in? %>
-        <%= link_to "My page", user_path(current_user) %>
-        <%= link_to "Problems", problems_path %>
-        <%= link_to "Events", events_path %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <div class="col-md-1 offset-2"><u><%= link_to "My page", user_path(current_user), class: "text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to "Problems", problems_path, class: "text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to "Events", events_path, class: "text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-dark" %></u></div>
+        <div class="col-md-1">
+          <%= link_to new_contact_path, class:"text-dark" do %>
+            <i class="fa-regular fa-envelope"></i>
+          <% end %>
+        </div>
+      <!--M:When not signed in-->
       <% else %>
-        <!--M:about page will be needed in case there will be threads on the top page-->
-        <%= link_to "About", about_path %>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= button_to "Sign in as a guest", users_guest_sign_in_path, method: :post %>
+        <div class="col-md-1 offset-1"><u><%= link_to "About", about_path, class:"text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to "Sign up", new_user_registration_path, class:"text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to "Sign in", new_user_session_path, class:"text-dark" %></u></div>
+        <div class="col-md-2"><u><%= link_to "Sign in as a guest", users_guest_sign_in_path, method: :post, class:"text-dark" %></u></div>
+        <div class="col-md-1">
+          <%= link_to new_contact_path, class:"text-dark" do %>
+            <i class="fa-regular fa-envelope"></i>
+          <% end %>
+        </div>
       <% end %>
-    </div>
   </div>
 </nav>

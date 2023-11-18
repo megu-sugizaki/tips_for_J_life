@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-
 class Public::SessionsController < Devise::SessionsController
+  # M:Indent fixed
   before_action :user_status, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
@@ -26,7 +26,6 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   protected
-  
   def user_status
     @user = User.find_by(email: params[:user][:email])
     return if  !@user
@@ -37,6 +36,4 @@ class Public::SessionsController < Devise::SessionsController
       end  
     end
   end
-  
-  
 end

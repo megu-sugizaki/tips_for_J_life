@@ -1,14 +1,9 @@
+<!--Indent fixed-->
 <% if obj.errors.any? %>
-  <div class="row justify-content-center">
-    <div class="col-12 col-lg-10">
-      <div id="error_explanation" class="alert alert-danger">
-        <h3 class="alert-heading"><%= pluralize(obj.errors.count, 'errors have occurred') %></h3>
-        <ul>
-          <% obj.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+  <div class="flash-message alert">
+    <h5><%= pluralize(obj.errors.count, 'errors have occurred') %></h5>
+    <% obj.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
   </div>
 <% end %>

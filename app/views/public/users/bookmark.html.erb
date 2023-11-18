@@ -1,6 +1,34 @@
-<% @bookmark_problems.each do |bookmark_problem| %>
-    <%= bookmark_problem.title %>
-    <%= bookmark_problem.caption %>
-    <%= bookmark_problem.user.first_name %>
-    <%= bookmark_problem.user.last_name %>
-<% end %>
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+      <div class="col-md-6 text-center">
+        <h3>*<%= @user.full_name %>'s bookmarked posts*</h3>
+      </div>
+  </div>
+  
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="row py-2 justify-content-center border-bottom align-items-center">
+              <div class="col-md-3 mt-3">Created by</div>
+              <div class="col-md-3 mt-3">Title</div>
+              <div class="col-md-4 mt-3">Caption</div>
+          </div>
+          <% @bookmark_problems.each do |bookmark_problem| %>
+          <div class="row py-2 justify-content-center border-bottom align-items-center">
+             
+              <div class="col-md-3">
+                  <%= image_tag bookmark_problem.user.get_profile_image(50, 50) %>
+                  <%= bookmark_problem.user.full_name %>
+              </div>
+              <div class="col-md-3">
+                  <u><%= link_to bookmark_problem.title, user_path(bookmark_problem.user), class:"text-dark" %></u>
+              </div>
+              <div class="col-md-4">
+                  <%= bookmark_problem.caption.truncate(35) %>
+              </div>
+          </div>
+          <% end %>
+          
+      </div>
+  </div>
+</div>
+    

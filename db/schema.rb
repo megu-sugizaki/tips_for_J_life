@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_10_30_230227) do
+ActiveRecord::Schema.define(version: 2023_11_15_040601) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,9 +64,15 @@ ActiveRecord::Schema.define(version: 2023_10_30_230227) do
     t.integer "problem_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"user_id\", \"board_id\"", name: "index_bookmarks_on_user_id_and_board_id", unique: true
     t.index ["problem_id"], name: "index_bookmarks_on_problem_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "content", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "event_users", force: :cascade do |t|
@@ -118,6 +124,7 @@ ActiveRecord::Schema.define(version: 2023_10_30_230227) do
     t.string "middle_name"
     t.string "first_name", null: false
     t.text "introduction"
+    t.string "locale", default: "en", null: false
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,23 +1,117 @@
-<h3>Profile of <%= @user.first_name %></h3>
-
-
-<%= image_tag @user.get_profile_image(100, 100) %>
-<%= @user.first_name %>
-<%= @user.middle_name %>
-<%= @user.last_name %>
-
-<%= @user.introduction %>
-
-<% unless @user.guest_user? && @user == current_user  %>
-<!--M:guest users cannot have edit button-->
-  <div class='row'>
-    <%= link_to 'Edit your profile', users_information_edit_path(@user) %>
+<!--M:Indent fixed-->
+<div class="container-fluid">
+  <div class="row text-center mx-1">
+    <div class="flash-message notice"><%= flash[:notice] %></div>
   </div>
-<% end %>
-
-<!--show all the problems posted by this user-->
-<% @problems.each do |problem| %>
-    <%= link_to problem.title, problem_path(problem) %>
-    <%= problem.caption %>
-    <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
-<% end %>
+</div>
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-4 text-center">
+      <h3>*Profile of <%= @user.first_name %>*</h3>
+    </div>
+  </div> 
+  <div class="row justify-content-center">
+    <div class="col-md-4 pb-2"></div>
+    <div class="col-md-4 pb-2">
+      <div class="row border-bottom align-items-center pb-2">
+        <div class="col-md-4">
+          <%= image_tag @user.get_profile_image(100, 100) %>
+        </div>
+        <div class="col-md-8">
+          <%= @user.first_name %>
+          <%= @user.middle_name %>
+          <%= @user.last_name %>
+        </div>
+      </div>
+      <div class="row align-items-center pt-2 border-bottom">
+        <div class="col-md-4"><p>Introduction:</p></div>
+        <div class="col-md-8"><%= simple_format(@user.introduction) %></div>
+      </div>
+      <div class="row justify-content-end pt-2">
+        <% if @user.email != "guest@example.com" && @user == current_user %>
+          <!--M:guest users cannot have edit button-->
+          <%= link_to 'Edit your profile', users_information_edit_path(@user), class: "btn btn-info btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4 justify-content-center">
+      <!--M:link to bookmarked problem's index-->
+      <div class="row pl-3">
+        <p>
+          *Click
+          <u><%= link_to "here", bookmark_problems_path(@user) %></u>
+          </br>to see the bookmark posts
+        </p>
+      </div>
+      <div class="row pl-3">
+        <% if @user == current_user %>
+          <p>
+            *Click
+            <u><%= link_to "here", user_events_path(@user) %></u>
+            </br>to see the events you joined
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content pt-5">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="row justify-content-center pt-4 mt-2">
+        <div class="col-md-7 pb-2">
+          <div class="row justify-content-center text-center">
+            <h3>*<%= @user.first_name %>'s posts*</h3>
+          </div>
+        </div>
+      </div>
+      <!--M:show all the problems posted by this user-->
+      <div class="row justify-content-center mt-2 pb-4">
+        <div class="col-md-11 pb-2 justify-content-center">
+          <table>
+            <tr class="border-bottom align-items-center text-center">
+              <th class="pr-4 pb-2">Title</th>
+              <th class="pr-4 pb-2">Caption</th>
+              <th class="pr-4 pb-2"><i class="fa-solid fa-comments"></i></th>
+              <th class="pr-4 pb-2"><i class="fa-solid fa-heart"></i></th>
+            </tr>
+            <% @problems.each do |problem| %>
+              <tr class="border-bottom align-items-center justify-content-center">
+                <td class="pr-4 py-2"><u><%= link_to problem.title, problem_path(problem), class:"text-dark" %></u></td>
+                <td class="pr-4 py-2"><%= problem.caption.truncate(35) %></td>
+                <td class="pr-4 py-2 justify-content-center"><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
+                <td class="pr-4 py-2 justify-content-center"><%= render 'public/problems/bookmarks_counts', problem:problem %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 justify-content-center">
+      <div class="row justify-content-center pt-4 mt-2">
+        <div class="col-md-7 pb-2">
+          <div class="row justify-content-center">
+            <h3>*<%= @user.first_name %>'s events*</h3>
+          </div>
+        </div>
+      </div>
+      <!--M:show all the events posted by this user-->
+      <div class="row justify-content-center mt-2 pb-4">
+        <table>
+          <tr class="border-bottom align-items-center justify-content-center">
+            <th class="col-md-4 pr-4 pb-2">Title</th>
+            <th class="col-md-8 pr-4 pb-2">Caption</th>
+          </tr>
+          <% @events.each do |event| %>
+            <tr class="border-bottom align-items-center">
+              <td class="col-md-4 pr-4 py-2"><u><%= link_to event.title, event_path(event), class:"text-dark" %></u></td>
+              <td class="col-md-8 pr-4 py-2"><%= event.caption.truncate(35) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="col^md-1"></div>
+  </div>
+</div>
+<!--M:link to the bookmarked problems by other users-->
+<%#= link_to "here", bookmarked_problems_path(@user), class:'text-dark' %>
