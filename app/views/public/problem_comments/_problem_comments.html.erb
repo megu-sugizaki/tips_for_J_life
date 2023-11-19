@@ -1,7 +1,7 @@
-
+<!--M:Indent fixed-->
 <!--M:Post comment-->
 <div class="row mb-2 justify-content-center">
-  <%= form_with model: [problem, problem_comment] do |f| %>
+  <%= form_with model: [problem, problem_comment_new] do |f| %>
     <div class="row justify-content-center">
       <%= f.text_area :comment, rows: '5', placeholder: "Give some comments here. Help out your buddy!", size: "45x5" %>
     </div>
@@ -10,44 +10,41 @@
     </div>
   <% end %>
 </div>
-
-
-  <!--M:Comments index-->
-  <% problem.problem_comments.each do |problem_comment| %>
+<!--M:Comments index-->
+<% problem.problem_comments.each do |problem_comment| %>
   <div class="py-3">
-  <div class="row">
-    <div class="col-md-1"><%= image_tag problem_comment.user.get_profile_image(30,30) %></div>
-    <div class="col-md-8 py-1">
-      <%= problem_comment.user.first_name %>
-      <%= problem_comment.user.middle_name %>
-      <%= problem_comment.user.last_name %>
+    <div class="row">
+      <div class="col-md-1"><%= image_tag problem_comment.user.get_profile_image(30,30) %></div>
+      <div class="col-md-8 py-1">
+        <%= problem_comment.user.first_name %>
+        <%= problem_comment.user.middle_name %>
+        <%= problem_comment.user.last_name %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10  border rounded">
-      <%= simple_format(problem_comment.comment) %>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10  border rounded">
+        <%= simple_format(problem_comment.comment) %>
+      </div>
     </div>
-  </div>
-  <div class="row py-1">
-    <div class="col-md-1"></div>
-    <div class="col-md-4">
-      <%= problem_comment.created_at.strftime('%Y/%m/%d') %>
+    <div class="row py-1">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <%= problem_comment.created_at.strftime('%Y/%m/%d') %>
+      </div>
+      <div class="col-md-5">
+        <% if problem_comment.user == current_user || problem_comment.user == problem.user %>
+          <%= link_to "Delete comment", problem_problem_comment_path(problem, problem_comment), method: :delete, class:"btn btn-danger btn-sm" %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-md-5">
-      <% if problem_comment.user == current_user || problem_comment.user == problem.user %>
-        <%= link_to "Delete comment", problem_problem_comment_path(problem_comment, problem_comment.problem), method: :delete, class:"btn btn-danger btn-sm" %>
-      <% end %>
-    </div>
+    <!--<%# if user_signed_in? && (current_user == problem_comment.user) %>-->
+      <!--<span data-comment-id=<= problem_comment.id %> class="js-edit-comment-button"></span>-->
+      <!--<div id="js-comment-<= problem_comment.id %>">-->
+        <!--<= render "public/problem_comments/js_problem_comment", problem_comment: problem_comment %>-->
+      <!--</div>-->
+    <!--<%# end %>-->
   </div>
-    
-    <!--< if user_signed_in? && (current_user == problem_comment.user) %>-->
-    <!-- <span data-comment-id=<= problem_comment.id %> class="js-edit-comment-button"></span>-->
-    <!-- <div id="js-comment-<= problem_comment.id %>">-->
-    <!--  　<= render "public/problem_comments/js_problem_comment", problem_comment: problem_comment %>-->
-    <!-- </div>-->
-    <!--< end %>-->
-  </div>
-  <% end %>
+<% end %>
 
 

@@ -1,153 +1,152 @@
+<!--M:Indent fixed-->
 <div class="container-fluid">
   <div class="row text-center mx-1">
-      <div class="flash-message notice"><%= flash[:notice] %></div>
+    <div class="flash-message notice"><%= flash[:notice] %></div>
   </div>
 </div>
 <div class="container">
-    <div class="row pt-5 pb-3 justify-content-center">  
-        <div class="col-md-3 text-center">
-            <h3>*Problem Details*</h3>
-        </div>
-    </div> 
-    
-    <div class="row justify-content-center mb-3">
-        <div class="border rounded col-md-4 px-4" >
-            <div class="row">
-                <div class="pt-2">
-                    <u>Problem title:</u>
-                </div>
-            </div>
-            <div class="row">
-                <div class="pt-2">
-                    <h6><%= @problem.title %></h4>
-                </div>
-            </div>
-            
-            <div class="row">
-                <u class="pt-2">
-                  Problem caption:
-                </u>
-            </div>
-            <div class="row">
-                <div class="pt-2">
-                  <%= simple_format(@problem.caption) %>
-                </div>
-            </div>
-            <div class="row">
-              <%# @problem.problem_images.each do |problem_image| %>
-                <%#= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) if problem_image.attached? %>
-              <%# end %>
-            </div>
-        </div>
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-3 text-center">
+      <h3>*Problem Details*</h3>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom pb-2">
-            <table>
-                <tr>
-                  <td class="pr-2">
-                    Posted by:
-                  </td>
-                  <td class="pr-3">
-                    <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
-                  </td>
-                  <td>
-                     <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if @problem.user.profile_image.attached? %>
-                  </td>
-                </tr>
-            </table>
+  </div> 
+  <div class="row justify-content-center mb-3">
+    <div class="border rounded col-md-4 px-4" >
+      <div class="row">
+        <div class="pt-2">
+          <u>Problem title:</u>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom py-2">
-            <table>
-                <tr>
-                  <td class="pr-2 pr-2">
-                      Tags:
-                  </td>
-                  <td>
-                      <% @problem.problem_tags.each do |problem_tag| %>
-                        <span class="border rounded px-2"><%= problem_tag.name %></span>
-                      <% end %>
-                  </td>
-                </tr>
-            </table>
+      </div>
+      <div class="row">
+        <div class="pt-2">
+          <h6><%= @problem.title %></h4>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom py-2">
-            <table>
-                <tr>
-                  <td class="pr-2">
-                    Comments:
-                  </td>
-                  <td class="pr-3">
-                    <!--counting comments-->
-                    <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-            </table>
-            <!--favorite section-->
+      </div>
+      <div class="row">
+        <u class="pt-2">
+          Problem caption:
+        </u>
+      </div>
+      <div class="row">
+        <div class="pt-2">
+          <%= simple_format(@problem.caption) %>
         </div>
+      </div>
+      <div class="row">
+        <u class="pt-2">
+          Images:
+        </u>
+      </div>
+      <div class="row">
+        <% @problem.problem_images.each do |problem_image| %>
+          <%= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) if problem_image.attached? %>
+        <% end %>
+      </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom py-2">
-            <table>
-                <tr>
-                  <td class="pr-2">
-                    Bookmarks:
-                  </td>
-                  <td class="pr-3">
-                    <!--counting comments-->
-                    <%= render 'bookmarks_counts', problem: @problem %>
-                  </td>
-                  <td>
-                  </td>
-                </tr>
-            </table>
-        </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom pb-2">
+      <table>
+        <tr>
+          <td class="pr-2">
+            Posted by:
+          </td>
+          <td class="pr-3">
+            <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
+          </td>
+          <td>
+            <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if @problem.user.profile_image.attached? %>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 py-2">
-            <% unless current_user == @problem.user %>
-              <div class="row justify-content-end">
-                <div class="col-md-6">Bookmark this post:</div>
-                <div class="col-md-1">
-                  <%= render 'public/problems/bookmark_area', problem: @problem %>
-                </div>
-                <div class="col-md-1">
-                    <!--To make space right to the bookmark heart-->
-                </div>
-              </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom py-2">
+      <table>
+        <tr>
+          <td class="pr-2 pr-2">
+            Tags:
+          </td>
+          <td>
+            <% @problem.problem_tags.each do |problem_tag| %>
+              <span class="border rounded px-2"><%= problem_tag.name %></span>
             <% end %>
-        </div>
+          </td>
+        </tr>
+      </table>
     </div>
-            
-    <div class="row justify-content-center">
-        <div class="col-md-4 py-2">
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <% if @user == current_user %>
-                        <%= link_to "Edit Post", edit_problem_path(@problem), class:"btn btn-info btn-sm" %>
-                    <% end %>
-                </div>
-                <div class="col-md-4">
-                    <% if @user == current_user %>
-                        <%#= link_to "Delete Post", problem_path(@problem), method: :delete, "data-confirm" => "Are you sure？" %>
-                        <%= link_to "Delete Post", problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
-                    <% end %>
-                </div>
-            </div>
-        </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom py-2">
+      <table>
+        <tr>
+          <td class="pr-2">
+            Comments:
+          </td>
+          <td class="pr-3">
+            <!--counting comments-->
+            <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
+          </td>
+          <td>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom py-2">
-          <!--comments section-->
-          <%= render 'public/problem_comments/problem_comments', problem:@problem, problem_comment:@problem_comment  %>
-        </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom py-2">
+      <table>
+        <tr>
+          <td class="pr-2">
+            Bookmarks:
+          </td>
+          <td class="pr-3">
+            <!--counting comments-->
+            <%= render 'bookmarks_counts', problem: @problem %>
+          </td>
+          <td>
+          </td>
+        </tr>
+      </table>
     </div>
-
-
-
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 py-2">
+      <% unless current_user == @problem.user %>
+        <div class="row justify-content-end">
+          <div class="col-md-6">Bookmark this post:</div>
+          <div class="col-md-1">
+            <%= render 'public/problems/bookmark_area', problem: @problem %>
+          </div>
+          <div class="col-md-1">
+              <!--To make space right to the bookmark heart-->
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 py-2">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <% if @user == current_user %>
+            <%= link_to "Edit Post", edit_problem_path(@problem), class:"btn btn-info btn-sm" %>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <% if @user == current_user %>
+            <%#= link_to "Delete Post", problem_path(@problem), method: :delete, "data-confirm" => "Are you sure？" %>
+            <%= link_to "Delete Post", problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom py-2">
+      <!--comments section-->
+      <%= render 'public/problem_comments/problem_comments', problem:@problem, problem_comment_new:@problem_comment  %>
+    </div>
+  </div>
 </div>
