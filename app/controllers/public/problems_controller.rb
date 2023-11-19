@@ -22,6 +22,7 @@ class Public::ProblemsController < ApplicationController
     @problem_new = Problem.new(problem_params)
     @problem_new.user_id = current_user.id
     @problems = Problem.all
+    byebug
     if @problem_new.save
       flash[:notice] = "You have posted problem successfully"
       redirect_to problem_path(@problem_new.id)

@@ -10,7 +10,12 @@ class ApplicationController < ActionController::Base
       
     else
       # user
-      problems_path
+      if current_user.is_active == false
+        reset_session
+        new_user_registration_path(deleted: true)
+      else
+        problems_path
+      end
     end
   end
   
