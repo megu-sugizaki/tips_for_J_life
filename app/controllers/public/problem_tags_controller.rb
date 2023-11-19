@@ -11,7 +11,11 @@ class Public::ProblemTagsController < ApplicationController
     @problem_tag = ProblemTag.new(problem_tag_params)
     # M:To show the "edit" button only to the current user
     @problem_tag.user_id = current_user.id
-    @problem_tag.save
+    if @problem_tag.save
+       flash[:notice] = I18n.t("flash_alert.tag.success")
+    else
+       flash[:alert] = I18n.t("flash_alert.tag.failed")
+    end
     redirect_to request.referer
   end 
   

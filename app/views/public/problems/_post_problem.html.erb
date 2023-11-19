@@ -40,7 +40,7 @@
           </tr>
           <tr>
             <td class="pb-2">
-              <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
+              <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name, include_hidden: false) do |b| %>
                 <%= b.check_box %>
                 <%= b.text %>
               <% end %>

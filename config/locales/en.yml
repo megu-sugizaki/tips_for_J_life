@@ -29,6 +29,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 en:
+  flash_alert:
+    tag:
+      success: "You have successfully created a new tag"
+      failed: "You need to insert tag name"
   public:
     events:
       new:

@@ -29,6 +29,19 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 ja:
+  flash_alert:
+    tag:
+      success: "タグが作成できました。"
+      failed: "タグのなまえが必要です。"
+  activerecord:
+    errors:
+      models:
+        event:
+          attributes:
+            title:
+              blank: "がありません"
+            caption:
+              blank: "がありません"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -101,6 +114,7 @@ ja:
         event_caption: イベントのせつめい
         create_button: つくる
       index:
+        flash: イベントをつくることが できました！
         page_title: イベント
         page_title2: たのしいイベントをつくろう!
         page_title3: 日本でのおもいでを、なかまと！

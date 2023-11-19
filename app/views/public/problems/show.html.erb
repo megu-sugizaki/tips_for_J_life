@@ -39,7 +39,7 @@
       </div>
       <div class="row">
         <% @problem.problem_images.each do |problem_image| %>
-          <%= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) if problem_image.attached? %>
+          <%= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) %>
         <% end %>
       </div>
     </div>

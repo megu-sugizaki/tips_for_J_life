@@ -22,7 +22,6 @@ class Public::ProblemsController < ApplicationController
     @problem_new = Problem.new(problem_params)
     @problem_new.user_id = current_user.id
     @problems = Problem.all
-    byebug
     if @problem_new.save
       flash[:notice] = "You have posted problem successfully"
       redirect_to problem_path(@problem_new.id)
@@ -42,10 +41,14 @@ class Public::ProblemsController < ApplicationController
     # if @problems = params[:problem_tag_id].present?
     #  ProblemTag.find(params[:problem_tag_id]).problem
     # end 
+    
+    # M:Search box section. 
     if params[:keyword] || params[:problem_tag_id]
       @problems = @problems.search(params[:keyword], params[:problem_tag_id])
     end 
     @keyword = params[:keyword]
+    
+    # M:To show bookmark lists
     @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
     # M:Description for tag select box below is no longer necessary. Changed to f.collection_select in the view page.
     # select_problem_tags = @problem_tags.pluck(:name)
