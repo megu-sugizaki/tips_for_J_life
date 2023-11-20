@@ -5,9 +5,9 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @problems = @user.problems.page(params[:page])
+    @problems = @user.problems.page(params[:page]).order(created_at: :desc)
     # M:To show all the problems posted by the user
-    @events = @user.my_events.page(params[:page])
+    @events = @user.my_events.page(params[:page]).order(created_at: :desc)
   end 
   
   def edit

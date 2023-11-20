@@ -4,7 +4,7 @@ class Public::ProblemTagsController < ApplicationController
   
   def index
     @problem_tag = ProblemTag.new
-    @problem_tags = ProblemTag.all
+    @problem_tags = ProblemTag.all.order(created_at: :desc)
   end
   
   def create
@@ -12,9 +12,9 @@ class Public::ProblemTagsController < ApplicationController
     # M:To show the "edit" button only to the current user
     @problem_tag.user_id = current_user.id
     if @problem_tag.save
-       flash[:notice] = I18n.t("flash_alert.tag.success")
+       flash[:notice] = I18n.t("flash_notice.tag.create")
     else
-       flash[:alert] = I18n.t("flash_alert.tag.failed")
+       flash[:alert] = I18n.t("flash_alert.tag.create")
     end
     redirect_to request.referer
   end 

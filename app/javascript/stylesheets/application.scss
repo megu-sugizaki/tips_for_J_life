@@ -15,7 +15,7 @@
 
 // ref https://ameblo.jp/hp-daiko/entry-11999825436.html
 .top-bg {
-    background-color: rgba( 255, 255, 255, 0.55 );
+    background-color: rgba( 203, 114, 0, 0.75 );
     width: 60%;
     height: 100%;
 }
@@ -75,9 +75,10 @@ label {
 
 // To scroll notice lists
 .scroll {
-  height: 300px;
+  height: 200px;
   width: 500px;
   overflow-y: scroll;
+  background-color: rgba( 255, 255, 255, 0.75 );
 }
 
 // M:Parent factor to go back to the top

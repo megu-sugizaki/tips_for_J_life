@@ -10,7 +10,7 @@
       <h3>*Create a notice*</h3>
     </div>
   </div> 
-  <%= form_with model: @notice, local: true do |f| %>
+  <%= form_with model: @notice, url: admin_notices_path, local: true do |f| %>
     <div class="row justify-content-center">
       <div class="col-md-4 justify-content-center">
         <table> 

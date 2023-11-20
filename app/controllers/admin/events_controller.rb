@@ -3,7 +3,7 @@ class Admin::EventsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @events = Event.page(params[:page])
+    @events = Event.page(params[:page]).order(created_at: :desc)
   end 
   
   def show

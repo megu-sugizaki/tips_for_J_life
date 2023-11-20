@@ -17,7 +17,7 @@ class Admin::NoticesController < ApplicationController
   end 
   
   def index
-    @notices = Notice.page(params[:page])
+    @notices = Notice.page(params[:page]).order(created_at: :desc)
   end 
   
   def show

@@ -1,3 +1,8 @@
+<div class="container-fluid">
+  <div class="row text-center mx-1">
+    <div class="flash-message notice"><%= flash[:notice] %></div>
+  </div>
+</div>
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
     <div class="col-md-6 text-center">
@@ -7,12 +12,17 @@
   
   <div class="row justify-content-center">
     <div class="col-md-4 text-center">
-      <h4><u><%= @notice.title %></u></h4>
+      <h4><strong><u><%= @notice.title %></u></strong></h4>
     </div>
   </div>
   <div class="row justify-content-center pt-3">
-    <div class="col-md-4 border rounded">
+    <div class="col-md-4 border pt-3 bg-light pl-4">
       <%= simple_format(@notice.detail) %>
+    </div>
+  </div>
+  <div class="row justify-content-center py-2">
+    <div class="col-md-4">
+      Posted: <%= @notice.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
     </div>
   </div>
 </div>

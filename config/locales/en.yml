@@ -29,11 +29,32 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 en:
+  flash_notice:
+    event:
+      create: "You have successfully created an event"
+      update: "You have successfully updated the event"
+      destroy: "You have successfully destroyed the event"
+    tag:
+      create: "You have successfully created a new tag"
   flash_alert:
     tag:
-      success: "You have successfully created a new tag"
-      failed: "You need to insert tag name"
+      create: "You need to insert tag name"
   public:
+    users:
+      show:
+        page_title: "'s profile"
+        introduction: Introduction
+        edit_button: Edit
+        click_here_bookmark: Click here
+        bookmark_problems_link: to see the post you have bookmarked
+        click_here_events: Click here
+        events_link: to see the events you have joined
+        posts_title: "'s posts"
+        posts_title1: Title
+        posts_caption: Caption
+        events_title: "'s events"
+        events_title1: Title
+        events_caption: Caption
     events:
       new:
         page_title: Create an event
@@ -51,10 +72,20 @@ en:
         caption: Caption
         joined_members: Joined Members
         join_status: Joined
-        click_here: Click here
+        click_here_event: Click here
         new_event_link: to create a new event!
       show:
         page_title: Event details
         page_title1: Check this event!
         page_title2: Press "Join" button if you would like to join!
         created_by: Created by
+        edit: Edit
+        delete: Delete
+        join_member: Members to join this event
+      edit:
+        page_title: Edit your event
+        page_title1: Add more details!
+        page_title2: It is recommended to describe the date, place and schedule!
+        event_name: Event name
+        event_caption: Caption
+        update_button: Update

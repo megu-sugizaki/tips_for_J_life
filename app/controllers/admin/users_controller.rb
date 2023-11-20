@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @users = User.page(params[:page])
+    @users = User.page(params[:page]).order(created_at: :desc)
   end 
   
   def show
@@ -16,8 +16,6 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(is_active: false)
-    # M:To make the user log out
-    reset_session
     redirect_to request.referer
   end 
   

@@ -6,9 +6,9 @@
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
       <div class="col-md-6 text-center">
-        <h3>*Edit your event*</h3>
-        <h6 class="pt-3">Add more details!</h6>
-        <h6>It is recommended to describe the date, place and schedule!</h6>
+        <h3>*<%= t(".page_title") %>*</h3>
+        <h6 class="pt-3"><%= t(".page_title1") %></h6>
+        <h6><%= t(".page_title2") %></h6>
       </div>
   </div> 
 
@@ -16,17 +16,17 @@
 <%= form_with model: @event, local: true do |f| %>
   
   <div class="row justify-content-center">
-    <div class="col-md-4">
+    <div class="col-md-5">
       <table> 
          <tr>
           <div class="form-group">
-            <th class="pr-3 pb-3">Event name</th>
+            <th class="pr-3 pb-3"><%= t(".event_name") %></th>
             <td class="pb-3"><%= f.text_field :title, class: 'form-control' %></td>
           </div>
          </tr>
          <tr>
           <div class="form-group">
-            <th class="pr-3">Caption</th>
+            <th class="pr-3"><%= t(".event_caption") %></th>
             <td><%= f.text_area :caption, class: 'form-control' %></td>
           </div>
          </tr>
@@ -35,7 +35,7 @@
    </div>
    
    <div class="row justify-content-center py-3">
-          <%= f.submit "Update", class: 'btn btn-info' %>
+          <%= f.submit t(".update_button"), class: 'btn btn-info' %>
    </div>
   <% end %>
 

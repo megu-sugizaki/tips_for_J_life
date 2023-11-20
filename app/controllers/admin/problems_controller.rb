@@ -3,7 +3,7 @@ class Admin::ProblemsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @problems = Problem.page(params[:page])
+    @problems = Problem.page(params[:page]).order(created_at: :desc)
   end 
   
   def show

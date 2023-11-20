@@ -28,7 +28,7 @@
         <% @notices.each do |notice| %>  
       　<tr class="border-bottom">
           <td class="col-md-3 py-1">
-            <u><%= link_to notice.title, notice_path(notice), class:'text-dark' %></u>
+            <u><%= link_to notice.title, admin_notice_path(notice), class:'text-dark' %></u>
           </td>
           <td class="col-md-3 py-1">
             <%= notice.detail.truncate(30) %>

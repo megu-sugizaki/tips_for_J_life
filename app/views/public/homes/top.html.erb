@@ -6,87 +6,99 @@
 
 <div class="row justify-content-center">
  <div class="top-bg col-md-6 my-4">
-  <div class="row logo justify-content-center py-3">
+  <div class="row logo justify-content-center py-4 text-dark">
     <div>
-    <h2>Tips for J Life</h2>
+    <h1>Tips for J Life</h1>
     </div>
   </div>
-  <div class="row scroll">
-    <div class="col-md-10">
-      <% @notices.each do |notice| %>
-        <u><%= link_to notice.title, notice_path(notice), class:"text-dark" %></u> 
-        <%= notice.detail %>
-        <%= notice.created_at.strftime('%Y/%m/%d') %>
-      <% end %>
+  <div class="row justify-content-center">
+    <h4 class="col-md-2 text-center text-light">*News*</h4>
+  </div>
+  <div class="row justify-content-center pb-4">
+    <div class="row scroll border rounded border-secondary border-4 pt-2 px-2">
+        <% @notices.each do |notice| %>
+          <div class="row border-bottom py-2 px-3 border-secondary">
+            <div class="row border rounded border-secondary mx-3 px-2 py-1 bg-secondary text-light">
+            <h6><u><%= link_to notice.title, notice_path(notice), class:"text-light" %></u>：</h6>
+            <div class="row px-4">
+              <div class="border-bottom border-light text-light"><%= notice.detail.truncate(100) %></div>
+            </div>
+            <div class="row px-4 mt-1 text-light">
+              Posted: <%= notice.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+            </div>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
-  
-    <div class="pb-3 row justify-content-center">
-      <h5>Feeling difficulty and confused to living in Japan?</h5>
+    <div class="pb-3 row justify-content-center text-light">
+      <h5>Feeling difficulty and confused living in Japan?</h5>
     </div>
-    <div class="pb-3 row justify-content-center">
+    <div class="row justify-content-center text-light">
       <h5>Bored on weekends?</h5>
     </div>
     
-    <div class="row justify-content-center">
-     <div class="col-md-12">
-      <p>Here you can get tips to make your life in Japan easier and fun!</br>
-        In this webpage, you may</p>
+    <div class="row justify-content-center text-light">
+     <div class="col-md-10">
+      <p><h4>Get tips to make your life here easier and fun!</h4></br>
+        <h5>In this webpage, you may...</h5></p>
       </div>
     </div>
-    
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <li>
-            post your problems and get some tips from other users
-        </li>
+    <div class="row justify-content-center text-light">
+      <div class="col-md-10">
+        <h5><li>
+            post your problems, get some tips from other users
+        </li></h5>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <li>
-            help out other buddies having problems by giving comments to their posts</br>
-        </li>
+    <div class="row justify-content-center text-light">
+      <div class="col-md-10">
+        <h5><li>
+            Give some advice to buddies in trouble</br>
+        </li></h5>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <li>
+    <div class="row justify-content-center text-light">
+      <div class="col-md-10">
+        <h5><li>
             make events to get people to enjoy together</br>
-        </li>
+        </li></h5>
+      </div>
+    </div>
+    <div class="row justify-content-center text-light">
+      <div class="col-md-10">
+        <h5><li>
+            seek for events and join</br>
+        </li></h5>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3 text-light">
+        <h5><u>Sign up and start having a fun J life!</u></h5>
+    </div>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-10 mt-5 text-light">
+        Also, please note...
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-md-12">
-        <li>
-            seek for events and join</br>
-        </li>
-      </div>
-    </div>
-    <div class="row justify-content-center mt-3">
-        <h4>Sign up and start having a fun J life!</h4>
-    </div>
-    
-    <div class="row justify-content-center pt-3">
-      <div class="col-md-12">
-        <p>
-          <u>3 simple rules here!</u></br>
-          We have a lot of people from different backgrounds.
-        </p>
+      <div class="col-md-12 text-center pb-2 text-light">
+        <h5>3 simple rules here!</h5>
+        We have a lot of people from different backgrounds.
       </div>
      </div>
      <div class="row justify-content-center">
-      <div class="col-md-12">
+      <div class="col-md-7 text-light">
         <li>Appreciates the difference</li>
       </div>
      </div>
      <div class="row justify-content-center">
-      <div class="col-md-12">
+      <div class="col-md-7 text-light">
         <li>Do not use aggressive words</li>
       </div>
      </div>
-     <div class="row justify-content-center pb-3">
-      <div class="col-md-12">
+     <div class="row justify-content-center pb-5">
+      <div class="col-md-7 text-light">
         <li>No hate speech / no racisms are allowed</li>
       </div>
      </div>

@@ -29,10 +29,16 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 ja:
+  flash_notice: 
+    event:
+      create: "イベントができました。"
+      update: "イベントのないようが かわりました"
+      destroy: "イベントがなくなりました"
+    tag:
+      create: "タグが作成できました。"
   flash_alert:
     tag:
-      success: "タグが作成できました。"
-      failed: "タグのなまえが必要です。"
+      create: "タグのなまえが必要です。"
   activerecord:
     errors:
       models:
@@ -105,30 +111,57 @@ ja:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
   public:
+    users:
+      show:
+        page_title: のプロフィール
+        introduction: しょうかい
+        edit_button: かえる
+        click_here_bookmark: ここ
+        bookmark_problems_link: から お気に入りの ポストを みよう
+        click_here_events: ここ
+        events_link: から さんかした イベントを みよう
+        posts_title: のポスト
+        posts_title1: ポストの なまえ
+        posts_caption: せつめい
+        events_title: のイベント
+        events_title1: イベントの なまえ
+        events_caption: せつめい
     events:
       new:
         page_title: イベントをつくる
-        page_title1: たのしいイベントをつくろう！
-        page_title2: 日本でのおもいでを、なかまと！
-        event_name: イベントのなまえ
-        event_caption: イベントのせつめい
+        page_title1: たのしい イベントを つくろう！
+        page_title2: 日本での おもいでを、なかまと！
+        event_name: イベントの なまえ
+        event_caption: イベントの せつめい
         create_button: つくる
       index:
-        flash: イベントをつくることが できました！
+        flash: イベントを つくることが できました！
         page_title: イベント
-        page_title2: たのしいイベントをつくろう!
-        page_title3: 日本でのおもいでを、なかまと！
-        created_by: つくったひと
+        page_title2: たのしい イベントをつくろう!
+        page_title3: 日本での おもいでを、なかまと！
+        created_by: つくった ひと
         title: なまえ
         caption: せつめい
         joined_members: さんかしゃ
         join_status: さんか
         click_here: ここ
-        new_event_link: からあたらしいイベントをつくろう!
+        new_event_link: から あたらしい イベントを つくろう!
       show:
-        page_title: イベントについて
-        page_title1: どんなイベントか、みてみよう!
-        page_title2: 「さんか」ボタンをおして、さんかしてみよう！
-        created_by: つくったひと
+        page_title: イベントに ついて
+        page_title1: どんな イベントか、みてみよう!
+        page_title2: 「さんか」ボタンを おして、さんか してみよう！
+        created_by: つくった ひと
+        edit: かえる
+        delete: けす
+        join_member: さんかする ひと
+      edit:
+        page_title: イベントの ないようを かえる
+        page_title1: くわしく かこう
+        page_title2: ひづけ、ばしょ、スケジュールをかこう
+        event_name: イベントの なまえ
+        event_caption: イベントの せつめい
+        update_button: かえる
+        
+      
         
       

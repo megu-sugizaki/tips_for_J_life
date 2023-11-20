@@ -33,7 +33,7 @@ class Public::ProblemsController < ApplicationController
   
   def index
     @problem_new = Problem.new
-    @problems = Problem.page(params[:page])
+    @problems = Problem.page(params[:page]).order(created_at: :desc)
     # M:To create new tag
     @problem_tag = ProblemTag.new
     # M:To create problem tag select box

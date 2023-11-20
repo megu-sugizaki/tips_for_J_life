@@ -4,7 +4,7 @@ class Public::EventsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
     
   def index
-    @events = Event.page(params[:page])
+    @events = Event.page(params[:page]).order(created_at: :desc)
   end 
   
   def show
@@ -19,7 +19,7 @@ class Public::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.owner_id = current_user.id
     if @event.save
-      flash[:notice] = "You have created an event successfully"
+      flash[:notice] = I18n.t("flash_notice.event.create")
       redirect_to events_path
     else
       render 'new'
@@ -33,7 +33,8 @@ class Public::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to events_path
+      flash[:notice] = I18n.t("flash_notice.event.update")
+      redirect_to event_path(@event)
     else
       render 'edit'
     end 
@@ -43,7 +44,7 @@ class Public::EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
-    flash[:notice] = "You have deleted your event successfully"
+    flash[:notice] = I18n.t("flash_notice.event.destroy")
     redirect_to events_path
   end 
   
