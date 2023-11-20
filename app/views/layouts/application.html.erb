@@ -18,12 +18,14 @@
       <header>
         <%= render 'layouts/header' %>
       </header>
-      
-      
       <%= yield %>
-      
       <footer>
       </footer>
+      <span id="back">
+        <a href="#top" class="scroll-top-btn">
+          <i class="fas fa-chevron-circle-up" data-toggle=tooltip data-placement="bottom" title="トップへ移動"></i>
+        </a>
+      </span>
     </div>
   </body>
 </html>

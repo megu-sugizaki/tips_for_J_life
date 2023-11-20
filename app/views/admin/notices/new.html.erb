@@ -1,38 +1,36 @@
-<!--M: Indent fixed-->
+<!--M:Indent fixed-->
 <div class="container-fluid">
   <div class="row justify-content-center px-3">
-    <%= render 'layouts/errors', obj: @event %>
+    <%= render 'layouts/errors', obj: @notice %>
   </div>
 </div>
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
     <div class="col-md-6 text-center">
-      <h3>*<%= t(".page_title") %>*</h3>
-      <h6 class="pt-3"><%= t(".page_title1") %></h6>
-      <h6><%= t(".page_title2") %></h6>
+      <h3>*Create a notice*</h3>
     </div>
   </div> 
-  <%= form_with model: @event, local: true do |f| %>
+  <%= form_with model: @notice, local: true do |f| %>
     <div class="row justify-content-center">
-      <div class="col-md-5">
+      <div class="col-md-4 justify-content-center">
         <table> 
           <tr>
             <div class="form-group">
-              <th class="pr-3 pb-3"><%= t(".event_name") %></th>
+              <th class="pr-3 pb-3">Title</th>
               <td class="pb-3"><%= f.text_field :title, class: 'form-control' %></td>
             </div>
           </tr>
           <tr>
             <div class="form-group">
-              <th class="pr-3"><%= t(".event_caption") %></th>
-              <td><%= f.text_area :caption, class: 'form-control' %></td>
+              <th class="pr-3">Detail</th>
+              <td><%= f.text_area :detail, class: 'form-control' %></td>
             </div>
           </tr>
         </table> 
       </div>
     </div>
     <div class="row justify-content-center pt-3">
-      <%= f.submit t(".create_button"), class: 'btn btn-info' %>
+      <%= f.submit "Create", class: 'btn btn-info' %>
     </div>
   <% end %>
 </div>

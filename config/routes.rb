@@ -57,6 +57,7 @@ Rails.application.routes.draw do
       get :join
       delete :destroy_user
     end
+    resources :notices, only:[:show]
   end
   
   ########## admin
@@ -70,6 +71,7 @@ Rails.application.routes.draw do
     end
     resources :events, only: [:index, :show, :destroy]
     resources :problem_tags, only:[:index, :destroy]
+    resources :notices, only:[:new, :create, :index, :show, :destroy]
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

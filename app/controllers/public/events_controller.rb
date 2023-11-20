@@ -4,7 +4,7 @@ class Public::EventsController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
     
   def index
-    @events = Event.all
+    @events = Event.page(params[:page])
   end 
   
   def show

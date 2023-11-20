@@ -84,6 +84,9 @@
             <% end %>
           </table>
         </div>
+        <div class="row justify-content-center py-2">
+          <%= paginate @problems %>
+        </div>
       </div>
     </div>
     <div class="col-md-5 justify-content-center">
@@ -109,8 +112,11 @@
           <% end %>
         </table>
       </div>
+      <div class="row justify-content center">
+          <%= paginate @events %>
+      </div>
     </div>
-    <div class="col^md-1"></div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 <!--M:link to the bookmarked problems by other users-->

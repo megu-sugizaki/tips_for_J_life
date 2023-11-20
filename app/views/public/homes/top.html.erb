@@ -11,6 +11,15 @@
     <h2>Tips for J Life</h2>
     </div>
   </div>
+  <div class="row scroll">
+    <div class="col-md-10">
+      <% @notices.each do |notice| %>
+        <u><%= link_to notice.title, notice_path(notice), class:"text-dark" %></u> 
+        <%= notice.detail %>
+        <%= notice.created_at.strftime('%Y/%m/%d') %>
+      <% end %>
+    </div>
+  </div>
   
     <div class="pb-3 row justify-content-center">
       <h5>Feeling difficulty and confused to living in Japan?</h5>

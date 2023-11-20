@@ -3,7 +3,7 @@ class Admin::ProblemsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @problems = Problem.all
+    @problems = Problem.page(params[:page])
   end 
   
   def show

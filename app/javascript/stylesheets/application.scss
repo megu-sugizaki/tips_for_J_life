@@ -73,3 +73,41 @@ label {
   border: 0;
 }
 
+// To scroll notice lists
+.scroll {
+  height: 300px;
+  width: 500px;
+  overflow-y: scroll;
+}
+
+// M:Parent factor to go back to the top
+#back {
+  // M:Fix the position on screen
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+// M:Button class to go back to the top
+.scroll-top-btn {
+  // M:To hide at the initial setting
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  // M:To show the button front to the others
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  color: black;
+  // M:To change the mouse cursor to pointer
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+// M:To designate the style with the mouse on the button
+.scroll-top-btn:hover {
+  background-color: #555;
+  color: white;
+}

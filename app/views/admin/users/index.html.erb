@@ -12,35 +12,38 @@
   </div>
   
   <div class="row justify-content-center">
-  <div class="col-md-7">
-    <div class="row my-4 justify-content-center align-items-center border-bottom">
-        <div class="col-md-2 mt-3">Profile Image</div>
-        <div class="col-md-4 mt-3">User Name</div>
-        <div class="col-md-3 mt-3">User Status</div>
-        <div class="col-md-3 mt-3">Remove User</div>
+    <div class="col-md-7">
+      <div class="row my-4 justify-content-center align-items-center border-bottom">
+          <div class="col-md-2 mt-3">Profile Image</div>
+          <div class="col-md-4 mt-3">User Name</div>
+          <div class="col-md-3 mt-3">User Status</div>
+          <div class="col-md-3 mt-3">Remove User</div>
+      </div>
+      <% @users.each do |user| %>
+          <div class="row py-2 justify-content-center border-bottom align-items-center">
+            <div class="col-md-2">
+              <%= image_tag user.get_profile_image(50, 50) %>
+            </div>
+            <div class="col-md-4">
+              <%=link_to user.first_name + " " + user.last_name, admin_user_path(user.id) %>
+            </div>
+            <div class="col-md-3">
+              <% if user.is_active? %>
+                <div class="text-success font-weight-bold">Active</div>
+              <% else %>
+                <div class="text-muted font-weight-bold">Removed</div>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+               <% if user.is_active? %>
+                 <%= link_to "Remove user", admin_user_path(user), method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "Sure to remove this user?" }  %>
+               <% end %>
+            </div>
+          </div>
+      <% end %>
     </div>
-    <% @users.each do |user| %>
-        <div class="row py-2 justify-content-center border-bottom align-items-center">
-          <div class="col-md-2">
-            <%= image_tag user.get_profile_image(50, 50) %>
-          </div>
-          <div class="col-md-4">
-            <%=link_to user.first_name + " " + user.last_name, admin_user_path(user.id) %>
-          </div>
-          <div class="col-md-3">
-            <% if user.is_active? %>
-              <div class="text-success font-weight-bold">Active</div>
-            <% else %>
-              <div class="text-muted font-weight-bold">Removed</div>
-            <% end %>
-          </div>
-          <div class="col-md-3">
-             <% if user.is_active? %>
-               <%= link_to "Remove user", admin_user_path(user), method: :patch, :class => "btn btn-danger ms-3", data: { confirm: "Sure to remove this user?" }  %>
-             <% end %>
-          </div>
-        </div>
-    <% end %>
   </div>
+  <div class="row justify-content-center py-2">
+    <%= paginate @users %>
   </div>
 </div>

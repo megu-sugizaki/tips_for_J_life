@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-6 text-center">
+      <h3>*Notice details*</h3>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-md-4 text-center">
+      <h4><u><%= @notice.title %></u></h4>
+    </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col-md-4 border rounded">
+      <%= simple_format(@notice.detail) %>
+    </div>
+  </div>
+</div>
