@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :problem_comments, dependent: :destroy
   has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
-  has_many :my_events, class_name: 'Event', foreign_key: "owner_id"
+  has_many :my_events, class_name: 'Event', foreign_key: "owner_id", dependent: :destroy
   
   has_one_attached :profile_image
   
