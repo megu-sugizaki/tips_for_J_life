@@ -37,9 +37,14 @@
           <%= t(".images") %>:
         </u>
       </div>
-      <div class="row">
+      <div class="row cols-3">
         <% @problem.problem_images.each do |problem_image| %>
-          <%= image_tag(problem_image.variant(resize_to_limit: [50, 50]).processed) %>
+          <div class="col-md-4 px-1 py-1">
+            <!--M:ref:https://qiita.com/weeksmtwtfs737/items/a814c305764b2d664e88 -->
+            <%= link_to problem_image, "data-lightbox": problem_image do %>
+              <%= image_tag(problem_image.variant(resize_to_limit: [100, 100]).processed, class:"img") %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
