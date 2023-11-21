@@ -50,22 +50,28 @@ ja:
   activerecord:
     errors:
       models:
-        event:
-          attributes:
-            title:
-              blank: "がありません"
-            caption:
-              blank: "がありません"
         user:
           attributes:
             first_name:
               blank: "がありません"
             last_name:
               blank: "がありません"
+        problem:
+          attributes:
+            title:
+              blank: がありません
+            caption:
+              blank: がありません
         problem_tag:
           attributes:
             name:
-              blank: "がありません"
+              blank: がありません
+        event:
+          attributes:
+            title:
+              blank: がありません
+            caption:
+              blank: がありません
   devise:
     confirmations:
       confirmed: "メールアドレスが かくにん できました"

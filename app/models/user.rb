@@ -29,7 +29,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.first_name = "guestuser"
-      user.last_name = ""
+      user.last_name = "!"
       user.middle_name = ""
     end
   end

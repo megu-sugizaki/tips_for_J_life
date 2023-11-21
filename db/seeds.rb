@@ -97,7 +97,7 @@ bh_problems_array = [
   bh_problems_array.each do |problem|
     problem = Problem.create!(
       user_id: rand(1..10),
-      title: "Need help for #{problem}",
+      title: "Help! I want to #{problem}",
       caption: "I don't know how to #{problem}. Would you give me some advice?"
     )
     problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/bh_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
@@ -202,18 +202,36 @@ AssociationProblemTag.create!(
 )
     
 ########################### Event
-# events_array = [
-#     'takoyaki',
-#     'okonomiyaki',
-#     'momiji',
-#     'tanabata',
-# ]
 
-# events_array.each do |event|
-# Event.create!(
-#   user_id: rand(0..44),
-#   owner_id: rand(0..44),
-#   title: event,
-#   caption: "Let's enjoy #{event} together!"
-# )
-# end
+events_array = [
+    'takoyaki party',
+    'momiji hunting',
+    'join sports day',
+    'hanami',
+    'language club',
+]
+
+events_array.each do |event|
+  event = Event.create!(
+    user_id: rand(1..30),
+    owner_id: rand(1..30),
+    title: "Let's go #{event}",
+    caption: "We would like to gather people to go #{event}. Come join and we'll have fun together!"
+  )
+end
+
+########################### Notice
+notices_array = [
+    'an earthquake',
+    'immigration rule change',
+    'typhoon',
+    'flood',
+    'movie extra recruit',
+]
+
+notices_array.each do |notice|
+  notice = Notice.create!(
+    title: "About #{notice}",
+    detail: "We got a news about #{notice}. We will keep you updated about it. Do not miss the latest update! Contact if you have any concerns."
+  )
+end

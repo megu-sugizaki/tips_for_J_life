@@ -21,7 +21,7 @@ class Public::ProblemsController < ApplicationController
   def create
     @problem_new = Problem.new(problem_params)
     @problem_new.user_id = current_user.id
-    @problems = Problem.all
+    @problems = Problem.page(params[:page]).order(created_at: :desc)
     if @problem_new.save
       flash[:notice] = I18n.t("flash_notice.problem.create")
       redirect_to problem_path(@problem_new.id)
