@@ -114,6 +114,25 @@ en:
         posted_by: Posted by
         title: Title
         caption: Caption
+      show:
+        page_title: Problem details
+        title: Title
+        caption: Caption
+        images: Images
+        posted_by: Posted by
+        tags: Tags
+        comments: Comments
+        bookmarks: Bookmarks
+        bookmark_post: Bookmark this post
+        edit_button: Edit
+        delete_button: Delete
+      edit:
+        page_title: Edit your post
+        page_title1: Update your post!
+        page_title2: More details help the buddies give you comments!
+    problem_comments:
+      problem_comments:
+        post_button: Post
     events:
       new:
         page_title: Create an event

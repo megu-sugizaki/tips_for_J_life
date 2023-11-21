@@ -191,6 +191,24 @@ ja:
         posted_by: つくった ひと
         title: ポストの なまえ
         caption: せつめい
+      show:
+        page_title: こまっている ことの ポスト
+        title: ポストの なまえ
+        caption: せつめい
+        images: しゃしん
+        posted_by: つくった ひと
+        tags: タグ
+        comments: コメント
+        bookmarks: おきにいり
+        bookmark_post: ポストを おきにいり
+        edit_button: かえる
+        delete_button: けす
+      edit:
+        page_title: ポストを かえる
+        page_title1: ポストをかえよう！
+    problem_comments:
+      problem_comments:
+        post_button: つくる
     events:
       new:
         page_title: イベントをつくる
@@ -212,7 +230,7 @@ ja:
         click_here: ここ
         new_event_link: から あたらしい イベントを つくろう!
       show:
-        page_title: イベントに ついて
+        page_title: イベント
         page_title1: どんな イベントか、みてみよう!
         page_title2: 「さんか」ボタンを おして、さんか してみよう！
         created_by: つくった ひと

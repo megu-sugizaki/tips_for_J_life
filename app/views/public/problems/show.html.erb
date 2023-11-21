@@ -6,15 +6,15 @@
 </div>
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
-    <div class="col-md-3 text-center">
-      <h3>*Problem Details*</h3>
+    <div class="col-md-5 text-center">
+      <h3>*<%= t(".page_title") %>*</h3>
     </div>
   </div> 
   <div class="row justify-content-center mb-3">
     <div class="border rounded col-md-4 px-4" >
       <div class="row">
         <div class="pt-2">
-          <u>Problem title:</u>
+          <u><%= t(".title") %>:</u>
         </div>
       </div>
       <div class="row">
@@ -24,7 +24,7 @@
       </div>
       <div class="row">
         <u class="pt-2">
-          Problem caption:
+          <%= t(".caption") %>:
         </u>
       </div>
       <div class="row">
@@ -33,8 +33,8 @@
         </div>
       </div>
       <div class="row">
-        <u class="pt-2">
-          Images:
+        <u class="pt-2 pb-1">
+          <%= t(".images") %>:
         </u>
       </div>
       <div class="row">
@@ -49,7 +49,7 @@
       <table>
         <tr>
           <td class="pr-2">
-            Posted by:
+            <%= t(".posted_by") %>:
           </td>
           <td class="pr-3">
             <%= link_to @problem.user.first_name + " " + @problem.user.last_name, user_path(@problem.user.id) %>
@@ -66,7 +66,7 @@
       <table>
         <tr>
           <td class="pr-2 pr-2">
-            Tags:
+            <%= t(".tags") %>:
           </td>
           <td>
             <% @problem.problem_tags.each do |problem_tag| %>
@@ -82,7 +82,7 @@
       <table>
         <tr>
           <td class="pr-2">
-            Comments:
+            <%= t(".comments") %>
           </td>
           <td class="pr-3">
             <!--counting comments-->
@@ -99,7 +99,7 @@
       <table>
         <tr>
           <td class="pr-2">
-            Bookmarks:
+            <%= t(".bookmarks") %>:
           </td>
           <td class="pr-3">
             <!--counting comments-->
@@ -115,7 +115,7 @@
     <div class="col-md-4 py-2">
       <% unless current_user == @problem.user %>
         <div class="row justify-content-end">
-          <div class="col-md-6">Bookmark this post:</div>
+          <div class="col-md-6"><%= t(".bookmark_post") %>:</div>
           <div class="col-md-1">
             <%= render 'public/problems/bookmark_area', problem: @problem %>
           </div>
@@ -131,13 +131,13 @@
       <div class="row justify-content-center">
         <div class="col-md-4">
           <% if @user == current_user %>
-            <%= link_to "Edit Post", edit_problem_path(@problem), class:"btn btn-info btn-sm" %>
+            <%= link_to t(".edit_button"), edit_problem_path(@problem), class:"btn btn-info btn-sm" %>
           <% end %>
         </div>
         <div class="col-md-4">
           <% if @user == current_user %>
             <%#= link_to "Delete Post", problem_path(@problem), method: :delete, "data-confirm" => "Are you sure？" %>
-            <%= link_to "Delete Post", problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
+            <%= link_to t(".delete_button"), problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
           <% end %>
         </div>
       </div>

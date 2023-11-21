@@ -45,8 +45,7 @@
       <div class="row pl-3">
         <% if @user == current_user %>
           <p>
-            *Click
-            <u><%= link_to t(".click_here_events"), user_events_path(@user) %></u>
+            *<u><%= link_to t(".click_here_events"), user_events_path(@user) %></u>
             </br><%= t(".events_link") %> 
           </p>
         <% end %>
