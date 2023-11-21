@@ -33,12 +33,17 @@ en:
     user:
       update: You have successfully updated your profile
       destroy: Goodbye! See you in future, buddy!
+    problem:
+      create: You have posted problem successfully
+      update: You have updated your post successfully
+      destroy: You have destroyed your post successfully
     event:
       create: "You have successfully created an event"
       update: "You have successfully updated the event"
       destroy: "You have successfully destroyed the event"
     tag:
       create: "You have successfully created a new tag"
+      update: "You have successfully updated tag name"
   flash_alert:
     tag:
       create: "You need to insert tag name"
@@ -46,6 +51,24 @@ en:
     errors:
       error: errors have occurred
   public:
+    homes:
+      top:
+        news: News
+        text1: Feeling difficulty and confused living in Japan?
+        text2: Bored on weekends?
+        text3: Get tips to make your life here easier and fun!
+        text4: If you sign up, you may...
+        text5: post your problems, get some tips from other buddies
+        text6: give some advice to buddies in trouble
+        text7: make events to get people to enjoy together
+        text8: seek for events and join
+        text9: Sign up and start having a fun J life!
+        text10: Also, please note...
+        text11: 3 simple rules here!
+        text12: We have a lot of people from different backgrounds.
+        text13: Appreciates the difference
+        text14: Do not use aggressive words
+        text15: No hate speech/ no racisms are allowed
     users:
       show:
         page_title: "'s profile"
@@ -96,7 +119,9 @@ en:
         post_text1: Post your problen, get some help from buddies!
         post_text2: By sharing your problem, you help other buddies with same problem too!
         title: Title
+        title_placeholder: Title
         caption: Caption
+        caption_placeholder: Describe the details of your problem
         image: Image
         choose_file: Choose file
         no_file: File not chosen
@@ -130,9 +155,29 @@ en:
         page_title: Edit your post
         page_title1: Update your post!
         page_title2: More details help the buddies give you comments!
+        title: Title
+        caption: Caption
+        images: Images
+        choose_file: Choose file
+        no_file: File not chosen
+        tags: Tags
+        update_button: Update
+      search:
+        key_placeholder: Insert keywords
+        search_button: Search
     problem_comments:
       problem_comments:
         post_button: Post
+    problem_tags:
+      index:
+        page_title_new_tag: Create a new tag!
+        page_title_new_tag2: Create the best match tag with your post!
+        create_button: Create
+        page_title_tags: Tags
+        edit_button: Edit
+      edit:
+        page_title: Edit tag
+        update_button: Update
     events:
       new:
         page_title: Create an event

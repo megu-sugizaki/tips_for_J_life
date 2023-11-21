@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   scope module: :public do
     
     get 'about' => 'homes#about', as: 'about'
+    get 'about_japanese' => 'homes#about_japanese', as: 'about_japanese'
     get 'users/:id/my_page' => 'users#show', as: 'user'
     get 'users/information_edit/:id' => 'users#edit', as: 'users_information_edit'
     patch 'users/information/:id' => 'users#update', as: 'users_information'

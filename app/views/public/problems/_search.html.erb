@@ -1,25 +1,23 @@
+<!--M:Indent fixed-->
 <div class="d-flex justify-content-center">
   <!--M:To create the search form-->
   <%= form_with url: problems_path, method: :get, local: true, class: 'boards__searchForm' do |f|%>
     <div class="input-group pb-3 pt-2">
-      <%= f.text_field :keyword, value: keyword, class: "form-control search-control", placeholder: "Insert keyword" %>
-      
+      <%= f.text_field :keyword, value: keyword, class: "form-control search-control", placeholder: t(".key_placeholder") %>
         <!--M:designing the button-->
         <span class="input-group-btn input-group-append">
           <%= button_tag type: "search", class: "btn btn-secondary search-btn btn-sm" do %>
-            <i class="fas fa-search"></i>Search</submit>
+            <i class="fas fa-search"></i><%= t(".search_button") %></submit>
           <% end %>
         </span>
-        
     </div>
-
-      <!--M:To search by problem_tag-->
-      <%= select_tag :problem_tag_id,
-        options_from_collection_for_select(ProblemTag.all, :id, :name, params[:problem_tag_id]),
-          {
-            prompt: "Filter by tag",
-            onchange: "submit(this.form);"
-          }
-      %>
+    <!--M:To search by problem_tag-->
+    <%= select_tag :problem_tag_id,
+      options_from_collection_for_select(ProblemTag.all, :id, :name, params[:problem_tag_id]),
+        {
+          prompt: t(".filter_by_tag"),
+          onchange: "submit(this.form);"
+        }
+    %>
   <% end %>
 </div>

@@ -1,7 +1,12 @@
+<div class="container-fluid">
+  <div class="row justify-content-center px-3">
+    <%= render 'layouts/errors', obj: @problem_tag %>
+  </div>
+</div>
 <div class="container">
     <div class="row pt-5 pb-3 justify-content-center">  
         <div class="col-md-3 text-center">
-            <h3>*Edit tag*</h3>
+            <h3>*<%= t(".page_title") %>*</h3>
         </div>
     </div> 
     
@@ -11,7 +16,7 @@
                 <%= f.text_field :name %>
             </div>
             <div class="col-md-2 justify-content-center align-items-center">
-                <%= f.submit "Update tag name", class:"btn btn-info" %>
+                <%= f.submit t(".update_button"), class:"btn btn-info" %>
             </div>
         </div>
     <% end %>

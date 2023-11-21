@@ -15,13 +15,13 @@
             <th class="pb-2"><%= t(".title") %></th>
           </tr>
           <tr>
-            <td class="pb-2"><%= f.text_field :title, placeholder: "title" %></td>
+            <td class="pb-2"><%= f.text_field :title, placeholder: t(".title_placeholder") %></td>
           </tr>
           <tr>
             <th class="pb-2"><%= t(".caption") %></th>
           </tr>
           <tr>
-            <td class="pb-2"><%= f.text_area :caption, placeholder: "Descrive your problem here" %></td>
+            <td class="pb-2"><%= f.text_area :caption, placeholder: t(".caption_placeholder") %></td>
           </tr>
           <tr>
             <th class="pb-2"><%= t(".image") %></th>
@@ -81,4 +81,3 @@
 <!--M:Description below is easier & faster-->
 <%#= f.collection_select :problem_tag_id, ProblemTag.all, :id, :name, {include_blank: "--Choose tags!--"} %>
 <!-- M:changed to checkboxes to select multiple tags-->
-

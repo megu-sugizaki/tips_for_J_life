@@ -17,29 +17,31 @@
             <%= form_with model: @problem do |f| %>
               <table>
                   <tr>
-                      <th class="pb-2">Title</th>
+                      <th class="pb-2"><%= t(".title") %></th>
                   </tr>
                   <tr>
                       <td class="pb-2"><%= f.text_field :title %></td>
                   </tr>
                   <tr>
-                      <th class="pb-2">Caption</th>
+                      <th class="pb-2"><%= t(".caption") %></th>
                   </tr>
                   <tr>
                       <td class="pb-2"><%= f.text_area :caption %></td>
                   </tr>
                   <tr>
-                      <th class="pb-2">Image</th>
+                      <th class="pb-2"><%= t(".images") %></th>
                   </tr>
                   <tr>
                       <td>
                           <label>
-                              <input type="file" name="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
+                            <%= t(".choose_file") %>
+                            <%= f.file_field :problem_images, multiple: true, class: 'form-control', id: 'fileBox'%>
                           </label>
+                          <p id="fileBoxName"><%= t(".no_file") %></p>
                       </td>
                   </tr>
                   <tr>
-                      <th class="pb-2">Tags</th>
+                      <th class="pb-2"><%= t(".tags") %></th>
                   </tr>
                   <tr>
                       <td class="pb-2">
@@ -51,7 +53,7 @@
                   </tr>
               </table>
               <div class="row justify-content-center py-3">
-                  <%= f.submit "Update your post", class:"btn btn-info" %>
+                  <%= f.submit t(".update_button"), class:"btn btn-info" %>
               </div>
             <% end %>
         </div>

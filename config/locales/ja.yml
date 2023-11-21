@@ -31,17 +31,22 @@
 ja:
   flash_notice:
     user:
-      update: じこしょうかいが かわりました。
-      destroy: さようなら！また いつか きてくださいね。
+      update: じこしょうかいが かわりました
+      destroy: さようなら！また いつか きてくださいね
+    problem:
+      create: ポストが できました
+      update: ポストの ないようが かわりました
+      destroy: ポストが なくなりました
     event:
-      create: "イベントができました。"
-      update: "イベントのないようが かわりました"
-      destroy: "イベントがなくなりました"
+      create: "イベントが できました"
+      update: "イベントが かわりました"
+      destroy: "イベントが なくなりました"
     tag:
-      create: "タグが作成できました。"
+      create: "タグが できました"
+      update: タグが かわりました
   flash_alert:
     tag:
-      create: "タグのなまえが必要です。"
+      create: "タグの なまえが ありません"
   activerecord:
     errors:
       models:
@@ -57,19 +62,23 @@ ja:
               blank: "がありません"
             last_name:
               blank: "がありません"
+        problem_tag:
+          attributes:
+            name:
+              blank: "がありません"
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
+      confirmed: "メールアドレスが かくにん できました"
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
+      already_authenticated: "すでに ログイン しています"
+      inactive: "アカウントが うごいて いません"
+      invalid: "%{authentication_keys} か、パスワードが まちがって います"
+      locked: "アカウントが ロック されました"
+      last_attempt: "あと 1かいで アカウントを ロックします"
+      not_found_in_database: "%{authentication_keys}か、パスワードが まちがって います"
+      timeout: "じかんぎれ です。つづけるには ログインして ください"
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
@@ -102,27 +111,45 @@ ja:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "ログイン しました"
+      signed_out: "ログアウト しました."
+      already_signed_out: "ログアウト しました"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      unlocked: "アカウントの ロックが はずれました。 ログインできます"
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: "は かくてい しました。とうろくを してください"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      expired: "はうごきません, もういちど リクエスト して ください"
+      not_found: "は みつかりません"
+      not_locked: "は ロックが かかって いません"
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: "1こ まちがって いて %{resource} がほぞん されません:"
+        other: "%{count} この まちがいがあって %{resource} がほぞん されません:"
   layouts:
     errors:
       error: この まちがい
   public:
+    homes:
+      top:
+        news: おしらせ
+        text1: にほんに すむのは たいへん ですか？
+        text2: しゅうまつが たのしくない ですか？
+        text3: ヒントを もらって にほんで たのしく すごそう！
+        text4: とうろく すると、こんなことが できます
+        text5: こまっている ことを ポストし、アドバイスを もらう
+        text6: こまっている ひとに アドバイスを する
+        text7: イベントを つくって さんかしゃを あつめる
+        text8: イベントに さんかして たのしむ
+        text9: とうろくして たのしい Jライフを おくろう！
+        text10: つかう まえに…
+        text11: 3つの かんたんな ルールが あります
+        text12: いろんな くにの ひとたちが つかうから
+        text13: それぞれの ちがいを みとめよう
+        text14: らんぼうな ことばは だめです
+        text15: わるぐちや さべつも だめです
     users:
       show:
         page_title: のじこしょうかい
@@ -173,7 +200,9 @@ ja:
         post_text1: こまっていることを ポストして たすけてもらおう！
         post_text2: おなじ もんだいを もっている ひとの たすけに なろう！
         title: ポストの なまえ
+        title_placeholder: ポストの なまえ
         caption: せつめい
+        caption_placeholder: こまっている ことを かこう
         image: しゃしん
         choose_file: しゃしんを えらぶ
         no_file: しゃしんが ありません
@@ -206,9 +235,31 @@ ja:
       edit:
         page_title: ポストを かえる
         page_title1: ポストをかえよう！
+        page_title2: くわしく かくと、コメントが もらいやすく なります
+        title: ポストの なまえ
+        caption: せつめい
+        images: しゃしん
+        choose_file: しゃしんを えらぶ
+        no_file: しゃしんが ありません
+        tags: タグ
+        update_button: かえる
+      search:
+        key_placeholder: キーワードを どうぞ
+        search_button: さがす
+        filter_by_tag: タグで さがす
     problem_comments:
       problem_comments:
         post_button: つくる
+    problem_tags:
+      index:
+        page_title_new_tag: タグを つくる
+        page_title_new_tag2: ぴったりな タグを つくろう!
+        create_button: つくる
+        page_title_tags: タグ
+        edit_button: かえる
+      edit:
+        page_title: タグを かえる
+        update_button: かえる
     events:
       new:
         page_title: イベントをつくる

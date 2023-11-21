@@ -23,7 +23,7 @@ class Public::ProblemsController < ApplicationController
     @problem_new.user_id = current_user.id
     @problems = Problem.all
     if @problem_new.save
-      flash[:notice] = "You have posted problem successfully"
+      flash[:notice] = I18n.t("flash_notice.problem.create")
       redirect_to problem_path(@problem_new.id)
     else
       flash.now[:notice]
@@ -77,7 +77,7 @@ class Public::ProblemsController < ApplicationController
     @problem = Problem.find(params[:id])
     @problem.user_id = current_user.id
     if @problem.update(problem_params)
-      flash[:notice] = "You have updated your post successfully."
+      flash[:notice] = I18n.t("flash_notice.problem.update")
       redirect_to problem_path(@problem.id)
     else 
       flash.now[:notice]
@@ -88,7 +88,7 @@ class Public::ProblemsController < ApplicationController
   def destroy
     problem = Problem.find(params[:id])
     problem.destroy
-    flash[:notice] = "You have deleted your post successfully."
+    flash[:notice] = I18n.t("flash_notice.problem.destroy")
     redirect_to problems_path
   end 
   # def bookmarks

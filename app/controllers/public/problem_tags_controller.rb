@@ -26,9 +26,8 @@ class Public::ProblemTagsController < ApplicationController
   def update
     @problem_tag = ProblemTag.find(params[:id])
     if @problem_tag.update(problem_tag_params)
-        redirect_to problem_tags_path, notice: "You have successfully updated tag name!"
+        redirect_to problem_tags_path, notice: I18n.t("flash_notice.tag.update")
     else
-        flash.now[:alert] = "Failed updating tag name"
         render :edit
     end
   end 

@@ -1,3 +1,8 @@
+<div class="container-fluid">
+  <div class="row text-center mx-1">
+    <div class="flash-message notice"><%= flash[:notice] %></div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
       <div class="col-md-5">
@@ -5,8 +10,8 @@
           </div>
           <div class="row pt-5 pb-3 justify-content-center">  
           <div class="col-md-6 text-center">
-            <h5>*Create a new tag*</h5>
-            <h6 class="pt-3">Create the best match tag with your post!</h6>
+            <h5>*<%= t(".page_title_new_tag") %>*</h5>
+            <h6 class="pt-3"><%= t(".page_title_new_tag2") %></h6>
           </div>
          </div>
          <%= form_with model: @problem_tag do |f| %>
@@ -14,14 +19,14 @@
             <%= f.text_field :name, placeholder: "business culture" %>
            </div>
            <div class="row justify-content-center pt-3">
-            <%= f.submit "Create", class:"btn btn-secondary" %>
+            <%= f.submit t(".create_button"), class:"btn btn-secondary" %>
            </div>
          <% end %>
       </div>
       <div class="col-md-3">
           <div class="row pt-5 pb-3">
-              <div class="col-md-4 text-center">
-                <h3>*Tags*</h3>
+              <div class="col-md-5 text-center">
+                <h3>*<%= t(".page_title_tags") %>*</h3>
               </div>
           </div>
             <% @problem_tags.each do |problem_tag| %>
@@ -33,7 +38,7 @@
                     <% if current_user == problem_tag.user %>
                       <!--M: No need to delete tag. Afraid of finding no tag_id on user's post after deleting tag.-->
                       <%#= link_to "Delete Tag", problem_tag_path(problem_tag), method: :delete %>
-                      <%= link_to "Edit Tag", edit_problem_tag_path(problem_tag), class:"btn btn-info btn-sm" %>
+                      <%= link_to t(".edit_button"), edit_problem_tag_path(problem_tag), class:"btn btn-info btn-sm" %>
                     <% end %>
                   </div>
                 </div>

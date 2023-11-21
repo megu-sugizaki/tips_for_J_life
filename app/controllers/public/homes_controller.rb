@@ -6,4 +6,7 @@ class Public::HomesController < ApplicationController
   
   def about
   end 
+  
+  def about_japanese 
+  end
 end
