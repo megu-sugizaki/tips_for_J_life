@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
       <div class="col-md-6 text-center">
-        <h3>*<%= @user.full_name %>'s bookmarked posts*</h3>
+        <h3>*<%= @user.full_name %><%= t(".page_title") %>*</h3>
       </div>
   </div>
   
   <div class="row justify-content-center">
       <div class="col-md-8">
           <div class="row py-2 justify-content-center border-bottom align-items-center">
-              <div class="col-md-3 mt-3">Created by</div>
-              <div class="col-md-3 mt-3">Title</div>
-              <div class="col-md-4 mt-3">Caption</div>
+              <div class="col-md-3 mt-3"><%= t(".created_by") %></div>
+              <div class="col-md-3 mt-3"><%= t(".title") %></div>
+              <div class="col-md-4 mt-3"><%= t(".caption") %></div>
           </div>
           <% @bookmark_problems.each do |bookmark_problem| %>
           <div class="row py-2 justify-content-center border-bottom align-items-center">

@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 en:
   flash_notice:
+    user:
+      update: You have successfully updated your profile
+      destroy: Goodbye! See you in future, buddy!
     event:
       create: "You have successfully created an event"
       update: "You have successfully updated the event"
@@ -39,6 +42,9 @@ en:
   flash_alert:
     tag:
       create: "You need to insert tag name"
+  layouts:
+    errors:
+      error: errors have occurred
   public:
     users:
       show:
@@ -55,6 +61,59 @@ en:
         events_title: "'s events"
         events_title1: Title
         events_caption: Caption
+      edit:
+        page_title: Edit your profile
+        first_name: First name
+        middle_name: Middle name
+        last_name: Last name
+        introduction: Introduction
+        profile_image: Profile Photo
+        choose_file: Choose file
+        no_file: File not chosen
+        language: Website language
+        update_button: Update
+        delete_button: Delete
+      bookmark:
+        page_title: "'s bookmarked posts"
+        created_by: Created by
+        title: Title
+        caption: Caption
+      check:
+        confirmation: Are you sure you would like to delete your account?
+        check_text1: If you delete your account
+        check_text2: You and other users will not be able to see
+        check_text3: your whole posts and comments.
+        check_text4: Click the red button if you would still like to delete your account.
+        back_button: Back
+        delete_button: Delete
+      events:
+        page_title: Events you have joined
+        title: Title
+        caption: Caption
+    problems:
+      post_problem:
+        post_title: Post your problem
+        post_text1: Post your problen, get some help from buddies!
+        post_text2: By sharing your problem, you help other buddies with same problem too!
+        title: Title
+        caption: Caption
+        image: Image
+        choose_file: Choose file
+        no_file: File not chosen
+        tag_title: Tags
+        post_button: Post
+        no_tag_text: No tag matches your problem?
+        new_tag_text: Create a new tag!
+        create_button: Create
+        click_here: Click here
+        new_tag_link: to see tag lists!
+      index:
+        page_title: Problems
+        post_text: Help your buddies by giving them comments!
+      index_problem:
+        posted_by: Posted by
+        title: Title
+        caption: Caption
     events:
       new:
         page_title: Create an event

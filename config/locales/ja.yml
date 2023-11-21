@@ -29,7 +29,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 ja:
-  flash_notice: 
+  flash_notice:
+    user:
+      update: じこしょうかいが かわりました。
+      destroy: さようなら！また いつか きてくださいね。
     event:
       create: "イベントができました。"
       update: "イベントのないようが かわりました"
@@ -47,6 +50,12 @@ ja:
             title:
               blank: "がありません"
             caption:
+              blank: "がありません"
+        user:
+          attributes:
+            first_name:
+              blank: "がありません"
+            last_name:
               blank: "がありません"
   devise:
     confirmations:
@@ -110,14 +119,17 @@ ja:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  layouts:
+    errors:
+      error: この まちがい
   public:
     users:
       show:
-        page_title: のプロフィール
+        page_title: のじこしょうかい
         introduction: しょうかい
         edit_button: かえる
         click_here_bookmark: ここ
-        bookmark_problems_link: から お気に入りの ポストを みよう
+        bookmark_problems_link: から おきにいりの ポストを みよう
         click_here_events: ここ
         events_link: から さんかした イベントを みよう
         posts_title: のポスト
@@ -126,6 +138,59 @@ ja:
         events_title: のイベント
         events_title1: イベントの なまえ
         events_caption: せつめい
+      edit:
+        page_title: じこしょうかいを かえる
+        first_name: なまえ
+        middle_name: ミドルネーム
+        last_name: みょうじ
+        introduction: しょうかい
+        profile_image: じぶんの しゃしん
+        choose_file: しゃしんを えらぶ
+        no_file: しゃしんが ありません
+        language: ことば
+        update_button: かえる
+        delete_button: けす
+      bookmark:
+        page_title: のおきにいり ポスト
+        created_by: つくった ひと
+        title: ポストの なまえ
+        caption: せつめい
+      events:
+        page_title: さんかした イベント
+        title: イベントの なまえ
+        caption: せつめい
+      check:
+        confirmation: ほんとうに けしても いいですか？
+        check_text1: アカウントを けすと
+        check_text2: ほかのひとも
+        check_text3: あなたの ポストや コメントが みられません。
+        check_text4: よければ、あかい ボタンを おしてください。
+        back_button: もどる
+        delete_button: けす
+    problems:
+      post_problem:
+        post_title: ポストをつくろう
+        post_text1: こまっていることを ポストして たすけてもらおう！
+        post_text2: おなじ もんだいを もっている ひとの たすけに なろう！
+        title: ポストの なまえ
+        caption: せつめい
+        image: しゃしん
+        choose_file: しゃしんを えらぶ
+        no_file: しゃしんが ありません
+        tag_title: タグ
+        post_button: ポストする
+        no_tag_text: ぴったりの タグが ありませんか？
+        new_tag_text: あたらしい タグを つくろう！
+        create_button: つくる
+        click_here: ここ
+        new_tag_link: から タグリストを みよう！
+      index:
+        page_title: こまっている ことの ポスト
+        post_text: コメントを のこして こまっている ひとを たすけよう!
+      index_problem:
+        posted_by: つくった ひと
+        title: ポストの なまえ
+        caption: せつめい
     events:
       new:
         page_title: イベントをつくる
@@ -155,7 +220,7 @@ ja:
         delete: けす
         join_member: さんかする ひと
       edit:
-        page_title: イベントの ないようを かえる
+        page_title: イベントを かえる
         page_title1: くわしく かこう
         page_title2: ひづけ、ばしょ、スケジュールをかこう
         event_name: イベントの なまえ
