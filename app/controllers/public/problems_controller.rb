@@ -43,8 +43,9 @@ class Public::ProblemsController < ApplicationController
     # end 
     
     # M:Search box section. 
-    if params[:keyword] || params[:problem_tag_id]
-      @problems = @problems.search(params[:keyword], params[:problem_tag_id])
+    
+    if params[:keyword] || params[:problem_tag_id] || params[:is_going]
+      @problems = @problems.search(params[:keyword], params[:problem_tag_id], params[:is_going])
     end 
     @keyword = params[:keyword]
     

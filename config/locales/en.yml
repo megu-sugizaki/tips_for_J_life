@@ -180,6 +180,10 @@ en:
       search:
         key_placeholder: Insert keywords
         search_button: Search
+        filter_by_tag: Filter by tag
+        in_trouble: In trouble
+        solved: Solved
+        filter_by_status: Filter by status
     problem_comments:
       problem_comments:
         post_button: Post

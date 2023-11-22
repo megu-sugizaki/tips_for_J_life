@@ -274,6 +274,9 @@ ja:
         key_placeholder: キーワードを どうぞ
         search_button: さがす
         filter_by_tag: タグで さがす
+        in_trouble: そうだんちゅう
+        solved: かいけつ
+        filter_by_status: じょうたいで さがす
     problem_comments:
       problem_comments:
         post_button: つくる
