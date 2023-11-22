@@ -7,7 +7,7 @@
     <div class="col-md-2 align-items-center">
       <% if user_signed_in? && !request.fullpath.include?("/admin") %>
       <!--M:not allowed to see paths including "/admin" unless you logged in as admin-->
-        Welcome, <%= current_user.first_name %>！
+        <%= t(".welcome") %> <%= current_user.first_name %>！
       <% end %>
     </div>
           
@@ -25,10 +25,14 @@
           </div>
       <!--M:When signed in as a user-->
       <% elsif user_signed_in? %>
-        <div class="col-md-1 offset-2"><u><%= link_to "My page", user_path(current_user), class: "text-dark" %></u></div>
-        <div class="col-md-1"><u><%= link_to "Problems", problems_path, class: "text-dark" %></u></div>
-        <div class="col-md-1"><u><%= link_to "Events", events_path, class: "text-dark" %></u></div>
-        <div class="col-md-1"><u><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-dark" %></u></div>
+        <div class="col-md-1 offset-2">
+            <%= link_to user_path(current_user), class: "text-dark" do %>
+              <i class="fa-solid fa-user"></i>
+            <% end %>
+        </div>
+        <div class="col-md-1"><u><%= link_to t(".problems"), problems_path, class: "text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to t(".events"), events_path, class: "text-dark" %></u></div>
+        <div class="col-md-1"><u><%= link_to t(".log_out"), destroy_user_session_path, method: :delete, class: "text-dark" %></u></div>
         <div class="col-md-1">
           <%= link_to new_contact_path, class:"text-dark" do %>
             <i class="fa-regular fa-envelope"></i>

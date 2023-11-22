@@ -99,7 +99,7 @@ end
 
 private
   def problem_params
-    params.require(:problem).permit(:title, :caption, problem_tag_ids: [], problem_images: [])
+    params.require(:problem).permit(:title, :caption, :is_going, problem_tag_ids: [], problem_images: [])
   end 
   
   def is_matching_login_user

@@ -51,6 +51,17 @@
                           <% end %>
                       </td>
                   </tr>
+                  <tr>
+                    <th class="pb-2"><%= t(".status") %></th>
+                  </tr>
+                  <tr>
+                    <td class="pb-2">
+                      <%= f.radio_button :is_going, :true %>
+                      <%= t(".in_trouble") %>　
+                      <%= f.radio_button :is_going, :false %>
+                      <%= t(".solved") %>
+                    </td>
+                  </tr>
               </table>
               <div class="row justify-content-center py-3">
                   <%= f.submit t(".update_button"), class:"btn btn-info" %>

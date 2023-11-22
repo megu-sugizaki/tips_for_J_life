@@ -5,11 +5,18 @@
   </div>
 </div>
 <div class="container">
-  <div class="row pt-5 pb-3 justify-content-center">  
+  <div class="row pt-5 pb-2 justify-content-center">  
     <div class="col-md-5 text-center">
       <h3>*<%= t(".page_title") %>*</h3>
     </div>
   </div> 
+  <% if @problem.is_going == false %>
+  <div class="row justify-content-center mb-3 border-danger">
+    <div class="col-md-2 bg-danger border rounded text-white text-center pt-2">
+      <h4><%= t(".solved") %></h4>
+    </div>
+  </div>
+  <% end %>
   <div class="row justify-content-center mb-3">
     <div class="border rounded col-md-4 px-4" >
       <div class="row">

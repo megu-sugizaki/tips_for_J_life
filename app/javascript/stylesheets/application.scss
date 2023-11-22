@@ -50,7 +50,7 @@ input[type="file"] {
 }
 
 label {
-    padding: 10px 30px;
+    padding: 10px 15px;
     color: #000;
     background-color: #FFC7AF;
     cursor: pointer;
@@ -110,4 +110,21 @@ label {
 .scroll-top-btn:hover {
   background-color: #555;
   color: white;
+}
+
+/*M:Design of pagination*/
+.pagination>li>a {          
+  border: none;     /*M:no border*/
+  color: #696969;   /*M:Change letter color*/
+}
+
+/*M:Design of page number*/
+.pagination>.active>a {     
+  background: #93c9ff;     /*M:change bg color*/
+  border-radius: 15px;     /*M:border rounded*/
+}
+
+/*M:Design for hovering*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*M:border rounded*/
 }
