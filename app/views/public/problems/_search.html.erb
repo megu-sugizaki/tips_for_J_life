@@ -21,13 +21,11 @@
     %>
     <!--M:To search by is_going-->
     <%= select_tag :is_going,
-      options_for_select([[t(".in_trouble"), true], [t(".solved"), false]], params[:is_going]),
+      options_for_select([[t(".in_trouble"), 1], [t(".solved"), 0]], params[:is_going]),
         {
           prompt: t(".filter_by_status"),
           onchange: "submit(this.form);"
         }
     %>
   <% end %>
-  
-  
 </div>

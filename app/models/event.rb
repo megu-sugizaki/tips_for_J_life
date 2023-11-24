@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  # M:Indent fixed
   has_many :event_users
   has_many :users, through: :event_users
   belongs_to :owner, class_name: 'User'
@@ -9,5 +10,4 @@ class Event < ApplicationRecord
   def is_owned_by?(user)
     owner.id == user.id
   end 
-
 end

@@ -1,82 +1,77 @@
 <div class="container">
-    <div class="row pt-5 pb-3 justify-content-center">  
-        <div class="col-md-3 text-center">
-            <h3>*Problem Details*</h3>
-        </div>
-    </div> 
-    
-    <div class="row justify-content-center mb-3">
-        <div class="border rounded col-md-4 px-4" >
-            <div class="row">
-                <div class="pt-2">
-                    <u>Problem title:</u>
-                </div>
-            </div>
-            <div class="row">
-                <div class="pt-2">
-                    <h6><%= @problem.title %></h4>
-                </div>
-            </div>
-            
-            <div class="row">
-                <u class="pt-2">
-                  Problem caption:
-                </u>
-            </div>
-            <div class="row">
-                <div class="pt-2">
-                  <%= simple_format(@problem.caption) %>
-                </div>
-            </div>
-        </div>
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-3 text-center">
+      <h3>*Problem Details*</h3>
     </div>
+  </div> 
+  <div class="row justify-content-center mb-3">
+    <div class="border rounded col-md-4 px-4" >
+      <div class="row">
+        <div class="pt-2">
+          <u>Problem title:</u>
+        </div>
+      </div>
+      <div class="row">
+        <div class="pt-2">
+          <h6><%= @problem.title %></h4>
+        </div>
+      </div>
+      <div class="row">
+        <u class="pt-2">
+          Problem caption:
+        </u>
+      </div>
+      <div class="row">
+        <div class="pt-2">
+          <%= simple_format(@problem.caption) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom pb-2">
+      <table>
+        <tr>
+          <td class="pr-2">
+            Posted by:
+          </td>
+          <td class="pr-3">
+            <%= link_to @problem.user.full_name, admin_user_path(@problem.user.id) %>
+          </td>
+          <td>
+            <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [70, 70]).processed) %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom">
+      <table>
+        <tr>
+          <td class="pr-2">
+            Comments:
+          </td>
+          <td class="pr-3 py-1">
+            <!--M:counting comments-->
+            <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-center">
     <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom pb-2">
-            <table>
-                <tr>
-                  <td class="pr-2">
-                    Posted by:
-                  </td>
-                  <td class="pr-3">
-                    <%= link_to @problem.user.full_name, admin_user_path(@problem.user.id) %>
-                  </td>
-                  <td>
-                    <%= image_tag(@problem.user.profile_image.variant(resize_to_limit: [70, 70]).processed) %>
-                  </td>
-                </tr>
-            </table>
-        </div>
+      <div class="col-md-12 py-2">
+        <%#= link_to "Delete Post", problem_path(@problem), method: :delete, "data-confirm" => "Are you sure？" %>
+        <%= link_to "Delete Post", admin_problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
+      </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom">
-            <table>
-                <tr>
-                  <td class="pr-2">
-                    Comments:
-                  </td>
-                  <td class="pr-3 py-1">
-                    <!--counting comments-->
-                    <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
-                  </td>
-                </tr>
-            </table>
-        </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 border-bottom py-2">
+      <!--M:comments section-->
+      <%= render 'admin/problem_comments/problem_comments', problem:@problem, problem_comments:@problem_comments  %>
     </div>
-    <div class="row justify-content-center">
-        <div class="row justify-content-center">
-            <div class="col-md-12 py-2">
-                    <%#= link_to "Delete Post", problem_path(@problem), method: :delete, "data-confirm" => "Are you sure？" %>
-                    <%= link_to "Delete Post", admin_problem_path(@problem), method: :delete, class:"btn btn-danger btn-sm" %>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-4 border-bottom py-2">
-          <!--comments section-->
-          <%= render 'admin/problem_comments/problem_comments', problem:@problem, problem_comments:@problem_comments  %>
-        </div>
-    </div>
-
-
-
+  </div>
 </div>

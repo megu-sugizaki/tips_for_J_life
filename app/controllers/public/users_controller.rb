@@ -39,7 +39,7 @@ class Public::UsersController < ApplicationController
   
   def bookmark
     @user = User.find(params[:id])
-    # To find problems the user bookmarked
+    # M:To find problems the user bookmarked
     @bookmark_problems = @user.bookmark_problems
   end 
   # M:Not necessary?
@@ -51,14 +51,11 @@ class Public::UsersController < ApplicationController
   
   private
   def user_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :introduction, :profile_image, :locale)
+    params.require(:user).permit(:first_name, :middle_name, :last_name, :introduction, :profile_image, :locale)
   end 
     
   def ensure_guest_user
-    def guest_user
-      current_user.email == "guest@example.com"
-    end 
-    if current_user == guest_user
+    if current_user.id == 31
       redirect_to user_path(current_user) , notice: "Guest users may not move to edit"
     end
   end 

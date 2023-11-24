@@ -33,25 +33,25 @@
           </th>
         </tr>
         <% @events.each do |event| %>  
-      　<tr class="border-bottom">
-          <td class="col-md-3 py-1">
-            <%= event.owner.full_name %>
-          </td>
-          <td class="col-md-3 py-1">
-            <u><%= link_to event.title, event_path(event), class:'text-dark' %></u>
-          </td>
-          <td class="col-md-3 py-1">
-            <%= event.caption.truncate(35) %>
-          </td>
-          <td class="text-center">
-            <%= event.users.count %>
-          </td>
-          <td class="pl-3 pr-3">
-            <% if event.users.include?(current_user) %>
-              <div class="text-danger"><%= t(".join_status") %></div>
-            <% end %>
-          </td>
-        </tr>
+        　<tr class="border-bottom">
+            <td class="col-md-3 py-1">
+              <%= event.owner.full_name %>
+            </td>
+            <td class="col-md-3 py-1">
+              <u><%= link_to event.title, event_path(event), class:'text-dark' %></u>
+            </td>
+            <td class="col-md-3 py-1">
+              <%= event.caption.truncate(35) %>
+            </td>
+            <td class="text-center">
+              <%= event.users.count %>
+            </td>
+            <td class="pl-3 pr-3">
+              <% if event.users.include?(current_user) %>
+                <div class="text-danger"><%= t(".join_status") %></div>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </table>
     </div>

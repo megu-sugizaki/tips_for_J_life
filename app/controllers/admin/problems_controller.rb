@@ -20,6 +20,6 @@ class Admin::ProblemsController < ApplicationController
   
   private
   def problem_params
-      params.require(:problem).permit(:title, :caption)
+    params.require(:problem).permit(:title, :caption)
   end 
 end

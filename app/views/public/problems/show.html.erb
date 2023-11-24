@@ -11,11 +11,11 @@
     </div>
   </div> 
   <% if @problem.is_going == false %>
-  <div class="row justify-content-center mb-3 border-danger">
-    <div class="col-md-2 bg-danger border rounded text-white text-center pt-2">
-      <h4><%= t(".solved") %></h4>
+    <div class="row justify-content-center mb-3 border-danger">
+      <div class="col-md-2 bg-danger border rounded text-white text-center pt-2">
+        <h4><%= t(".solved") %></h4>
+      </div>
     </div>
-  </div>
   <% end %>
   <div class="row justify-content-center mb-3">
     <div class="border rounded col-md-4 px-4" >
@@ -97,7 +97,7 @@
             <%= t(".comments") %>
           </td>
           <td class="pr-3">
-            <!--counting comments-->
+            <!--M:counting comments-->
             <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
           </td>
           <td>
@@ -114,7 +114,7 @@
             <%= t(".bookmarks") %>:
           </td>
           <td class="pr-3">
-            <!--counting comments-->
+            <!--M:counting comments-->
             <%= render 'bookmarks_counts', problem: @problem %>
           </td>
           <td>
@@ -132,7 +132,7 @@
             <%= render 'public/problems/bookmark_area', problem: @problem %>
           </div>
           <div class="col-md-1">
-              <!--To make space right to the bookmark heart-->
+            <!--M:To make space right to the bookmark heart-->
           </div>
         </div>
       <% end %>
@@ -157,7 +157,7 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-md-4 border-bottom py-2">
-      <!--comments section-->
+      <!--M:comments section-->
       <%= render 'public/problem_comments/problem_comments', problem:@problem, problem_comment_new:@problem_comment  %>
     </div>
   </div>

@@ -7,7 +7,6 @@
         <h6>Make some friends to share memories in Japan! </h6>
       </div>
   </div>
-  
   <div class="row justify-content-center">
     <div class="col-md-3"></div>
     <div class="col-md-6">
@@ -20,20 +19,20 @@
             <th>Joined Members</th>
           </tr>
           <% @events.each do |event| %>  
-        　<tr class="border-bottom">
-            <td class="col-md-3 py-1">
-              <%= event.owner.full_name %>
-            </td>
-            <td class="col-md-3 py-1">
-              <u><%= link_to event.title, admin_event_path(event), class:'text-dark' %></u>
-            </td>
-            <td class="col-md-4 py-1">
-              <%= event.caption.truncate(35) %>
-            </td>
-            <td class="text-center py-1">
-              <%= event.users.count %>
-            </td>
-          </tr>
+          　<tr class="border-bottom">
+              <td class="col-md-3 py-1">
+                <%= event.owner.full_name %>
+              </td>
+              <td class="col-md-3 py-1">
+                <u><%= link_to event.title, admin_event_path(event), class:'text-dark' %></u>
+              </td>
+              <td class="col-md-4 py-1">
+                <%= event.caption.truncate(35) %>
+              </td>
+              <td class="text-center py-1">
+                <%= event.users.count %>
+              </td>
+            </tr>
           <% end %>
         </table>
       </div>

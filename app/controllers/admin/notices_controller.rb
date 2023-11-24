@@ -1,4 +1,5 @@
 class Admin::NoticesController < ApplicationController
+  # M:Indent fixed
   before_action :authenticate_admin!
     
   def new

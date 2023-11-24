@@ -46,6 +46,7 @@ class Public::ProblemsController < ApplicationController
     
     if params[:keyword] || params[:problem_tag_id] || params[:is_going]
       @problems = @problems.search(params[:keyword], params[:problem_tag_id], params[:is_going])
+      # binding.pry
     end 
     @keyword = params[:keyword]
     

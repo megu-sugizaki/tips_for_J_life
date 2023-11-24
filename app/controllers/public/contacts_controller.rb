@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  #M:Indent fixed
   def new
     @contact = Contact.new
   end

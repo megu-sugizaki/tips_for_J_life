@@ -2,23 +2,19 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
-  
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions",
     
   }
-  
   root 'public/homes#top'
-  
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
   
-  ########## public
+  ########## M:public
   scope module: :public do
-    
     get 'about' => 'homes#about', as: 'about'
     get 'about_japanese' => 'homes#about_japanese', as: 'about_japanese'
     get 'users/:id/my_page' => 'users#show', as: 'user'
@@ -39,7 +35,6 @@ Rails.application.routes.draw do
       get :events
       # resources :events, only: [:index], controller: :user_events
     end
-    
     resources :contacts, only: [:new, :create]
     resources :problems do
       resources :problem_comments, only: [:create, :update, :destroy]
@@ -50,7 +45,6 @@ Rails.application.routes.draw do
       # resources :bookmarks, only: [:create]
       # M:delete "bookmarks" => "bookmarks#destroy"←commented out because it has problems id, only bookmarks id is needed for destroy
     end
-    
     # delete 'problems/bookmarks/:id' => "bookmarks#destroy"
     # M:visibly easy if "bookmarks destroy" is nested under problems + only bookmarks id is needed
     resources :problem_tags, only: [:index, :create, :edit, :update, :destroy]
@@ -61,8 +55,7 @@ Rails.application.routes.draw do
     resources :notices, only:[:show]
   end
   
-  ########## admin
-  
+  ########## M:admin
   namespace :admin do
     get '/' => 'users#index', as: 'root'
     
@@ -74,6 +67,5 @@ Rails.application.routes.draw do
     resources :problem_tags, only:[:index, :destroy]
     resources :notices, only:[:new, :create, :index, :show, :destroy]
   end
-  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
