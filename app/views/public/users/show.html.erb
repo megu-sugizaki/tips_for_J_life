@@ -41,14 +41,14 @@
       <div class="row pl-3">
         <p>
           *<u><%= link_to t(".click_here_bookmark"), bookmark_problems_path(@user), class:"text-dark" %></u>
-          </br><%= t(".bookmark_problems_link") %> 
+          <%= t(".bookmark_problems_link") %> 
         </p>
       </div>
       <div class="row pl-3">
         <% if @user == current_user %>
           <p>
             *<u><%= link_to t(".click_here_events"), user_events_path(@user), class:"text-dark" %></u>
-            </br><%= t(".events_link") %> 
+            <%= t(".events_link") %> 
           </p>
         <% end %>
       </div>
