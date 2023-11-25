@@ -1,0 +1,50 @@
+<!--M:Indent fixed-->
+<div class="container-fluid">
+  <div class="row text-center mx-1">
+    <div class="flash-message notice"><%= flash[:notice] %></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-6 text-center">
+      <h3>*Notice Lists*</h3>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <table>
+        <tr class="border-bottom">
+          <th class="col-md-3  pb-1">
+            Title
+          </th>
+          <th class="col-md-3  pb-1">
+            Details
+          </th>
+          <th class="col-md-3  pb-1">
+            <!--M:Created at-->
+          </th>
+        </tr>
+        <% @notices.each do |notice| %>  
+        　<tr class="border-bottom">
+            <td class="col-md-3 py-1">
+              <u><%= link_to notice.title, admin_notice_path(notice), class:'text-dark' %></u>
+            </td>
+            <td class="col-md-3 py-1">
+              <%= notice.detail.truncate(30) %>
+            </td>
+            <td class="col-md-3 py-1">
+              <%= notice.created_at.strftime('%Y/%m/%d') %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <u><%= link_to "Create a notice", new_admin_notice_path, class:"text-dark" %></u>
+    </div>
+  </div>
+  <div class="row justify-content-center py-2">
+    <%= paginate @notices %>
+  </div>
+</div>

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row pt-5 pb-3 justify-content-center">  
     <div class="col-md-6 text-center">
-      <h3>*Events you have joined*</h3>
+      <h3>*<%= t(".page_title") %>*</h3>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -10,11 +10,11 @@
       <% @events.each do |event| %>
         <% if event.users.include?(current_user) %>
           <div class="row border-bottom justify-content-center pb-2">
-            <div class="col-md-4">Title</div>
-            <div class="col-md-7">Caption</div>
+            <div class="col-md-5"><%= t(".title") %></div>
+            <div class="col-md-7"><%= t(".caption") %></div>
           </div>
           <div class="row border-bottom justify-content-center py-2">
-           <div class="col-md-4"><u><%= link_to event.title, event_path(event), class:"text-dark" %></u></div>
+           <div class="col-md-5"><u><%= link_to event.title, event_path(event), class:"text-dark" %></u></div>
            <div class="col-md-7"><%= event.caption.truncate(30) %></div>
           </div>
         <% end %>

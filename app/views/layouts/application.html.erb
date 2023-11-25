@@ -1,3 +1,4 @@
+<!--M:Index fixed-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,19 +12,25 @@
     <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/42d7afb099.js" crossorigin="anonymous"></script>
+    <!--M:Described to make the image bigger by clicking-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
-
   <body>
     <div class="footer-fix">
       <header>
         <%= render 'layouts/header' %>
       </header>
-      
-      
       <%= yield %>
-      
-      <footer>
+      <footer class="bg-warning">
       </footer>
+      <span id="back">
+        <a href="#top" class="scroll-top-btn">
+          <i class="fas fa-chevron-circle-up" data-toggle=tooltip data-placement="bottom" title="トップへ移動"></i>
+        </a>
+      </span>
     </div>
   </body>
 </html>

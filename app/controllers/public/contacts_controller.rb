@@ -1,4 +1,5 @@
 class Public::ContactsController < ApplicationController
+  #M:Indent fixed
   def new
     @contact = Contact.new
   end
@@ -7,7 +8,7 @@ class Public::ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact, current_user).deliver
-      redirect_to root_path, notice: 'Your contact form has been sent'
+      redirect_to root_path, notice: I18n.t("flash_notice.notice.create")
     else
       render :new
     end

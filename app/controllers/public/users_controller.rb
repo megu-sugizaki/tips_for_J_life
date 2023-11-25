@@ -5,9 +5,9 @@ class Public::UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @problems = @user.problems.all
+    @problems = @user.problems.page(params[:page]).order(created_at: :desc)
     # M:To show all the problems posted by the user
-    @events = @user.my_events
+    @events = @user.my_events.page(params[:page]).order(created_at: :desc)
   end 
   
   def edit
@@ -17,7 +17,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice] = "You have updated your information successfully"
+      flash[:notice] = I18n.t("flash_notice.user.update")
       redirect_to user_path(@user.id)
     else
       render :edit
@@ -30,7 +30,7 @@ class Public::UsersController < ApplicationController
   def destroy
     #M:user doesn't have to "leave" but destroy their account. Only admin has "leave" function to change their status
     current_user.destroy
-    redirect_to root_path, notice: "You are no longer a user of this website"
+    redirect_to root_path, notice: I18n.t("flash_notice.user.destroy")
   end
   
   def events
@@ -39,7 +39,7 @@ class Public::UsersController < ApplicationController
   
   def bookmark
     @user = User.find(params[:id])
-    # To find problems the user bookmarked
+    # M:To find problems the user bookmarked
     @bookmark_problems = @user.bookmark_problems
   end 
   # M:Not necessary?
@@ -51,14 +51,11 @@ class Public::UsersController < ApplicationController
   
   private
   def user_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :introduction, :profile_image, :locale)
+    params.require(:user).permit(:first_name, :middle_name, :last_name, :introduction, :profile_image, :locale)
   end 
     
   def ensure_guest_user
-    def guest_user
-      current_user.email == "guest@example.com"
-    end 
-    if current_user == guest_user
+    if current_user.id == 31
       redirect_to user_path(current_user) , notice: "Guest users may not move to edit"
     end
   end 

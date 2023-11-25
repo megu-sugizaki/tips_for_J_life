@@ -21,10 +21,9 @@ class Public::ProblemsController < ApplicationController
   def create
     @problem_new = Problem.new(problem_params)
     @problem_new.user_id = current_user.id
-    @problems = Problem.all
-    byebug
+    @problems = Problem.page(params[:page]).order(created_at: :desc)
     if @problem_new.save
-      flash[:notice] = "You have posted problem successfully"
+      flash[:notice] = I18n.t("flash_notice.problem.create")
       redirect_to problem_path(@problem_new.id)
     else
       flash.now[:notice]
@@ -34,7 +33,7 @@ class Public::ProblemsController < ApplicationController
   
   def index
     @problem_new = Problem.new
-    @problems = Problem.all
+    @problems = Problem.page(params[:page]).order(created_at: :desc)
     # M:To create new tag
     @problem_tag = ProblemTag.new
     # M:To create problem tag select box
@@ -42,10 +41,16 @@ class Public::ProblemsController < ApplicationController
     # if @problems = params[:problem_tag_id].present?
     #  ProblemTag.find(params[:problem_tag_id]).problem
     # end 
-    if params[:keyword] || params[:problem_tag_id]
-      @problems = @problems.search(params[:keyword], params[:problem_tag_id])
+    
+    # M:Search box section. 
+    
+    if params[:keyword] || params[:problem_tag_id] || params[:is_going]
+      @problems = @problems.search(params[:keyword], params[:problem_tag_id], params[:is_going])
+      # binding.pry
     end 
     @keyword = params[:keyword]
+    
+    # M:To show bookmark lists
     @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
     # M:Description for tag select box below is no longer necessary. Changed to f.collection_select in the view page.
     # select_problem_tags = @problem_tags.pluck(:name)
@@ -74,7 +79,7 @@ class Public::ProblemsController < ApplicationController
     @problem = Problem.find(params[:id])
     @problem.user_id = current_user.id
     if @problem.update(problem_params)
-      flash[:notice] = "You have updated your post successfully."
+      flash[:notice] = I18n.t("flash_notice.problem.update")
       redirect_to problem_path(@problem.id)
     else 
       flash.now[:notice]
@@ -85,7 +90,7 @@ class Public::ProblemsController < ApplicationController
   def destroy
     problem = Problem.find(params[:id])
     problem.destroy
-    flash[:notice] = "You have deleted your post successfully."
+    flash[:notice] = I18n.t("flash_notice.problem.destroy")
     redirect_to problems_path
   end 
   # def bookmarks
@@ -96,7 +101,8 @@ end
 
 private
   def problem_params
-    params.require(:problem).permit(:title, :caption, problem_tag_ids: [], problem_images: [])
+    params.require(:problem).permit(:title, :caption, :is_going, problem_tag_ids: [], problem_images: [])
+    # params.require(:problem).permit(:title, :caption, :is_going, problem_tag_ids: [], problem_images: [], problem_tags_attributes: [:name])
   end 
   
   def is_matching_login_user

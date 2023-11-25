@@ -1,59 +1,73 @@
+<!--M:Indent fixed-->
 <div class="container-fluid">
   <%= render 'layouts/errors', obj: @problem %>
   <div class="row text-center mx-1">
-      <div class="flash-message notice"><%= flash[:notice] %></div>
+    <div class="flash-message notice"><%= flash[:notice] %></div>
   </div>
 </div>
 <div class="container">
-    <div class="row pt-5 pb-3 justify-content-center">  
-        <div class="col-md-5 text-center">
-            <h3>*Edit your post*</h3>
-            <h6 class="pt-3">Update your post!</h6>
-            <h6>More details help the buddies give you comments!</h6>
-        </div>
-    </div> 
-    <div class="row pt-2 pb-3 justify-content-center">
-        <div class="col-md-5 pb-2">
-            <%= form_with model: @problem do |f| %>
-              <table>
-                  <tr>
-                      <th class="pb-2">Title</th>
-                  </tr>
-                  <tr>
-                      <td class="pb-2"><%= f.text_field :title %></td>
-                  </tr>
-                  <tr>
-                      <th class="pb-2">Caption</th>
-                  </tr>
-                  <tr>
-                      <td class="pb-2"><%= f.text_area :caption %></td>
-                  </tr>
-                  <tr>
-                      <th class="pb-2">Image</th>
-                  </tr>
-                  <tr>
-                      <td>
-                          <label>
-                              <input type="file" name="file">Choose File<%= f.file_field :problem_images, multiple: true, class: 'form-control' %>
-                          </label>
-                      </td>
-                  </tr>
-                  <tr>
-                      <th class="pb-2">Tags</th>
-                  </tr>
-                  <tr>
-                      <td class="pb-2">
-                          <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
-                            <%= b.check_box %>
-                            <%= b.text %>
-                          <% end %>
-                      </td>
-                  </tr>
-              </table>
-              <div class="row justify-content-center py-3">
-                  <%= f.submit "Update your post", class:"btn btn-info" %>
-              </div>
-            <% end %>
-        </div>
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-5 text-center">
+      <h3>*<%= t(".page_title") %>*</h3>
+      <h6 class="pt-3"><%= t(".page_title1") %></h6>
+      <h6><%= t(".page_title2") %></h6>
     </div>
+  </div> 
+  <div class="row pt-2 pb-3 justify-content-center">
+    <div class="col-md-5 pb-2">
+      <%= form_with model: @problem do |f| %>
+        <table>
+          <tr>
+            <th class="pb-2"><%= t(".title") %></th>
+          </tr>
+          <tr>
+            <td class="pb-2"><%= f.text_field :title %></td>
+          </tr>
+          <tr>
+            <th class="pb-2"><%= t(".caption") %></th>
+          </tr>
+          <tr>
+            <td class="pb-2"><%= f.text_area :caption %></td>
+          </tr>
+          <tr>
+            <th class="pb-2"><%= t(".images") %></th>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <%= t(".choose_file") %>
+                <%= f.file_field :problem_images, multiple: true, class: 'form-control', id: 'fileBox'%>
+              </label>
+              <p id="fileBoxName"><%= t(".no_file") %></p>
+            </td>
+          </tr>
+          <tr>
+            <th class="pb-2"><%= t(".tags") %></th>
+          </tr>
+          <tr>
+            <td class="pb-2">
+              <%= f.collection_check_boxes(:problem_tag_ids, ProblemTag.all, :id, :name) do |b| %>
+                <%= b.check_box %>
+                <%= b.text %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th class="pb-2"><%= t(".status") %></th>
+          </tr>
+          <tr>
+            <td class="pb-2">
+              <%= f.radio_button :is_going, :true %>
+              <%= t(".in_trouble") %>　
+              <%= f.radio_button :is_going, :false %>
+              <%= t(".solved") %>
+            </td>
+          </tr>
+        </table>
+        <div class="row justify-content-center py-3">
+          <%= f.submit t(".update_button"), class:"btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

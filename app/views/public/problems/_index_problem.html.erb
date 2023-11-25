@@ -1,33 +1,41 @@
-<div class="row border-bottom mt-2 pb-2 justify-content-center">
-        <div class="col-md-3">Posted by</div>
-        <div class="col-md-2">Title</div>
-        <div class="col-md-3">Caption</div>
-        <div class="col-md-1"><i class="fa-solid fa-comments"></i></div>
-        <div class="col-md-2"><i class="fa-solid fa-heart"></i></div>
-    </div>
-
-<% problems.each do |problem| %>
-<div class="row border-bottom mt-1 align-items-center justify-content-center">
-  <div class="col-md-3">
-    <%= image_tag(problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if problem.user.profile_image.attached? %>
-    <p><%= link_to problem.user.first_name + " " + problem.user.last_name, user_path(problem.user.id) %></p>
-  </div>
-  <div class="col-md-2">
-    <%= link_to problem.title, problem_path(problem) %>
-  </div>
-  <div class="col-md-3">
-    <%= problem.caption.truncate(35) %>
-  </div>
-  <div class="col-md-1">
-    <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
-  </div>
-  <div class="col-md-2">
-    <% unless current_user == problem.user %>
-      <div>
-        <%= render 'public/problems/bookmark_area', problem: problem %>
-        <%= render 'public/problems/bookmarks_counts', problem: problem %>
-      </div>
-    <% end %>
-  </div>
+<!--M:Indent fixed-->
+<div class="row border-bottom mt-3 pb-2 justify-content-center">
+  <div class="col-md-2"><%= t(".posted_by") %></div>
+  <div class="col-md-3"><%= t(".title") %></div>
+  <div class="col-md-3"><%= t(".caption") %></div>
+  <div class="col-md-1"><i class="fa-solid fa-comments"></i></div>
+  <div class="col-md-1"><i class="fa-solid fa-heart"></i></div>
+  <div class="col-md-2"></div>
 </div>
+<% problems.each do |problem| %>
+  <div class="row border-bottom mt-1 align-items-center justify-content-center">
+    <div class="col-md-2">
+      <%= image_tag(problem.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if problem.user.profile_image.attached? %>
+      <p><%= link_to problem.user.first_name + " " + problem.user.last_name, user_path(problem.user.id) %></p>
+    </div>
+    <div class="col-md-3">
+      <%= link_to problem.title, problem_path(problem) %>
+    </div>
+    <div class="col-md-3">
+      <%= problem.caption.truncate(35) %>
+    </div>
+    <div class="col-md-1">
+      <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
+    </div>
+    <div class="col-md-1">
+      <% unless current_user == problem.user %>
+        <div>
+          <%= render 'public/problems/bookmarks_counts', problem: problem %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2 text-danger">
+      <% if problem.is_going == false %>
+        <%= t(".solved") %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
+<div class="row justify-content-center pt-2">
+  <%= paginate problems %>
+</div>

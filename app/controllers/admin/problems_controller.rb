@@ -3,7 +3,7 @@ class Admin::ProblemsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @problems = Problem.all
+    @problems = Problem.page(params[:page]).order(created_at: :desc)
   end 
   
   def show
@@ -20,6 +20,6 @@ class Admin::ProblemsController < ApplicationController
   
   private
   def problem_params
-      params.require(:problem).permit(:title, :caption)
+    params.require(:problem).permit(:title, :caption)
   end 
 end

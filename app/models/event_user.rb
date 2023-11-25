@@ -1,4 +1,5 @@
 class EventUser < ApplicationRecord
-    belongs_to :user
-    belongs_to :event
+  # M:Indent fixed
+  belongs_to :user
+  belongs_to :event
 end

@@ -29,7 +29,174 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 en:
+  views:
+    pagination:
+      truncate: "..."
+  flash_notice:
+    user:
+      update: You have successfully updated your profile
+      destroy: Goodbye! See you in future, buddy!
+    problem:
+      create: You have posted problem successfully
+      update: You have updated your post successfully
+      destroy: You have destroyed your post successfully
+    event:
+      create: "You have successfully created an event"
+      update: "You have successfully updated the event"
+      destroy: "You have successfully destroyed the event"
+    tag:
+      create: "You have successfully created a new tag"
+      update: "You have successfully updated tag name"
+    notice:
+      create: Contact form has been sent
+  flash_alert:
+    tag:
+      create: "You need to insert tag name"
+  layouts:
+    header:
+      welcome: Welcome, 
+      problems: Problems
+      events: Events
+      log_out: Log out
+    errors:
+      error: errors have occurred
   public:
+    homes:
+      top:
+        news: News
+        text1: Feeling difficulty and confused living in Japan?
+        text2: Bored on weekends?
+        text3: Get tips to make your life here easier and fun!
+        text4: If you sign up, you may...
+        text5: post your problems, get some tips from other buddies
+        text6: give some advice to buddies in trouble
+        text7: make events to get people to enjoy together
+        text8: seek for events and join
+        text9: Sign up and start having a fun J life!
+        text10: Also, please note...
+        text11: 3 simple rules here!
+        text12: We have a lot of people from different backgrounds.
+        text13: Appreciates the difference
+        text14: Do not use aggressive words
+        text15: No hate speech/ no racisms are allowed
+    users:
+      show:
+        page_title: "'s profile"
+        introduction: Introduction
+        edit_button: Edit
+        click_here_bookmark: Click here
+        bookmark_problems_link: to see the post you have bookmarked
+        click_here_events: Click here
+        events_link: to see the events you have joined
+        posts_title: "'s posts"
+        posts_title1: Title
+        posts_caption: Caption
+        events_title: "'s events"
+        events_title1: Title
+        events_caption: Caption
+      edit:
+        page_title: Edit your profile
+        first_name: First name
+        middle_name: Middle name
+        last_name: Last name
+        introduction: Introduction
+        profile_image: Profile Photo
+        choose_file: Choose file
+        no_file: File not chosen
+        language: Website language
+        update_button: Update
+        delete_button: Delete
+      bookmark:
+        page_title: "'s bookmarked posts"
+        created_by: Created by
+        title: Title
+        caption: Caption
+      check:
+        confirmation: Are you sure you would like to delete your account?
+        check_text1: If you delete your account
+        check_text2: You and other users will not be able to see
+        check_text3: your whole posts and comments.
+        check_text4: Click the red button if you would still like to delete your account.
+        back_button: Back
+        delete_button: Delete
+      events:
+        page_title: Events you have joined
+        title: Title
+        caption: Caption
+    problems:
+      post_problem:
+        post_title: Post your problem
+        post_text1: Post your problen, get some help from buddies!
+        post_text2: By sharing your problem, you help other buddies with same problem too!
+        title: Title
+        title_placeholder: Title
+        caption: Caption
+        caption_placeholder: Describe the details of your problem
+        image: Image
+        choose_file: Choose file
+        no_file: File not chosen
+        tag_title: Tags
+        post_button: Post
+        no_tag_text: No tag matches your problem?
+        new_tag_text: Create a new tag!
+        create_button: Create
+        click_here: Click here
+        new_tag_link: to see tag lists!
+      index:
+        page_title: Problems
+        post_text: Help your buddies by giving them comments!
+      index_problem:
+        posted_by: Posted by
+        title: Title
+        caption: Caption
+        solved: Solved
+      show:
+        page_title: Problem details
+        solved: Solved
+        title: Title
+        caption: Caption
+        images: Images
+        posted_by: Posted by
+        tags: Tags
+        comments: Comments
+        bookmarks: Bookmarks
+        bookmark_post: Bookmark this post
+        edit_button: Edit
+        delete_button: Delete
+      edit:
+        page_title: Edit your post
+        page_title1: Update your post!
+        page_title2: More details help the buddies give you comments!
+        title: Title
+        caption: Caption
+        images: Images
+        choose_file: Choose file
+        no_file: File not chosen
+        tags: Tags
+        status: Status
+        in_trouble: In trouble
+        solved: Solved
+        update_button: Update
+      search:
+        key_placeholder: Insert keywords
+        search_button: Search
+        filter_by_tag: Filter by tag
+        in_trouble: In trouble
+        solved: Solved
+        filter_by_status: Filter by status
+    problem_comments:
+      problem_comments:
+        post_button: Post
+    problem_tags:
+      index:
+        page_title_new_tag: Create a new tag!
+        page_title_new_tag2: Create the best match tag with your post!
+        create_button: Create
+        page_title_tags: Tags
+        edit_button: Edit
+      edit:
+        page_title: Edit tag
+        update_button: Update
     events:
       new:
         page_title: Create an event
@@ -47,10 +214,32 @@ en:
         caption: Caption
         joined_members: Joined Members
         join_status: Joined
-        click_here: Click here
+        click_here_event: Click here
         new_event_link: to create a new event!
       show:
         page_title: Event details
         page_title1: Check this event!
         page_title2: Press "Join" button if you would like to join!
         created_by: Created by
+        edit: Edit
+        delete: Delete
+        join_member: Members to join this event
+      edit:
+        page_title: Edit your event
+        page_title1: Add more details!
+        page_title2: It is recommended to describe the date, place and schedule!
+        event_name: Event name
+        event_caption: Caption
+        update_button: Update
+    contacts:
+      new:
+        page_title: Contact form
+        name: Name
+        name_placeholder: Name
+        content: Contact details
+        content_placeholder: Insert your contact details
+        send_button: Send
+    notices:
+      show:
+        page_title: Notice details
+        
