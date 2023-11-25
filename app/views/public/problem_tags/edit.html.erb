@@ -1,18 +1,23 @@
+<!--M:Indent fixed-->
+<div class="container-fluid">
+  <div class="row justify-content-center px-3">
+    <%= render 'layouts/errors', obj: @problem_tag %>
+  </div>
+</div>
 <div class="container">
-    <div class="row pt-5 pb-3 justify-content-center">  
-        <div class="col-md-3 text-center">
-            <h3>*Edit tag*</h3>
-        </div>
-    </div> 
-    
-    <%= form_with model: @problem_tag do |f| %>
-        <div class="row justify-content-center py-2 align-items-center">
-            <div class="col-md-2 justify-content-center align-items-center">
-                <%= f.text_field :name %>
-            </div>
-            <div class="col-md-2 justify-content-center align-items-center">
-                <%= f.submit "Update tag name", class:"btn btn-info" %>
-            </div>
-        </div>
-    <% end %>
+  <div class="row pt-5 pb-3 justify-content-center">  
+    <div class="col-md-3 text-center">
+      <h3>*<%= t(".page_title") %>*</h3>
+    </div>
+  </div> 
+  <%= form_with model: @problem_tag do |f| %>
+    <div class="row justify-content-center py-2 align-items-center">
+      <div class="col-md-2 justify-content-center align-items-center">
+        <%= f.text_field :name %>
+      </div>
+      <div class="col-md-2 justify-content-center align-items-center">
+        <%= f.submit t(".update_button"), class:"btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
 </div>

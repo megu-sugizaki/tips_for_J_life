@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-########################### 管理者
-
+########################### M:Admin
 Admin.create!(
   email: 'admin@admin',
   encrypted_password: 'adminmin',
@@ -15,7 +14,7 @@ Admin.create!(
   password_confirmation: 'adminmin',
 )
 
-########################### Settings
+########################### M:Settings
 # number of user（Bobby Harrison）
 bobby_harrison_num = 10
 # number of user（Lluvia Ocampo）
@@ -24,8 +23,7 @@ lluvia_ocampo_num = 10
 han_rue_num = 10
 ########################### 
 
-########################### User（Bobby Harrison）
-
+########################### M:User（Bobby Harrison）
 bobby_harrison_num.times do |num|
   num += 1
   user = User.create!(
@@ -41,8 +39,7 @@ bobby_harrison_num.times do |num|
     
 end
 
-########################### User（Alice Paraguas）
-
+########################### M:User（Alice Paraguas）
 lluvia_ocampo_num.times do |num|
   num += 1
   user = User.create!(
@@ -56,11 +53,9 @@ lluvia_ocampo_num.times do |num|
     is_active: true
   )
   user.profile_image.attach(io: File.open(Rails.root.join("app/assets/images/profile_image/lo/img-#{user.id}.jpg")), filename: "img-#{user.id}.jpg")
-    
 end
 
-########################### User（han Rue）
-
+########################### M:User（han Rue）
 han_rue_num.times do |num|
   num += 1 
   user = User.create!(
@@ -75,7 +70,7 @@ han_rue_num.times do |num|
   user.profile_image.attach(io: File.open(Rails.root.join("app/assets/images/profile_image/hr/img-#{user.id}.jpg")), filename: "img-#{user.id}.jpg")
 end
 
-########################### Bobby Harrison Problem
+########################### M:Bobby Harrison Problem
 bh_problems_array = [
     'learn Japanese language',
     'find a good app to translate all sushi place',
@@ -97,13 +92,13 @@ bh_problems_array = [
   bh_problems_array.each do |problem|
     problem = Problem.create!(
       user_id: rand(1..10),
-      title: "Need help for #{problem}",
+      title: "Help! I want to #{problem}",
       caption: "I don't know how to #{problem}. Would you give me some advice?"
     )
     problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/bh_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
   end
 
-########################### Lluvia Ocampo Problem
+########################### M:Lluvia Ocampo Problem
 lo_problems_array = [
     'buscar zoologico con mapache',
     'buscar lección de karate',
@@ -131,7 +126,7 @@ lo_problems_array = [
     problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/lo_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
   end
 
-########################### Han Lue
+########################### M:Han Lue
 hr_problems_array = [
     'めんきょのきりかえ',
     'ゴーカート',
@@ -159,28 +154,28 @@ hr_problems_array = [
     problem.problem_images.attach(io: File.open(Rails.root.join("app/assets/images/hr_problems/img-#{problem.id}.jpg")), filename: "img-#{problem.id}.jpg")
   end
 
-########################### Problem comment English
+########################### M:Problem comment English
 
 ProblemComment.create!(
       user_id: rand(1..10),
       problem_id: rand(1..15),
       comment: "Can you be more specific？I'll help you more if you could.",
     )
-########################### Problem comment Spanish  
+########################### M:Problem comment Spanish  
 ProblemComment.create!(
   user_id: rand(11..20),
   problem_id: rand(16..30),
   comment: "Eso sería más específico？Te puedo ayudar más si puedes darme más informaciones.",
 )
 
-########################### Problem comment easy Japanese
+########################### M:Problem comment easy Japanese
 ProblemComment.create!(
       user_id: rand(21..30),
       problem_id: rand(31..45),
       comment: "もっと、こまかく おしえてくれますか？おうえんしています",
     )
     
-########################### Problem tag
+########################### M:Problem tag
 problem_tags_array = [
     'life',
     'leisure/hobby',
@@ -195,25 +190,42 @@ problem_tags_array.each do |problem_tag|
     )
 end
 
-########################### Problem tag
+########################### M:Problem tag
 AssociationProblemTag.create!(
   problem_id: rand(1..30),
   problem_tag_id: rand(1..4)
 )
     
-########################### Event
-# events_array = [
-#     'takoyaki',
-#     'okonomiyaki',
-#     'momiji',
-#     'tanabata',
-# ]
+########################### M:Event
+events_array = [
+    'takoyaki party',
+    'momiji hunting',
+    'join sports day',
+    'hanami',
+    'language club',
+]
 
-# events_array.each do |event|
-# Event.create!(
-#   user_id: rand(0..44),
-#   owner_id: rand(0..44),
-#   title: event,
-#   caption: "Let's enjoy #{event} together!"
-# )
-# end
+events_array.each do |event|
+  event = Event.create!(
+    user_id: rand(1..30),
+    owner_id: rand(1..30),
+    title: "Let's go #{event}",
+    caption: "We would like to gather people to go #{event}. Come join and we'll have fun together!"
+  )
+end
+
+########################### M:Notice
+notices_array = [
+    'an earthquake',
+    'immigration rule change',
+    'typhoon',
+    'flood',
+    'movie extra recruit',
+]
+
+notices_array.each do |notice|
+  notice = Notice.create!(
+    title: "About #{notice}",
+    detail: "We got a news about #{notice}. We will keep you updated about it. Do not miss the latest update! Contact if you have any concerns."
+  )
+end

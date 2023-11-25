@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  # M:Indent fixed
   has_many :event_users
   has_many :users, through: :event_users
   belongs_to :owner, class_name: 'User'

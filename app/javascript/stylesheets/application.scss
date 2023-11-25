@@ -3,30 +3,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Pacifico&family=Raleway&display=swap');
 
 .top {
-    background-image: url('../images/top-background.png');
-    background-size: cover;
+  background-image: url('../images/top-background.png');
+  background-size: cover;
 }
 
 .about {
-    background-color: rgba(0, 0, 0, 0.1);
-    width: 65%;
+  background-color: rgba(255, 195, 169, 0.85);
+  width: 100%;
 }
 
 
 // ref https://ameblo.jp/hp-daiko/entry-11999825436.html
 .top-bg {
-    background-color: rgba( 255, 255, 255, 0.55 );
-    width: 60%;
-    height: 100%;
+  background-color: rgba( 203, 114, 0, 0.75 );
+  width: 60%;
+  height: 100%;
 }
 
 
 body {
-    font-family: 'Raleway', 'Noto Sans JP', sans-serif;
+  font-family: 'Raleway', 'Noto Sans JP', sans-serif;
 }
 
 .logo {
-    font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
 }
 
 .footer-fix {
@@ -41,21 +41,20 @@ footer {
   bottom: 0;
   height: 50px;
   width: 100%;
-  background: #D2691E;
   color: #fff;
  }
  
-// To change "ファイルを選択" to English (users/edit)
+// M: To change "ファイルを選択" to English (users/edit)
 input[type="file"] {
-    display: none;
+  display: none;
 }
 
 label {
-    padding: 10px 30px;
-    color: #000;
-    background-color: #FFC7AF;
-    cursor: pointer;
-    border-radius: 10px;
+  padding: 10px 15px;
+  color: #000;
+  background-color: #FFC7AF;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .flash-message.notice {
@@ -68,5 +67,64 @@ label {
   background-color: #ffd4d1;
   color: #930403;
   width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
+// M:To scroll notice lists
+.scroll {
+  height: 200px;
+  width: 500px;
+  overflow-y: scroll;
+  background-color: rgba( 255, 255, 255, 0.75 );
+}
+
+// M:Parent factor to go back to the top
+#back {
+  // M:Fix the position on screen
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+// M:Button class to go back to the top
+.scroll-top-btn {
+  // M:To hide at the initial setting
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  // M:To show the button front to the others
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f5;
+  color: black;
+  // M:To change the mouse cursor to pointer
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+// M:To designate the style with the mouse on the button
+.scroll-top-btn:hover {
+  background-color: #555;
+  color: white;
+}
+
+/*M:Design of pagination*/
+.pagination>li>a {          
+  border: none;     /*M:no border*/
+  color: #696969;   /*M:Change letter color*/
+}
+
+/*M:Design of page number*/
+.pagination>.active>a {     
+  background: #93c9ff;     /*M:change bg color*/
+  border-radius: 15px;     /*M:border rounded*/
+}
+
+/*M:Design for hovering*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*M:border rounded*/
+}

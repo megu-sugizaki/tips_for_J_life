@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # M:Indent fixed
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,14 +8,14 @@ class User < ApplicationRecord
   has_many :problems, dependent: :destroy
   #has_many :problems, class_name: 'Problem', foreign_key: "user_id"
   
-  # to show delete button only to the user that made the tag
+  #M:To show delete button only to the user that made the tag
   has_many :problem_tags
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_problems, through: :bookmarks, source: :problem
   has_many :problem_comments, dependent: :destroy
   has_many :event_users, dependent: :destroy
   has_many :events, through: :event_users
-  has_many :my_events, class_name: 'Event', foreign_key: "owner_id"
+  has_many :my_events, class_name: 'Event', foreign_key: "owner_id", dependent: :destroy
   
   has_one_attached :profile_image
   
@@ -29,7 +30,7 @@ class User < ApplicationRecord
     find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
       user.first_name = "guestuser"
-      user.last_name = ""
+      user.last_name = "!"
       user.middle_name = ""
     end
   end
@@ -47,6 +48,6 @@ class User < ApplicationRecord
   end
   
   def full_name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{middle_name} #{last_name}"
   end
 end

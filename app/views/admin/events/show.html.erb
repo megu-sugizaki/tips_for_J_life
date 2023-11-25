@@ -7,7 +7,6 @@
       <h6>Press "Join" button if you would like to join! </h6>
     </div>
   </div>
-  
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
       <h4><u><%= @event.title %></u></h4>
@@ -15,10 +14,9 @@
   </div>
   <div class="row justify-content-center">
     <div class="col-md-4">
-        Created by:
-        <%#= image_tag(@event.user.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if problem.user.profile_image.attached? %>
-        <%#= @event.user.first_name %>
-        <%#= @event.user.last_name %>
+      Created by:
+      <%= image_tag(@event.owner.profile_image.variant(resize_to_limit: [50, 50]).processed, width:50, height: 50) if @event.owner.profile_image.attached? %>
+      <%= @event.owner.full_name %>
     </div>
   </div>
   <div class="row justify-content-center pt-3">

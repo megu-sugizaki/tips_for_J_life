@@ -4,14 +4,18 @@ class Public::ProblemTagsController < ApplicationController
   
   def index
     @problem_tag = ProblemTag.new
-    @problem_tags = ProblemTag.all
+    @problem_tags = ProblemTag.all.order(created_at: :desc)
   end
   
   def create
     @problem_tag = ProblemTag.new(problem_tag_params)
     # M:To show the "edit" button only to the current user
     @problem_tag.user_id = current_user.id
-    @problem_tag.save
+    if @problem_tag.save
+      flash[:notice] = I18n.t("flash_notice.tag.create")
+    else
+      flash[:alert] = I18n.t("flash_alert.tag.create")
+    end
     redirect_to request.referer
   end 
   
@@ -22,12 +26,12 @@ class Public::ProblemTagsController < ApplicationController
   def update
     @problem_tag = ProblemTag.find(params[:id])
     if @problem_tag.update(problem_tag_params)
-        redirect_to problem_tags_path, notice: "You have successfully updated tag name!"
+      redirect_to problem_tags_path, notice: I18n.t("flash_notice.tag.update")
     else
-        flash.now[:alert] = "Failed updating tag name"
-        render :edit
+      render :edit
     end
   end 
+  
   # M: No need to delete tag. Afraid of finding no tag_id on user's post after deleting tag.
   # def destroy
   #  problem_tag = ProblemTag.find(params[:id])
