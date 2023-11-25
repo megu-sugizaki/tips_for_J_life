@@ -32,6 +32,7 @@ class User < ApplicationRecord
       user.first_name = "guestuser"
       user.last_name = "!"
       user.middle_name = ""
+      user.id = 31
     end
   end
   
