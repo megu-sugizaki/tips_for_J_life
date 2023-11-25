@@ -102,6 +102,7 @@ end
 private
   def problem_params
     params.require(:problem).permit(:title, :caption, :is_going, problem_tag_ids: [], problem_images: [])
+    # params.require(:problem).permit(:title, :caption, :is_going, problem_tag_ids: [], problem_images: [], problem_tags_attributes: [:name])
   end 
   
   def is_matching_login_user

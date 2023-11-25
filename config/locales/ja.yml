@@ -308,7 +308,7 @@ ja:
         caption: せつめい
         joined_members: さんかしゃ
         join_status: さんか
-        click_here: ここ
+        click_here_event: ここ
         new_event_link: から あたらしい イベントを つくろう!
       show:
         page_title: イベントに ついて

@@ -25,6 +25,13 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  # M:To destroy the actions of guest user when they log out
+  def destroy
+   reset_guest_data if current_user.email == User::GUEST_USER_EMAIL
+   super
+  end
+  
   protected
   def user_status
     @user = User.find_by(email: params[:user][:email])

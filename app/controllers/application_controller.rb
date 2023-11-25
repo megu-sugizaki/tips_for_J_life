@@ -40,4 +40,12 @@ class ApplicationController < ActionController::Base
     # M:current_userのlocaleが取得できたらjaがとれる、current_user取れない場合はdefault
     I18n.with_locale(locale, &action)
   end
+  
+  # M:To delete the actions of guest user when they log out
+  def reset_guest_data
+    guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
+    guest_user.my_events.destroy_all if guest_user.my_events.any?
+    guest_user.problem_comments.destroy_all if guest_user.problem_comments.any?
+    guest_user.problems.destroy_all if guest_user.problems.any?
+  end
 end
