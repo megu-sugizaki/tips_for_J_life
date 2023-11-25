@@ -23,11 +23,20 @@ class Public::ProblemsController < ApplicationController
     @problem_new.user_id = current_user.id
     @problems = Problem.page(params[:page]).order(created_at: :desc)
     if @problem_new.save
-      flash[:notice] = I18n.t("flash_notice.problem.create")
+      flash[:notice] = I18n.t("flash_alert.problem.create")
       redirect_to problem_path(@problem_new.id)
     else
-      flash.now[:notice]
+      flash[:notice]
       render :index
+      # M:The definitions below are deleted. 
+      # M:If the tag form is there, the error occures while clicking the problem post button and tag post button in a row.
+      # M:If you need tag form, reactivate the "redirect_to" and the flash alert, delete render
+      # @problem_new = Problem.new
+      # @problem_tag = ProblemTag.new
+      # @problem = current_user.bookmark_problems.includes(:user).order(created_at: :desc)
+      # => ["title can't be blank", "caption can't be blank"]
+      # flash[:alert] = I18n.t("flash_alert.problem.create")
+      # redirect_to problems_path
     end
   end 
   

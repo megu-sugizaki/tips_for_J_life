@@ -61,18 +61,18 @@
       <div class="row pt-2 justify-content-center">
         <h6><%= t(".new_tag_text") %></h6>
       </div>
-      <div class="row pt-2 justify-content-center">
-        <%= form_with model: problem_tag do |f| %>
-          <div class="row justify-content-center">
-            <%= f.text_field :name, placeholder: "business culture" %>
-          </div>
-          <div class="row justify-content-center pt-4 pb-4">
-            <%= f.submit t(".create_button"), class:"btn btn-secondary" %>
-          </div>
-        <% end %>
-      </div>
+      <!--<div class="row pt-2 justify-content-center">-->
+      <!--<%#= form_with model: problem_tag do |f| %>-->
+      <!--    <div class="row justify-content-center">-->
+      <!--      <%#= f.text_field :name, placeholder: "business culture" %>-->
+      <!--    </div>-->
+      <!--    <div class="row justify-content-center pt-4 pb-4">-->
+      <!--      <%#= f.submit t(".create_button"), class:"btn btn-secondary" %>-->
+      <!--    </div>-->
+      <!--  <%# end %>-->
+      <!--</div>-->
       <div class="row justify-content-center pb-4">
-        *<u><%= link_to t(".click_here"), problem_tags_path, class:"text-dark" %></u>　<%= t(".new_tag_link") %>
+        *<u><%= link_to t(".click_here"), problem_tags_path, class:"text-dark" %></u><%= t(".new_tag_link") %>
       </div>
     </div>
   </div>

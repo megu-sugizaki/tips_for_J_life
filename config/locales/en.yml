@@ -52,6 +52,8 @@ en:
   flash_alert:
     tag:
       create: "You need to insert tag name"
+    problem:
+      create: You need to insert both title and caption
   layouts:
     header:
       welcome: Welcome, 
@@ -141,7 +143,7 @@ en:
         new_tag_text: Create a new tag!
         create_button: Create
         click_here: Click here
-        new_tag_link: to see tag lists!
+        new_tag_link: "　to make a new tag!"
       index:
         page_title: Problems
         post_text: Help your buddies by giving them comments!

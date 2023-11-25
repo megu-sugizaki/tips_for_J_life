@@ -52,6 +52,8 @@ ja:
   flash_alert:
     tag:
       create: "タグの なまえが ありません"
+    problem:
+      create: なまえ とせつめいの りょうほうが ひつようです。
   activerecord:
     errors:
       models:
@@ -234,7 +236,7 @@ ja:
         new_tag_text: タグを つくろう！
         create_button: つくる
         click_here: ここ
-        new_tag_link: から タグリストを みよう！
+        new_tag_link: から タグをつくろう！
       index:
         page_title: みんなの なやみ
         post_text: コメントを のこして なやんでいる ひとを たすけよう!
