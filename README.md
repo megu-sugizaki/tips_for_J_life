@@ -58,7 +58,7 @@ Hearing those situations of people from overseas living in Japan, I would like t
 ​
 ## Blue print
 - ER chart
- ​<img width="897" alt="ER_last" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/e8be7a29-23c4-44d4-bdf8-17acf26a7f69">
+  ​<img width="897" alt="ER_last" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/e8be7a29-23c4-44d4-bdf8-17acf26a7f69">
 
 ## Development environment
 - OS：Linux(CentOS)
