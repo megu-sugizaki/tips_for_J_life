@@ -20,7 +20,9 @@
 - 日本に来て困っている外国籍の方の役に立ちたいと感じている時
 ​
 ## 設計書
-後ほど作成予定
+- ER図
+ <img width="897" alt="ER_last" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/bbc5cc05-dc60-472b-a41e-6da06732f030">
+
 ​
 ## 開発環境
 - OS：Linux(CentOS)
@@ -55,8 +57,9 @@ Hearing those situations of people from overseas living in Japan, I would like t
 - When they want to help people from overseas living in Japan with troubles
 ​
 ## Blue print
-Coming soon
-​
+- ER chart
+​<img width="897" alt="ER_last" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/e8be7a29-23c4-44d4-bdf8-17acf26a7f69">
+
 ## Development environment
 - OS：Linux(CentOS)
 - Language：HTML,Ruby
