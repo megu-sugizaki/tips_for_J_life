@@ -55,6 +55,16 @@ ja:
     problem:
       create: なまえ とせつめいの りょうほうが ひつようです。
   activerecord:
+    attributes:
+      problem:
+        title: 'なやみのなまえ'
+        caption: 'せつめい'
+      event:
+        title: 'イベントのなまえ'
+        caption: 'せつめい'
+      user:
+        first_name: 'なまえ'
+        last_name: 'みょうじ'
     errors:
       models:
         user:
