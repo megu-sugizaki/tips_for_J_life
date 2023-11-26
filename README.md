@@ -22,8 +22,7 @@
 ## 設計書
 - ER図
  <img width="897" alt="ER_last" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/bbc5cc05-dc60-472b-a41e-6da06732f030">
-
-​
+ 
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,Ruby
