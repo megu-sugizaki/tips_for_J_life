@@ -29,6 +29,10 @@
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
+## 画像の取り扱いについて
+- ウェブサイト上で使用している画像は自身で管理しているもの又は下記のフリー素材のサイトのものを使用
+- https://www.pexels.com/
+
 ## Website overview
 ### Website theme
 A community website for the people from overseas living in Japan to make their lives easier in Japan, by exchanging opinions and interacting between the users.
@@ -59,3 +63,7 @@ Coming soon
 - framewrok：Ruby on Rails
 - JS Library：jQuery Javascript CSS
 - IDE：Cloud9
+
+## Images on this website
+- The images of this website are either mine or from the website below
+- https://www.pexels.com/
