@@ -5,8 +5,8 @@
 日本に住む外国籍の方々が住みやすくなるよう、意見交換や会員同士の交流を行うためのコミュニティサイト。
 ​
 ### テーマを選んだ理由
-私は、大学時代から現在まで、留学生や海外の方と関わる機会が多くありました。その中で、日本在住の外国籍の方、特に日本語が流暢でない方は、言葉が通じず孤立してしまうことが多く、友達が作れない、楽しくないといった問題をよく耳にします。また、長く住んでいる方でも日本社会の作法がわからず白い目で見られてしまうことも多々あるようです。
-それらの課題を踏まえ、外国籍の方々に対してインクルーシブな社会を実現すべく、問題解決や孤立防止に役立てたらと思い、このテーマを選びました。
+私は、大学時代から現在まで、留学生や海外の方と関わる機会が多くありました。その中で、日本在住の外国籍の方、特に日本語が流暢でない方は、言葉が通じず孤立してしまうことが多く、友達が作れない、楽しくないといった問題をよく耳にします。また、長く住んでいる方でも日本社会の作法がわからず困惑してしまうことも多々あるようです。
+それらの課題を踏まえ、外国籍の方々に対してインクルーシブな社会を実現すべく、問題解決や孤立防止、迎える日本側の理解を深めることに役立てたらと思い、このテーマを選びました。
 ​
 ### ターゲットユーザ
 - 日本の暮らしで問題を抱えている外国籍の方
@@ -42,7 +42,7 @@ A community website for the people from overseas living in Japan to make their l
 I have been having many opportunities to interact with the people from overseas through my university period till now.
 I have heard quite a few opinions that the people from overseas, especially those who are not fluent in Japanese are likely to feel isolated for having a language barrier, feel hard to make friends and have fun.
 Even for the people who have lived here for a long time, sometimes have difficulty and confused for not knowing the unspoken Japanese rules.
-Hearing those situations of people from overseas living in Japan, I would like to help building an "inclusive society" for them and be a help to solve their problems and isolated feelings.
+Hearing those situations of people from overseas living in Japan, I would like to help building an "inclusive society" for them and be a help to solve their problems and isolated feelings, also to promote Japan side about what could be improved.
 ​
 ### Targeted users
 - People from overseas who have troubles living in Japan
