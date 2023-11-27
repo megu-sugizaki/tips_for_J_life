@@ -65,6 +65,9 @@ ja:
       user:
         first_name: 'なまえ'
         last_name: 'みょうじ'
+      notice:
+        title: 'おなまえ'
+        detail: 'ないよう'
     errors:
       models:
         user:
