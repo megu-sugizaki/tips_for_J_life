@@ -25,7 +25,7 @@
 
 -テーブル定義書
 
-　　　https://docs.google.com/spreadsheets/d/1KpD2nqDElvVdHFpdy_vHpARAs4NYm6LHTHOYUMwT2GM/edit#gid=0
+https://docs.google.com/spreadsheets/d/1KpD2nqDElvVdHFpdy_vHpARAs4NYm6LHTHOYUMwT2GM/edit#gid=0
 
 - 機能一覧
 
