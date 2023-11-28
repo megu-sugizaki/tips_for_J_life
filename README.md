@@ -21,8 +21,10 @@
 ​
 ## 設計書
 - ER図
-<img width="842" alt="ER_JP" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/1a980620-876b-47cc-82e3-5cf9ea1a8f6c">
-
+<img width="845" alt="ER_JP" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/097395b9-5dca-453e-b3ac-c8f668a50ca0">
+- 機能一覧
+  https://docs.google.com/spreadsheets/d/1w_1it8nnig3BnS8cvaH-m8i1VpYijiZJbWu2HCFHfsk/edit#gid=0
+  
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,Ruby
@@ -58,7 +60,8 @@ Hearing those situations of people from overseas living in Japan, I would like t
 ## Blue print
 - ER Chart
 <img width="844" alt="ER_ENG" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/14fde004-d3a1-41f5-9e83-5fe62b1fe8c6">
-
+- Function list
+  https://docs.google.com/spreadsheets/d/1w_1it8nnig3BnS8cvaH-m8i1VpYijiZJbWu2HCFHfsk/edit#gid=2012330821
 ## Development environment
 - OS：Linux(CentOS)
 - Language：HTML,Ruby
