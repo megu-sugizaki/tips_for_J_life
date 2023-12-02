@@ -117,9 +117,9 @@ ja:
       confirmation_instructions:
         subject: "てじゅんを かくにんしました"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "パスワードを リセットする てじゅん"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "てじゅんを かいじょする"
       email_changed:
         subject: "メールアドレスが かわりました"
       password_change:
