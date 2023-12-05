@@ -23,7 +23,7 @@
 - ER図
 <img width="845" alt="ER_JP" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/097395b9-5dca-453e-b3ac-c8f668a50ca0">
 
--テーブル定義書
+- テーブル定義書
 
 　　https://docs.google.com/spreadsheets/d/1KpD2nqDElvVdHFpdy_vHpARAs4NYm6LHTHOYUMwT2GM/edit#gid=0
 
