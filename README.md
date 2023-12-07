@@ -32,7 +32,7 @@
   https://docs.google.com/spreadsheets/d/1w_1it8nnig3BnS8cvaH-m8i1VpYijiZJbWu2HCFHfsk/edit#gid=0
 
 - インフラ設計書
-  <img width="345" alt="スクリーンショット 2023-12-07 22 34 43" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/f161044a-d17c-42b7-b560-67cac02082d8">
+ <img width="345" alt="スクリーンショット 2023-12-07 22 34 43" src="https://github.com/megu-sugizaki/tips_for_J_life/assets/143850606/f161044a-d17c-42b7-b560-67cac02082d8">
 
   
 ## 開発環境
