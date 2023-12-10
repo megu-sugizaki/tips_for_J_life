@@ -280,7 +280,8 @@ ja:
         solved: かいけつ
         filter_by_status: じょうたいで さがす
     problem_comments:
-      problem_comments:
+      problem_comments_form:
+        comment_placeholder: コメントを かこう。こまっている ひとを たすけよう！
         post_button: つくる
     problem_tags:
       index:
