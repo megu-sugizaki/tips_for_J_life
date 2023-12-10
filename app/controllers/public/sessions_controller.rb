@@ -27,10 +27,10 @@ class Public::SessionsController < Devise::SessionsController
   # end
   
   # M:To destroy the actions of guest user when they log out
-  def destroy
-   reset_guest_data if current_user.email == User::GUEST_USER_EMAIL
-   super
-  end
+  # def destroy
+  # reset_guest_data if current_user.email == User::GUEST_USER_EMAIL
+  # super
+  # end
   
   protected
   def user_status

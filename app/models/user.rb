@@ -23,7 +23,8 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-         
+  
+  # M:Described in seed       
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
@@ -32,11 +33,12 @@ class User < ApplicationRecord
       user.first_name = "guestuser"
       user.last_name = "!"
       user.middle_name = ""
+      user.id = 31
     end
   end
   
   def guest_user?
-    email == GUEST_USER_EMAIL
+    email == "guest@example.com"
   end 
   
   def get_profile_image(width, height)

@@ -70,6 +70,16 @@ han_rue_num.times do |num|
   user.profile_image.attach(io: File.open(Rails.root.join("app/assets/images/profile_image/hr/img-#{user.id}.jpg")), filename: "img-#{user.id}.jpg")
 end
 
+########################### M:Guest User info
+user = User.create!(
+    last_name: "!",
+    first_name: "guestuser",
+    email: "guest@example.com",
+    encrypted_password: SecureRandom.urlsafe_base64,
+    password: SecureRandom.urlsafe_base64,
+    is_active: true
+  )
+
 ########################### M:Bobby Harrison Problem
 bh_problems_array = [
     'learn Japanese language',
