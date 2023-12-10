@@ -1,6 +1,10 @@
 <!--M:Indent fixed-->
-<% if problem.bookmarked_by?(current_user) %>
-  <%= render 'public/bookmarks/unbookmark', problem: problem %>
-<% else %>
-  <%= render 'public/bookmarks/bookmark', problem: problem %>
-<% end %>
+  <% if problem.bookmarked_by?(current_user) %>
+    <div id="unbookmark_<%= problem.id %>">
+      <%= render 'public/bookmarks/unbookmark', problem: problem %>
+    </div>
+  <% else %>
+    <div id="bookmark_<%= problem.id %>">
+      <%= render 'public/bookmarks/bookmark', problem: problem %>
+    </div>
+  <% end %>
