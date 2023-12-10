@@ -1,0 +1,2 @@
+$("#unbookmark_<%= problem.id %>").html("<%= j(render 'public/bookmarks/unbookmark', problem: problem) %>");
+$('#bookmark_counter').html("<%= j(render 'public/bookmarks/bookmarks_counts', problem: problem) %>");

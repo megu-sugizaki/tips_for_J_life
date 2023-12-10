@@ -96,7 +96,7 @@
           <td class="pr-2">
             <%= t(".comments") %>
           </td>
-          <td class="pr-3">
+          <td class="pr-3" id="comment_counter">
             <!--M:counting comments-->
             <%= render 'public/problem_comments/problem_comments_count', problem:@problem %>
           </td>
@@ -113,9 +113,9 @@
           <td class="pr-2">
             <%= t(".bookmarks") %>:
           </td>
-          <td class="pr-3">
-            <!--M:counting comments-->
-            <%= render 'bookmarks_count', problem: @problem %>
+          <td class="pr-3" id="bookmark_counter">
+            <!--M:counting bookmarks-->
+            <%= render 'public/bookmarks/bookmarks_counts', problem: @problem %>
           </td>
           <td>
           </td>
@@ -129,7 +129,7 @@
         <div class="row justify-content-end">
           <div class="col-md-6"><%= t(".bookmark_post") %>:</div>
           <div class="col-md-1">
-            <%= render 'public/problems/bookmark_area', problem: @problem %>
+            <%= render 'public/bookmarks/bookmark_area', problem: @problem %>
           </div>
           <div class="col-md-1">
             <!--M:To make space right to the bookmark heart-->
@@ -158,7 +158,12 @@
   <div class="row justify-content-center">
     <div class="col-md-4 border-bottom py-2">
       <!--M:comments section-->
-      <%= render 'public/problem_comments/problem_comments', problem:@problem, problem_comment_new:@problem_comment  %>
+      <div id="comment_index">
+        <%= render 'public/problem_comments/problem_comments_index', problem:@problem  %>
+      </div>
+      <div id="comment_form">
+        <%= render 'public/problem_comments/problem_comments_form', problem:@problem, problem_comment_new:@problem_comment  %>
+      </div>
     </div>
   </div>
 </div>

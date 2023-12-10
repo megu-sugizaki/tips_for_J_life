@@ -7,7 +7,7 @@ class Public::ProblemCommentsController < ApplicationController
     comment = current_user.problem_comments.new(problem_comment_params)
     comment.problem_id = problem.id
     comment.save
-    redirect_to problem_path(problem)
+    redirect_to request.referer
   end 
   
   def destroy

@@ -1,0 +1,4 @@
+<!--M:Indent fixed-->
+<%= link_to problem_bookmarks_path(problem.id), id: "js-bookmark-button-for-board-#{problem.id}", method: :delete, remote: true do %>
+  <i class="fa-solid fa-heart"></i>
+<% end %>
