@@ -23,7 +23,7 @@
       </div>
       <div class="col-md-5">
         <% if problem_comment.user == current_user || problem_comment.user == problem.user %>
-          <%= link_to "Delete comment", problem_problem_comment_path(problem, problem_comment), method: :delete, class:"btn btn-danger btn-sm" %>
+          <%= link_to "Delete comment", problem_problem_comment_path(problem, problem_comment), method: :delete, class:"btn btn-danger btn-sm", remote: true %>
         <% end %>
       </div>
     </div>

@@ -96,7 +96,7 @@
           <td class="pr-2">
             <%= t(".comments") %>
           </td>
-          <td class="pr-3">
+          <td class="pr-3" id="comment_counter">
             <!--M:counting comments-->
             <%= render 'public/problem_comments/count_problem_comments', problem:@problem %>
           </td>
@@ -158,8 +158,12 @@
   <div class="row justify-content-center">
     <div class="col-md-4 border-bottom py-2">
       <!--M:comments section-->
-      <%= render 'public/problem_comments/problem_comments_index', problem:@problem  %>
-      <%= render 'public/problem_comments/problem_comments_form', problem:@problem, problem_comment_new:@problem_comment  %>
+      <div id="comment_index">
+        <%= render 'public/problem_comments/problem_comments_index', problem:@problem  %>
+      </div>
+      <div id="comment_form">
+        <%= render 'public/problem_comments/problem_comments_form', problem:@problem, problem_comment_new:@problem_comment  %>
+      </div>
     </div>
   </div>
 </div>

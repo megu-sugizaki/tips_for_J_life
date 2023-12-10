@@ -78,7 +78,7 @@
               <tr class="border-bottom align-items-center justify-content-center">
                 <td class="pr-3 py-2"><u><%= link_to problem.title, problem_path(problem), class:"text-dark" %></u></td>
                 <td class="pr-3 py-2"><%= problem.caption.truncate(35) %></td>
-                <td class="pr-3 py-2 justify-content-center"><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
+                <td class="pr-3 py-2 justify-content-center" id="comment_counter"><%= render 'public/problem_comments/count_problem_comments', problem:problem %></td>
                 <td class="pr-3 py-2 justify-content-center"><%= render 'public/problems/bookmarks_counts', problem:problem %></td>
               </tr>
             <% end %>

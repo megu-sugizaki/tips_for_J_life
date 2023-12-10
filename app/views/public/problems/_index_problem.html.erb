@@ -19,7 +19,7 @@
     <div class="col-md-3">
       <%= problem.caption.truncate(35) %>
     </div>
-    <div class="col-md-1">
+    <div class="col-md-1" id="comment_counter">
       <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
     </div>
     <div class="col-md-1">
