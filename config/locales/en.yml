@@ -185,7 +185,7 @@ en:
         solved: Solved
         filter_by_status: Filter by status
     problem_comments:
-      problem_comments:
+      problem_comments_form:
         post_button: Post
     problem_tags:
       index:

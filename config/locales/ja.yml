@@ -278,7 +278,7 @@ ja:
         solved: かいけつ
         filter_by_status: じょうたいで さがす
     problem_comments:
-      problem_comments:
+      problem_comments_form:
         post_button: つくる
     problem_tags:
       index:

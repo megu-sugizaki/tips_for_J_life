@@ -158,7 +158,8 @@
   <div class="row justify-content-center">
     <div class="col-md-4 border-bottom py-2">
       <!--M:comments section-->
-      <%= render 'public/problem_comments/problem_comments', problem:@problem, problem_comment_new:@problem_comment  %>
+      <%= render 'public/problem_comments/problem_comments_index', problem:@problem  %>
+      <%= render 'public/problem_comments/problem_comments_form', problem:@problem, problem_comment_new:@problem_comment  %>
     </div>
   </div>
 </div>
