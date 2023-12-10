@@ -186,6 +186,7 @@ en:
         filter_by_status: Filter by status
     problem_comments:
       problem_comments_form:
+        comment_placeholder: Give some comments here. Help out your buddy!
         post_button: Post
     problem_tags:
       index:
