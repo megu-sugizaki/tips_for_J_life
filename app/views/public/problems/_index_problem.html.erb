@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-1">
       <% unless current_user == problem.user %>
-        <div>
+        <div id="bookmark_counter">
           <%= render 'public/bookmarks/bookmarks_counts', problem: problem %>
         </div>
       <% end %>
