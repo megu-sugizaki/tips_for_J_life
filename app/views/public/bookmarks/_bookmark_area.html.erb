@@ -1,0 +1,6 @@
+<!--M:Indent fixed-->
+<% if problem.bookmarked_by?(current_user) %>
+  <%= render 'public/bookmarks/unbookmark', problem: problem %>
+<% else %>
+  <%= render 'public/bookmarks/bookmark', problem: problem %>
+<% end %>

@@ -115,7 +115,7 @@
           </td>
           <td class="pr-3">
             <!--M:counting comments-->
-            <%= render 'bookmarks_counts', problem: @problem %>
+            <%= render 'public/bookmarks/bookmarks_counts', problem: @problem %>
           </td>
           <td>
           </td>
@@ -129,7 +129,7 @@
         <div class="row justify-content-end">
           <div class="col-md-6"><%= t(".bookmark_post") %>:</div>
           <div class="col-md-1">
-            <%= render 'public/problems/bookmark_area', problem: @problem %>
+            <%= render 'public/bookmarks/bookmark_area', problem: @problem %>
           </div>
           <div class="col-md-1">
             <!--M:To make space right to the bookmark heart-->
