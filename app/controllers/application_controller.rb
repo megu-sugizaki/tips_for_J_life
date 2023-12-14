@@ -42,10 +42,10 @@ class ApplicationController < ActionController::Base
   end
   
   # M:To delete the actions of guest user when they log out
-  def reset_guest_data
-    guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
-    guest_user.my_events.destroy_all if guest_user.my_events.any?
-    guest_user.problem_comments.destroy_all if guest_user.problem_comments.any?
-    guest_user.problems.destroy_all if guest_user.problems.any?
-  end
+  # def reset_guest_data
+  #   guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
+  #   guest_user.my_events.destroy_all if guest_user.my_events.any?
+  #   guest_user.problem_comments.destroy_all if guest_user.problem_comments.any?
+  #   guest_user.problems.destroy_all if guest_user.problems.any?
+  # end
 end
