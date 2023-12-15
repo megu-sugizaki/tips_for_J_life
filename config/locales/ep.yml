@@ -28,7 +28,7 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
-ja:
+ep:
   views:
     pagination:
       truncate: "..."
@@ -190,8 +190,8 @@ ja:
     users:
       show:
         page_title: のじこしょうかい
-        introduction: しょうかい
-        edit_button: かえる
+        introduction: Profile
+        edit_button: Cambiar
         click_here_bookmark: ここ
         bookmark_problems_link: から おきにいりの ポストを みよう
         click_here_events: ここ
