@@ -34,12 +34,12 @@ ep:
       truncate: "..."
   flash_notice:
     user:
-      update: じこしょうかいが かわりました
-      destroy: さようなら！また いつか きてくださいね
+      update: Actualizaste tu perifil con éxito
+      destroy: Chao！Nos vemos en el futuro, amigo!
     problem:
-      create: ポストが できました
-      update: ポストの ないようが かわりました
-      destroy: ポストが なくなりました
+      create: Has publicado tu problema con éxito
+      update: Has actualizado tu publicación con éxito
+      destroy: Has destruido tu publicación con éxito
     event:
       create: "イベントが できました"
       update: "イベントが かわりました"
@@ -190,8 +190,8 @@ ep:
     users:
       show:
         page_title: のじこしょうかい
-        introduction: Profile
-        edit_button: Cambiar
+        introduction: Perfil
+        edit_button: Actualizar
         click_here_bookmark: ここ
         bookmark_problems_link: から おきにいりの ポストを みよう
         click_here_events: ここ
