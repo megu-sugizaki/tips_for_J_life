@@ -295,17 +295,17 @@ ep:
     problem_comments:
       problem_comments_form:
         comment_placeholder: コメントを かこう。こまっている ひとを たすけよう！
-        post_button: つくる
+        post_button: Publicar
     problem_tags:
       index:
         page_title_new_tag: タグを つくる
         page_title_new_tag2: ぴったりな タグを つくろう!
-        create_button: つくる
+        create_button: Crear
         page_title_tags: タグ
-        edit_button: かえる
+        edit_button: Actualizar
       edit:
         page_title: なまえを かえる
-        update_button: かえる
+        update_button: Actualizar
     events:
       new:
         page_title: イベントをつくる
