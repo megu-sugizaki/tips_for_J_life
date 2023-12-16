@@ -34,16 +34,16 @@ ep:
       truncate: "..."
   flash_notice:
     user:
-      update: Actualizaste tu perifil con éxito
+      update: Has actualizado tu perfil con éxito
       destroy: Chao！Nos vemos en el futuro, amigo!
     problem:
       create: Has publicado tu problema con éxito
       update: Has actualizado tu publicación con éxito
       destroy: Has destruido tu publicación con éxito
     event:
-      create: "イベントが できました"
-      update: "イベントが かわりました"
-      destroy: "イベントが なくなりました"
+      create: Has creado un evento con éxito
+      update: Has actualizado tu evento con éxito
+      destroy: Has destruido tu evento con éxito
     tag:
       create: "タグが できました"
       update: タグが かわりました
