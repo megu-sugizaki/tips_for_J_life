@@ -51,9 +51,9 @@ ep:
       create: El formulario de contacto enviado
   flash_alert:
     tag:
-      create: "タグの なまえが ありません"
+      create: Necesitas insertar el nombre de la etiqueta
     problem:
-      create: なまえ とせつめいの りょうほうが ひつようです。
+      create: Necesitas insertar ambos el título y la leyenda
   activerecord:
     attributes:
       problem:
