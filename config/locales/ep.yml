@@ -45,10 +45,10 @@ ep:
       update: Has actualizado tu evento con éxito
       destroy: Has destruido tu evento con éxito
     tag:
-      create: "タグが できました"
-      update: タグが かわりました
+      create: Has creado una nueva etiqueta con éxito
+      update: Has actualizado una nueva etiqueta con éxito
     notice:
-      create: そうしん できました
+      create: El formulario de contacto enviado
   flash_alert:
     tag:
       create: "タグの なまえが ありません"
