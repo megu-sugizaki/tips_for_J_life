@@ -57,50 +57,50 @@ ep:
   activerecord:
     attributes:
       problem:
-        title: 'なやみのなまえ'
-        caption: 'せつめい'
+        title: Título del problema
+        caption: Leyenda
       event:
-        title: 'イベントのなまえ'
-        caption: 'せつめい'
+        title: Título del evento
+        caption: Leyenda
       user:
-        first_name: 'なまえ'
-        last_name: 'みょうじ'
+        first_name: Nombre
+        last_name: Apellido
       contact:
-        name: 'おなまえ'
-        content: 'ないよう'
+        name: Nombre
+        content: Contenido
     errors:
       models:
         user:
           attributes:
             first_name:
-              blank: "がありません"
+              blank: "no puede estar en blanco"
             last_name:
-              blank: "がありません"
+              blank: "no puede estar en blanco"
         problem:
           attributes:
             title:
-              blank: がありません
+              blank: "no puede estar en blanco"
             caption:
-              blank: がありません
+              blank: "no puede estar en blanco"
         problem_tag:
           attributes:
             name:
-              blank: がありません
+              blank: "no puede estar en blanco"
         event:
           attributes:
             title:
-              blank: がありません
+              blank: "no puede estar en blanco"
             caption:
-              blank: がありません
+              blank: "no puede estar en blanco"
         contact:
           attributes:
             name:
-              blank: がありません
+              blank: "no puede estar en blanco"
             content:
-              blank: がありません
+              blank: "no puede estar en blanco"
   devise:
     confirmations:
-      confirmed: "メールアドレスが かくにん できました"
+      confirmed: Tu email ha sido confirmado con éxito
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
@@ -162,34 +162,34 @@ ep:
         other: "%{count} この まちがいがあって %{resource} がほぞん されません:"
   layouts:
     header:
-      welcome: ようこそ、
-      problems: なやみ
-      events: イベント
-      log_out: おわる
+      welcome: Bienvenido, 
+      problems: Problema
+      events: Evento
+      log_out: Salir
     errors:
-      error: この まちがい
+      error: errores
   public:
     homes:
       top:
-        news: おしらせ
-        text1: にほんに すむのは たいへん ですか？
-        text2: しゅうまつが たのしくない ですか？
-        text3: ヒントを もらって たのしく すごそう！
-        text4: とうろく すると、こんなことが できます
-        text5: こまっている ことを ポストし、アドバイスを もらう
-        text6: こまっている ひとに アドバイスを する
-        text7: イベントを つくって さんかしゃを あつめる
-        text8: イベントに さんかして たのしむ
-        text9: とうろくして たのしい Jライフを おくろう！
-        text10: つかう まえに…
-        text11: 3つの かんたんな ルールが あります
-        text12: いろんな くにの ひとたちが つかうから
-        text13: それぞれの ちがいを みとめよう
-        text14: らんぼうな ことばは だめです
-        text15: わるぐちや さべつも だめです
+        news: Noticia
+        text1: Dificil vivir en Japón?
+        text2: Aburrido en el wikén?
+        text3: Obtén consejos para hacer tu vida aquí más fácil y divertida！
+        text4: Si te registras, podrás...
+        text5: compartir tus problemas y conseguir consejos de otros amigos
+        text6: dar consejos a amigos en problemas
+        text7: organizar eventos para disfrutarte juntos con amigos
+        text8: participar a los eventos para disfrutarte
+        text9: Regístrate para tener "J life" feliz!
+        text10: También, por favor nota que... 
+        text11: Hay 3 reglas faciles aquí!
+        text12: Tenemos mucha gente de diferentes orígenes
+        text13: Aprecia la diferencia
+        text14: No uses palabras agresivas
+        text15: No se permiten discursos de odio ni racismos
     users:
       show:
-        page_title: のじこしょうかい
+        page_title: perfil
         introduction: Perfil
         edit_button: Actualizar
         click_here_bookmark: ここ
