@@ -189,40 +189,40 @@ ep:
         text15: No se permiten discursos de odio ni racismos
     users:
       show:
-        page_title: perfil
+        page_title: Perfil
         introduction: Perfil
         edit_button: Actualizar
-        click_here_bookmark: ここ
-        bookmark_problems_link: から おきにいりの ポストを みよう
-        click_here_events: ここ
-        events_link: から さんかした イベントを みよう
-        posts_title: のなやみごと
-        posts_title1: なやみの なまえ
-        posts_caption: せつめい
-        events_title: のイベント
-        events_title1: イベントの なまえ
-        events_caption: せつめい
+        click_here_bookmark: Haga click aquí
+        bookmark_problems_link: para ver la publicación que has marcado
+        click_here_events: Haga click aquí
+        events_link: para ver los eventos que has participado
+        posts_title: Problema
+        posts_title1: Título
+        posts_caption: Leyenda
+        events_title: Evento
+        events_title1: Título
+        events_caption: Leyenda
       edit:
-        page_title: ないようを かえる
-        first_name: なまえ
-        middle_name: ミドルネーム
-        last_name: みょうじ
-        introduction: しょうかい
-        profile_image: じぶんの しゃしん
-        choose_file: しゃしんを えらぶ
-        no_file: しゃしんが ありません
-        language: ことば
-        update_button: かえる
-        delete_button: けす
+        page_title: Actualizar el contenido
+        first_name: Nombre
+        middle_name: Segundo nombre
+        last_name: Appelido
+        introduction: Introducción
+        profile_image: Mi foto
+        choose_file: Elegir la imagen
+        no_file: No imagen elegida
+        language: Lengua
+        update_button: Actualizar
+        delete_button: Destruir
       bookmark:
-        page_title: のおきにいり
-        created_by: つくった ひと
-        title: なやみの なまえ
-        caption: せつめい
+        page_title: publicación favorito
+        created_by: Creado por
+        title: Título
+        caption: Leyenda
       events:
-        page_title: さんかした イベント
-        title: イベントの なまえ
-        caption: せつめい
+        page_title: Eventos que has participado
+        title: Título
+        caption: Leyenda
       check:
         confirmation: ほんとうに けしても いいですか？
         check_text1: アカウントを けすと
