@@ -104,7 +104,7 @@ ep:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "すでに ログイン しています"
+      already_authenticated: "Ya habías iniciado sesión"
       inactive: "アカウントが うごいて いません"
       invalid: "%{authentication_keys} か、パスワードが まちがって います"
       locked: "アカウントが ロック されました"
@@ -143,9 +143,9 @@ ep:
       updated: "アカウントの じょうほうが かわりました"
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
-      signed_in: "ログイン しました"
-      signed_out: "ログアウト しました."
-      already_signed_out: "ログアウト しました"
+      signed_in: "iniciado sesión con éxito"
+      signed_out: "Has cerrado sesión con éxito"
+      already_signed_out: "Ya habías cerrado sesión"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
@@ -192,9 +192,9 @@ ep:
         page_title: Perfil
         introduction: Perfil
         edit_button: Actualizar
-        click_here_bookmark: Haga click aquí
+        click_here_bookmark: Haga clic aquí
         bookmark_problems_link: para ver la publicación que has marcado
-        click_here_events: Haga click aquí
+        click_here_events: Haga clic aquí
         events_link: para ver los eventos que has participado
         posts_title: Problema
         posts_title1: Título
@@ -224,131 +224,131 @@ ep:
         title: Título
         caption: Leyenda
       check:
-        confirmation: ほんとうに けしても いいですか？
-        check_text1: アカウントを けすと
-        check_text2: ほかのひとも
-        check_text3: あなたの とうこうや コメントが みられません。
-        check_text4: よければ、あかい ボタンを おしてください。
-        back_button: もどる
-        delete_button: けす
+        confirmation: Seguro que te gustaría destruir?
+        check_text1: Si destruyes tu cuenta,
+        check_text2: Usted y otras usuarios no podrán ver
+        check_text3: Tus publicaciónes y comentarios.
+        check_text4: Haga clic en el botón rojo si aún deseas destruir tu cuenta
+        back_button: Volver
+        delete_button: Destruir
     problems:
       post_problem:
-        post_title: なやみを そうだん
-        post_text1: なやんでいる ことを かいて たすけてもらおう！
-        post_text2: おなじ なやみを もっている ひとの たすけに なろう！
-        title: なやみ
-        title_placeholder: なやみ
-        caption: せつめい
-        caption_placeholder: なやんでいる ことを かこう
-        image: しゃしん
-        choose_file: しゃしんを えらぶ
-        no_file: しゃしんが ありません
-        tag_title: タグ
-        post_button: つくる
-        no_tag_text: タグが ないですか？
-        new_tag_text: タグを つくろう！
-        create_button: つくる
-        click_here: ここ
-        new_tag_link: から タグをつくろう！
+        post_title: Publicar tu problema
+        post_text1: Publica tu problema y recibe ayuda de tus amigos!
+        post_text2: Al compartir tu problema, también ayudas a otros amigos con el mismo problema！
+        title: Problema
+        title_placeholder: Problema
+        caption: Leyenda
+        caption_placeholder: Escribe las detalles de tu problema
+        image: Imagen
+        choose_file: Elegir la imagen
+        no_file: No imagen elegida
+        tag_title: Etiqueta
+        post_button: Crear
+        no_tag_text: No etiqueta combinada?
+        new_tag_text: Crea una etiqueta nueva
+        create_button: Crear
+        click_here: Haga clic aquí
+        new_tag_link: para crear una etiqueta nueva!
       index:
-        page_title: みんなの なやみ
-        post_text: コメントを のこして なやんでいる ひとを たすけよう!
+        page_title: Problemas
+        post_text: Deja comentarios para ayudar los amigos en problema
       index_problem:
-        posted_by: つくった ひと
-        title: なやみ
-        caption: せつめい
-        solved: かいけつ
+        posted_by: Creado por
+        title: Título
+        caption: Leyenda
+        solved: Resolvido
       show:
-        page_title: なやみ について
-        solved: かいけつ
-        title: なやみ
-        caption: せつめい
-        images: しゃしん
-        posted_by: つくった ひと
-        tags: タグ
-        comments: コメント
-        bookmarks: おきにいり
-        bookmark_post: おきにいりする
-        edit_button: かえる
-        delete_button: けす
+        page_title: Problema
+        solved: Resolvido
+        title: Título
+        caption: Leyenda
+        images: Imagenes
+        posted_by: Creado por
+        tags: Etiqueta
+        comments: Comentario
+        bookmarks: Favorito
+        bookmark_post: Marcar como favorito
+        edit_button: Actualizar
+        delete_button: Destruir
       edit:
-        page_title: ないようを かえる
-        page_title1: ないようを かえよう！
-        page_title2: くわしく かくと、コメントが もらいやすく なります
-        title: なやみ
-        caption: せつめい
-        images: しゃしん
-        choose_file: しゃしんを えらぶ
-        no_file: しゃしんが ありません
-        tags: タグ
-        status: じょうたい
-        in_trouble: そうだん ちゅう
-        solved: かいけつ
-        update_button: かえる
+        page_title: Actualizar el contenido
+        page_title1: Actualiza el contenido
+        page_title2: Con más detalles, más comentarios conseguirías
+        title: Título
+        caption: Leyenda
+        images: Imagenes
+        choose_file: Elegir las imagenes
+        no_file: No imagen elegida
+        tags: Etiqueta
+        status: Estatus
+        in_trouble: En problema
+        solved: Resolvido
+        update_button: Actualizar
       search:
-        key_placeholder: キーワードを どうぞ
-        search_button: さがす
-        filter_by_tag: タグで さがす
-        in_trouble: そうだんちゅう
-        solved: かいけつ
-        filter_by_status: じょうたいで さがす
+        key_placeholder: Inserta la palabra clave
+        search_button: Buscar
+        filter_by_tag: Buscar por etiqueta
+        in_trouble: En problema
+        solved: Resolvido
+        filter_by_status: Buscar por estatus
     problem_comments:
       problem_comments_form:
-        comment_placeholder: コメントを かこう。こまっている ひとを たすけよう！
+        comment_placeholder: Dale comentarios. Ayuda tu amigo en problema!
         post_button: Publicar
     problem_tags:
       index:
-        page_title_new_tag: タグを つくる
-        page_title_new_tag2: ぴったりな タグを つくろう!
+        page_title_new_tag: Crear etiqueta
+        page_title_new_tag2: Crear etiqueta perfecta por tu problema!
         create_button: Crear
-        page_title_tags: タグ
+        page_title_tags: Etiqueta
         edit_button: Actualizar
       edit:
-        page_title: なまえを かえる
+        page_title: Actualizar el nombre
         update_button: Actualizar
     events:
       new:
-        page_title: イベントをつくる
-        page_title1: たのしい イベントを つくろう！
-        page_title2: 日本での おもいでを、なかまと！
-        event_name: イベントの なまえ
-        event_caption: イベントの せつめい
-        create_button: つくる
+        page_title: Crear un evento!
+        page_title1: Crea un evento divertido!
+        page_title2: Haz amigos para compartir recuerdos en Japón!
+        event_name: Título
+        event_caption: Leyenda
+        create_button: Crear
       index:
-        flash: イベントを つくることが できました！
-        page_title: イベント
-        page_title2: たのしい イベントをつくろう!
-        page_title3: 日本での おもいでを、なかまと！
-        created_by: つくった ひと
-        title: なまえ
-        caption: せつめい
-        joined_members: さんかしゃ
-        join_status: さんか
-        click_here_event: ここ
-        new_event_link: から あたらしい イベントを つくろう!
+        flash: Un evento creado con éxito！
+        page_title: Título
+        page_title2: Crea un evento divertido!
+        page_title3: Haz amigos para compartir recuerdos en Japón!
+        created_by: Creado por
+        title: Título
+        caption: Leyenda
+        joined_members: Participantes
+        join_status: Participado
+        click_here_event: Hacer clic aquí
+        new_event_link: para crear un evento nuevo!
       show:
-        page_title: イベントに ついて
-        page_title1: どんな イベントか、みてみよう!
-        page_title2: 「さんか」ボタンを おして、さんか してみよう！
-        created_by: つくった ひと
-        edit: かえる
-        delete: けす
-        join_member: さんかする ひと
+        page_title: Evento
+        page_title1: Mira las detalles del evento!
+        page_title2: Participa por presionar este botón de "participar"！
+        created_by: Creado por
+        edit: Actualizar
+        delete: Destruir
+        join_member: Participantes
       edit:
-        page_title: ないようを かえる
-        page_title1: くわしく かこう
-        page_title2: ひづけ、ばしょ、スケジュールをかこう
-        event_name: イベントの なまえ
-        event_caption: イベントの せつめい
-        update_button: かえる
+        page_title: Actualización
+        page_title1: Escribe las detalles!
+        page_title2: Escribe el dato, lugar y plan!
+        event_name: Título
+        event_caption: Leyenda
+        update_button: Actualizar
     contacts:
       new:
-        page_title: おといあわせ
-        name: おなまえ
-        name_placeholder: おなまえ
-        content: ないよう
-        content_placeholder: ないようを かいて ください
-        send_button: おくる
+        page_title: Contacto
+        name: Nombre
+        name_placeholder: Nombre
+        content: Contenido
+        content_placeholder: Escribir las detalles
+        send_button: Enviar
     notices:
       show:
-        page_title: おしらせ
+        page_title: Noticia
