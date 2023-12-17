@@ -37,15 +37,15 @@ class ApplicationController < ActionController::Base
   private
   def switch_locale(&action)
     locale = current_user&.locale || I18n.default_locale
-    # M:current_userのlocaleが取得できたらjaがとれる、current_user取れない場合はdefault
+    # M:By getting locale of current user, ja file is available. If not, the setting will be default.
     I18n.with_locale(locale, &action)
   end
   
   # M:To delete the actions of guest user when they log out
-  def reset_guest_data
-    guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
-    guest_user.my_events.destroy_all if guest_user.my_events.any?
-    guest_user.problem_comments.destroy_all if guest_user.problem_comments.any?
-    guest_user.problems.destroy_all if guest_user.problems.any?
-  end
+  # def reset_guest_data
+  #   guest_user = User.find_by(email: User::GUEST_USER_EMAIL)
+  #   guest_user.my_events.destroy_all if guest_user.my_events.any?
+  #   guest_user.problem_comments.destroy_all if guest_user.problem_comments.any?
+  #   guest_user.problems.destroy_all if guest_user.problems.any?
+  # end
 end

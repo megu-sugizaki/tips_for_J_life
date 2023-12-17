@@ -20,12 +20,12 @@
       <%= problem.caption.truncate(35) %>
     </div>
     <div class="col-md-1" id="comment_counter">
-      <%= render 'public/problem_comments/count_problem_comments', problem:problem %>
+      <%= render 'public/problem_comments/problem_comments_count', problem:problem %>
     </div>
     <div class="col-md-1">
       <% unless current_user == problem.user %>
         <div id="bookmark_counter">
-          <%= render 'public/bookmarks/bookmarks_counts', problem: problem %>
+          <%= render 'public/bookmarks/bookmarks_count', problem: problem %>
         </div>
       <% end %>
     </div>
