@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   private
   def switch_locale(&action)
     locale = current_user&.locale || I18n.default_locale
-    # M:current_userのlocaleが取得できたらjaがとれる、current_user取れない場合はdefault
+    # M:By getting locale of current user, ja file is available. If not, the setting will be default.
     I18n.with_locale(locale, &action)
   end
   

@@ -1,0 +1,354 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+ep:
+  views:
+    pagination:
+      truncate: "..."
+  flash_notice:
+    user:
+      update: Has actualizado tu perfil con éxito
+      destroy: Chao！Nos vemos en el futuro, amigo!
+    problem:
+      create: Has publicado tu problema con éxito
+      update: Has actualizado tu publicación con éxito
+      destroy: Has destruido tu publicación con éxito
+    event:
+      create: Has creado un evento con éxito
+      update: Has actualizado tu evento con éxito
+      destroy: Has destruido tu evento con éxito
+    tag:
+      create: Has creado una nueva etiqueta con éxito
+      update: Has actualizado una nueva etiqueta con éxito
+    notice:
+      create: El formulario de contacto enviado
+  flash_alert:
+    tag:
+      create: Necesitas insertar el nombre de la etiqueta
+    problem:
+      create: Necesitas insertar ambos el título y la leyenda
+  activerecord:
+    attributes:
+      problem:
+        title: Título del problema
+        caption: Leyenda
+      event:
+        title: Título del evento
+        caption: Leyenda
+      user:
+        first_name: Nombre
+        last_name: Apellido
+      contact:
+        name: Nombre
+        content: Contenido
+    errors:
+      models:
+        user:
+          attributes:
+            first_name:
+              blank: "no puede estar en blanco"
+            last_name:
+              blank: "no puede estar en blanco"
+        problem:
+          attributes:
+            title:
+              blank: "no puede estar en blanco"
+            caption:
+              blank: "no puede estar en blanco"
+        problem_tag:
+          attributes:
+            name:
+              blank: "no puede estar en blanco"
+        event:
+          attributes:
+            title:
+              blank: "no puede estar en blanco"
+            caption:
+              blank: "no puede estar en blanco"
+        contact:
+          attributes:
+            name:
+              blank: "no puede estar en blanco"
+            content:
+              blank: "no puede estar en blanco"
+  devise:
+    confirmations:
+      confirmed: Tu email ha sido confirmado con éxito
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    failure:
+      already_authenticated: "Ya habías iniciado sesión"
+      inactive: "アカウントが うごいて いません"
+      invalid: "%{authentication_keys} か、パスワードが まちがって います"
+      locked: "アカウントが ロック されました"
+      last_attempt: "あと 1かいで アカウントを ロックします"
+      not_found_in_database: "%{authentication_keys}か、パスワードが まちがって います"
+      timeout: "じかんぎれ です。つづけるには ログインして ください"
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
+    mailer:
+      confirmation_instructions:
+        subject: "てじゅんを かくにんしました"
+      reset_password_instructions:
+        subject: "パスワードを リセットする てじゅん"
+      unlock_instructions:
+        subject: "てじゅんを かいじょする"
+      email_changed:
+        subject: "メールアドレスが かわりました"
+      password_change:
+        subject: "パスワードが かわりました"
+    omniauth_callbacks:
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords:
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Your password has been changed successfully. You are now signed in."
+      updated_not_active: "Your password has been changed successfully."
+    registrations:
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "Welcome! You have signed up successfully."
+      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
+      updated: "アカウントの じょうほうが かわりました"
+      updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+    sessions:
+      signed_in: "iniciado sesión con éxito"
+      signed_out: "Has cerrado sesión con éxito"
+      already_signed_out: "Ya habías cerrado sesión"
+    unlocks:
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "アカウントの ロックが はずれました。 ログインできます"
+  errors:
+    messages:
+      already_confirmed: "は かくてい しました。とうろくを してください"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      expired: "はうごきません, もういちど リクエスト して ください"
+      not_found: "は みつかりません"
+      not_locked: "は ロックが かかって いません"
+      not_saved:
+        one: "1こ まちがって いて %{resource} がほぞん されません:"
+        other: "%{count} この まちがいがあって %{resource} がほぞん されません:"
+  layouts:
+    header:
+      welcome: Bienvenido, 
+      problems: Problema
+      events: Evento
+      log_out: Salir
+    errors:
+      error: errores
+  public:
+    homes:
+      top:
+        news: Noticia
+        text1: Dificil vivir en Japón?
+        text2: Aburrido en el wikén?
+        text3: Obtén consejos para tu vida aquí más fácil y feliz！
+        text4: Si te registras, podrás...
+        text5: compartir tus problemas y conseguir consejos de otros amigos
+        text6: dar consejos a amigos en problemas
+        text7: organizar eventos para disfrutarte juntos con amigos
+        text8: participar a los eventos para disfrutarte
+        text9: Regístrate para tener "J life" feliz!
+        text10: También, por favor nota que... 
+        text11: Hay 3 reglas faciles aquí!
+        text12: Tenemos mucha gente de diferentes orígenes
+        text13: Aprecia la diferencia
+        text14: No uses palabras agresivas
+        text15: No se permiten discursos de odio ni racismos
+    users:
+      show:
+        page_title: Perfil
+        introduction: Perfil
+        edit_button: Actualizar
+        click_here_bookmark: Haga clic aquí
+        bookmark_problems_link: para ver la publicación que has marcado
+        click_here_events: Haga clic aquí
+        events_link: para ver los eventos que has participado
+        posts_title: Problema
+        posts_title1: Título
+        posts_caption: Leyenda
+        events_title: Evento
+        events_title1: Título
+        events_caption: Leyenda
+      edit:
+        page_title: Actualizar el contenido
+        first_name: Nombre
+        middle_name: Segundo nombre
+        last_name: Appelido
+        introduction: Introducción
+        profile_image: Mi foto
+        choose_file: Elegir la imagen
+        no_file: No imagen elegida
+        language: Lengua
+        update_button: Actualizar
+        delete_button: Destruir
+      bookmark:
+        page_title: publicación favorito
+        created_by: Creado por
+        title: Título
+        caption: Leyenda
+      events:
+        page_title: Eventos que has participado
+        title: Título
+        caption: Leyenda
+      check:
+        confirmation: Seguro que te gustaría destruir?
+        check_text1: Si destruyes tu cuenta,
+        check_text2: Usted y otras usuarios no podrán ver
+        check_text3: Tus publicaciónes y comentarios.
+        check_text4: Haga clic en el botón rojo si aún deseas destruir tu cuenta
+        back_button: Volver
+        delete_button: Destruir
+    problems:
+      post_problem:
+        post_title: Publicar tu problema
+        post_text1: Publica tu problema y recibe ayuda de tus amigos!
+        post_text2: Al compartir tu problema, también ayudas a otros amigos con el mismo problema！
+        title: Problema
+        title_placeholder: Problema
+        caption: Leyenda
+        caption_placeholder: Escribe las detalles de tu problema
+        image: Imagen
+        choose_file: Elegir la imagen
+        no_file: No imagen elegida
+        tag_title: Etiqueta
+        post_button: Crear
+        no_tag_text: No etiqueta combinada?
+        new_tag_text: Crea una etiqueta nueva
+        create_button: Crear
+        click_here: Haga clic aquí
+        new_tag_link: para crear una etiqueta nueva!
+      index:
+        page_title: Problemas
+        post_text: Deja comentarios para ayudar los amigos en problema
+      index_problem:
+        posted_by: Creado por
+        title: Título
+        caption: Leyenda
+        solved: Resolvido
+      show:
+        page_title: Problema
+        solved: Resolvido
+        title: Título
+        caption: Leyenda
+        images: Imagenes
+        posted_by: Creado por
+        tags: Etiqueta
+        comments: Comentario
+        bookmarks: Favorito
+        bookmark_post: Marcar como favorito
+        edit_button: Actualizar
+        delete_button: Destruir
+      edit:
+        page_title: Actualizar el contenido
+        page_title1: Actualiza el contenido
+        page_title2: Con más detalles, más comentarios conseguirías
+        title: Título
+        caption: Leyenda
+        images: Imagenes
+        choose_file: Elegir las imagenes
+        no_file: No imagen elegida
+        tags: Etiqueta
+        status: Estatus
+        in_trouble: En problema
+        solved: Resolvido
+        update_button: Actualizar
+      search:
+        key_placeholder: Inserta la palabra clave
+        search_button: Buscar
+        filter_by_tag: Buscar por etiqueta
+        in_trouble: En problema
+        solved: Resolvido
+        filter_by_status: Buscar por estatus
+    problem_comments:
+      problem_comments_form:
+        comment_placeholder: Dale comentarios. Ayuda tu amigo en problema!
+        post_button: Publicar
+    problem_tags:
+      index:
+        page_title_new_tag: Crear etiqueta
+        page_title_new_tag2: Crear etiqueta perfecta por tu problema!
+        create_button: Crear
+        page_title_tags: Etiqueta
+        edit_button: Actualizar
+      edit:
+        page_title: Actualizar el nombre
+        update_button: Actualizar
+    events:
+      new:
+        page_title: Crear un evento!
+        page_title1: Crea un evento divertido!
+        page_title2: Haz amigos para compartir recuerdos en Japón!
+        event_name: Título
+        event_caption: Leyenda
+        create_button: Crear
+      index:
+        flash: Un evento creado con éxito！
+        page_title: Título
+        page_title2: Crea un evento divertido!
+        page_title3: Haz amigos para compartir recuerdos en Japón!
+        created_by: Creado por
+        title: Título
+        caption: Leyenda
+        joined_members: Participantes
+        join_status: Participado
+        click_here_event: Hacer clic aquí
+        new_event_link: para crear un evento nuevo!
+      show:
+        page_title: Evento
+        page_title1: Mira las detalles del evento!
+        page_title2: Participa por presionar este botón de "participar"！
+        created_by: Creado por
+        edit: Actualizar
+        delete: Destruir
+        join_member: Participantes
+      edit:
+        page_title: Actualización
+        page_title1: Escribe las detalles!
+        page_title2: Escribe el dato, lugar y plan!
+        event_name: Título
+        event_caption: Leyenda
+        update_button: Actualizar
+    contacts:
+      new:
+        page_title: Contacto
+        name: Nombre
+        name_placeholder: Nombre
+        content: Contenido
+        content_placeholder: Escribir las detalles
+        send_button: Enviar
+    notices:
+      show:
+        page_title: Noticia
