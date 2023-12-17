@@ -23,11 +23,9 @@
       <%= render 'public/problem_comments/problem_comments_count', problem:problem %>
     </div>
     <div class="col-md-1">
-      <% unless current_user == problem.user %>
-        <div id="bookmark_counter">
-          <%= render 'public/bookmarks/bookmarks_count', problem: problem %>
-        </div>
-      <% end %>
+      <div id="bookmark_counter">
+        <%= render 'public/bookmarks/bookmarks_count', problem: problem %>
+      </div>
     </div>
     <div class="col-md-2 text-danger">
       <% if problem.is_going == false %>
