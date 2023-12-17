@@ -333,6 +333,8 @@ ep:
         created_by: Creado por
         edit: Actualizar
         delete: Destruir
+        cancel_button: Cancelar
+        join_button: Participar
         join_member: Participantes
       edit:
         page_title: Actualización

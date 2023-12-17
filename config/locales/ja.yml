@@ -333,6 +333,8 @@ ja:
         created_by: つくった ひと
         edit: かえる
         delete: けす
+        cancel_button: やめる
+        join_button: さんかする
         join_member: さんかする ひと
       edit:
         page_title: ないようを かえる

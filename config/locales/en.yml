@@ -226,6 +226,8 @@ en:
         created_by: Created by
         edit: Edit
         delete: Delete
+        cancel_button: Cancel
+        join_button: Join
         join_member: Members to join this event
       edit:
         page_title: Edit your event
