@@ -12,7 +12,7 @@ class Problem < ApplicationRecord
   validates :caption, presence: true
     
   def self.search(keyword, tag_id, is_going)
-    # M:By "left_outer_joins", search from the outer-joined code with problem_tags
+    # M:By "left_outer_joins", search from the outer-joined code with problem_tags(this is to joint the record from main tables and related tables)
     # M:ref: https://qiita.com/kurokawa516/items/5ffcfebed09e0d49bf43
     if keyword.blank?
       if is_going.present?
